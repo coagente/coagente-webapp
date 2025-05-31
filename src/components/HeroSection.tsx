@@ -17,33 +17,32 @@ const HeroSection = () => {
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 60 },
+    hidden: { opacity: 0, y: 24 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.8,
-        ease: [0.25, 0.46, 0.45, 0.94],
+        duration: 0.6,
+        ease: [0, 0, 0.2, 1],
       },
     },
   };
 
   const titleVariants = {
-    hidden: { opacity: 0, scale: 0.9 },
+    hidden: { opacity: 0, scale: 0.95 },
     visible: {
       opacity: 1,
       scale: 1,
       transition: {
-        duration: 1.2,
-        ease: [0.25, 0.46, 0.45, 0.94],
+        duration: 0.8,
+        ease: [0, 0, 0.2, 1],
       },
     },
   };
 
   const floatingVariants = {
     float: {
-      y: [0, -30, 0],
-      x: [0, 10, 0],
+      y: [0, -16, 0],
       transition: {
         duration: 6,
         repeat: Infinity,
@@ -53,163 +52,156 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative section-padding overflow-hidden min-h-screen flex items-center">
-      {/* Enhanced animated background gradients */}
+    <section className="relative pt-32 pb-24 overflow-hidden min-h-screen flex items-center">
+      {/* Enhanced background with subtle gradients */}
       <div className="absolute inset-0 gradient-hero -z-10"></div>
       
-      {/* Enhanced floating decorative elements */}
+      {/* Refined floating decorative elements */}
       <motion.div 
-        className="absolute top-20 left-10 w-40 h-40 bg-gradient-to-r from-blue-500/15 to-purple-500/15 rounded-full blur-3xl"
+        className="absolute top-24 left-12 w-40 h-40 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-full blur-3xl"
         variants={floatingVariants}
         animate="float"
       />
       <motion.div 
-        className="absolute bottom-20 right-10 w-32 h-32 bg-gradient-to-r from-purple-500/15 to-cyan-500/15 rounded-full blur-3xl"
+        className="absolute bottom-24 right-12 w-32 h-32 bg-gradient-to-r from-purple-500/10 to-cyan-500/10 rounded-full blur-3xl"
         variants={floatingVariants}
         animate="float"
         transition={{ delay: 3 }}
       />
       <motion.div 
-        className="absolute top-1/2 left-1/4 w-24 h-24 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-full blur-2xl"
+        className="absolute top-1/2 left-1/4 w-24 h-24 bg-gradient-to-r from-cyan-500/8 to-blue-500/8 rounded-full blur-2xl"
         variants={floatingVariants}
         animate="float"
         transition={{ delay: 1.5 }}
       />
 
-      <div className="container mx-auto container-padding text-center relative z-10">
+      <div className="container-6xl mx-auto px-6 text-center relative z-10">
         <motion.div 
-          className="max-w-6xl mx-auto space-y-12"
+          className="max-w-5xl mx-auto space-y-12"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
-          {/* Enhanced brand name */}
+          {/* Brand badge with enhanced styling */}
           <motion.div 
-            className="mb-8"
+            className="mb-6"
             variants={itemVariants}
           >
-            <motion.h1 
-              className="text-fluid-2xl font-bold text-white/90 glass-strong rounded-full px-8 py-3 inline-block interactive shadow-elevation-2"
-              whileHover={{ 
-                scale: 1.05,
-                boxShadow: "0 0 40px rgba(99, 152, 229, 0.3)"
-              }}
-              whileTap={{ scale: 0.95 }}
+            <motion.div 
+              className="glass-strong rounded-full px-8 py-3 inline-block border border-white/10"
+              whileHover={{ scale: 1.02, borderColor: "rgba(255, 255, 255, 0.2)" }}
+              whileTap={{ scale: 0.98 }}
             >
-              coagente
-            </motion.h1>
+              <span className="text-lg font-semibold text-white/90 tracking-wide">
+                coagente
+              </span>
+            </motion.div>
           </motion.div>
 
-          {/* Enhanced main title */}
-          <motion.div
-            variants={titleVariants}
+          {/* Main title with enhanced typography */}
+          <motion.div 
             className="space-y-6"
+            variants={titleVariants}
           >
             <motion.h1 
-              className="text-fluid-6xl font-bold leading-tight gpu-accelerated"
-              initial={{ opacity: 0, x: -100 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1, delay: 0.5 }}
+              className="text-fluid-6xl font-bold leading-none tracking-tighter"
+              initial={{ opacity: 0, y: 32 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
             >
               <motion.span
-                className="block"
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.3 }}
+                className="text-white"
+                initial={{ opacity: 0, x: -32 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
               >
                 coagente{" "}
               </motion.span>
               <motion.span 
-                className="gradient-text-fast text-shadow-glow block"
-                initial={{ opacity: 0, scale: 0 }}
+                className="gradient-text text-glow"
+                initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ 
-                  duration: 1.5, 
-                  delay: 1,
+                  duration: 0.8, 
+                  delay: 0.7,
                   type: "spring",
-                  stiffness: 100
+                  stiffness: 120
                 }}
                 whileHover={{ 
                   scale: 1.05,
-                  textShadow: "0 0 40px rgba(99, 152, 229, 0.8)"
+                  transition: { duration: 0.2 }
                 }}
               >
                 AI
               </motion.span>
             </motion.h1>
 
-            {/* Enhanced subtitle */}
+            {/* Subtitle with optimal line length */}
             <motion.h2 
-              className="text-fluid-3xl font-medium text-gray-200 max-w-4xl mx-auto content-width"
+              className="text-fluid-3xl font-medium text-white/80 max-w-3xl mx-auto leading-relaxed"
               variants={itemVariants}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 1.5, duration: 0.8 }}
+              transition={{ delay: 0.9, duration: 0.6 }}
             >
               Desarrollamos soluciones de AI personalizadas
             </motion.h2>
           </motion.div>
 
-          {/* Enhanced action buttons */}
+          {/* Enhanced CTA buttons */}
           <motion.div 
-            className="flex flex-col sm:flex-row justify-center gap-6 pt-8"
+            className="flex flex-col sm:flex-row justify-center gap-4 pt-8"
             variants={itemVariants}
           >
             <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{ y: -2 }}
+              whileTap={{ scale: 0.98 }}
             >
-              <Button 
-                className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-10 py-4 text-lg font-medium rounded-xl transition-all duration-300 ripple interactive shadow-elevation-2 hover:shadow-glow" 
-                asChild
-              >
-                <Link href="/#services">
-                  Servicios
-                </Link>
-              </Button>
+              <Link href="/#services">
+                <button className="btn-primary px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-200">
+                  Ver Servicios
+                </button>
+              </Link>
             </motion.div>
             
             <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{ y: -2 }}
+              whileTap={{ scale: 0.98 }}
             >
-              <Button 
-                variant="outline" 
-                className="glass-strong border-gray-400/30 text-gray-300 hover:bg-white/10 hover:border-gray-300/50 px-10 py-4 text-lg font-medium rounded-xl transition-all duration-300 interactive shadow-elevation-1 hover:shadow-glow-purple" 
-                asChild
-              >
-                <Link href="/#contact">
-                  contáctanos
-                </Link>
-              </Button>
+              <Link href="/#contact">
+                <button className="btn-ghost px-8 py-4 text-lg font-semibold">
+                  Contáctanos
+                </button>
+              </Link>
             </motion.div>
           </motion.div>
 
-          {/* Enhanced large bottom text */}
+          {/* Value proposition with enhanced spacing */}
           <motion.div 
-            className="pt-20 space-y-6"
+            className="pt-20 space-y-6 max-w-4xl mx-auto"
             variants={containerVariants}
           >
             <motion.h3 
-              className="text-fluid-5xl font-bold leading-tight text-white text-shadow-soft content-width mx-auto"
+              className="text-fluid-4xl font-bold leading-tight text-white/95"
               variants={{
-                hidden: { opacity: 0, x: -100 },
+                hidden: { opacity: 0, x: -24 },
                 visible: {
                   opacity: 1,
                   x: 0,
-                  transition: { duration: 1, delay: 2 }
+                  transition: { duration: 0.6, delay: 1.2 }
                 }
               }}
             >
               Somos coagente. Desarrollamos soluciones de AI
             </motion.h3>
             <motion.h3 
-              className="text-fluid-5xl font-bold leading-tight text-white text-shadow-soft content-width mx-auto"
+              className="text-fluid-4xl font-bold leading-tight text-white/95"
               variants={{
-                hidden: { opacity: 0, x: 100 },
+                hidden: { opacity: 0, x: 24 },
                 visible: {
                   opacity: 1,
                   x: 0,
-                  transition: { duration: 1, delay: 2.3 }
+                  transition: { duration: 0.6, delay: 1.4 }
                 }
               }}
             >
@@ -217,65 +209,59 @@ const HeroSection = () => {
             </motion.h3>
           </motion.div>
 
-          {/* Enhanced final CTA */}
+          {/* Final CTA with enhanced interaction */}
           <motion.div 
             className="pt-16"
             variants={itemVariants}
           >
             <motion.div
               whileHover={{ 
-                scale: 1.08,
-                rotate: [0, -1, 1, 0],
-                transition: { duration: 0.3 }
+                scale: 1.02,
+                transition: { duration: 0.2 }
               }}
-              whileTap={{ scale: 0.92 }}
+              whileTap={{ scale: 0.98 }}
             >
-              <Button 
-                variant="outline" 
-                size="lg"
-                className="glass-strong border-gray-400/30 text-gray-300 hover:bg-white/10 hover:border-gray-300/50 px-12 py-5 text-xl font-medium rounded-xl transition-all duration-300 interactive shadow-elevation-3 hover:shadow-glow" 
-                asChild
-              >
-                <Link href="/#contact">
+              <Link href="/#contact">
+                <button className="glass-strong border border-white/20 hover:border-white/30 text-white/90 hover:text-white px-12 py-5 text-xl font-semibold rounded-xl transition-all duration-200 hover:shadow-glow">
                   <motion.span
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ delay: 3 }}
+                    transition={{ delay: 1.6 }}
                   >
-                    Contáctanos
+                    Comenzar Proyecto
                   </motion.span>
-                </Link>
-              </Button>
+                </button>
+              </Link>
             </motion.div>
           </motion.div>
 
-          {/* Enhanced scroll indicator */}
+          {/* Refined scroll indicator */}
           <motion.div
-            className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-            initial={{ opacity: 0, y: 20 }}
+            className="absolute bottom-12 left-1/2 transform -translate-x-1/2"
+            initial={{ opacity: 0, y: 16 }}
             animate={{ 
               opacity: 1, 
               y: 0,
-              transition: { delay: 3.5 }
+              transition: { delay: 2 }
             }}
           >
             <motion.div
-              animate={{ y: [0, 12, 0] }}
+              animate={{ y: [0, 8, 0] }}
               transition={{ 
                 duration: 2.5,
                 repeat: Infinity,
                 ease: "easeInOut"
               }}
-              className="w-6 h-12 border-2 border-white/20 rounded-full flex justify-center glass"
+              className="w-6 h-10 border-2 border-white/20 rounded-full flex justify-center cursor-pointer hover:border-white/40 transition-colors"
             >
               <motion.div
-                animate={{ y: [0, 16, 0] }}
+                animate={{ y: [0, 12, 0] }}
                 transition={{ 
                   duration: 2.5,
                   repeat: Infinity,
                   ease: "easeInOut"
                 }}
-                className="w-1 h-4 bg-gradient-to-b from-blue-400 to-purple-400 rounded-full mt-2"
+                className="w-1 h-3 bg-white/40 rounded-full mt-2"
               />
             </motion.div>
           </motion.div>
