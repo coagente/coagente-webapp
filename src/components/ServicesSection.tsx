@@ -40,17 +40,17 @@ const ServicesSection = () => {
     {
       title: "Desarrollo de agentes de IA",
       description: "Creamos agentes inteligentes que toman decisiones autónomas y aprenden constantemente, transformando la manera en que tu empresa interactúa y opera.",
-      demo: "chat"
+      demo: "agents"
     },
     {
       title: "Consultoría de AI para productividad",
       description: "Te asesoramos estratégicamente para implementar soluciones de IA impulsando el crecimiento y la transformación de tu negocio.",
-      demo: "generator"
+      demo: "consulting"
     },
     {
       title: "Casos de uso personalizados de IA",
       description: "Creamos soluciones de IA que automatizan y optimizan los procesos de tu empresa, impulsando resultados medibles alineados con tus objetivos de negocio.",
-      demo: "charts"
+      demo: "customcases"
     },
     {
       title: "Automatización de procesos de negocio",
@@ -66,7 +66,7 @@ const ServicesSection = () => {
 
   const renderDemo = (type: string) => {
     switch(type) {
-      case "chat":
+      case "agents":
         return (
           <motion.div 
             className="glass-strong rounded-lg p-4"
@@ -75,215 +75,238 @@ const ServicesSection = () => {
           >
             <div className="space-y-3">
               <motion.div 
-                className="flex items-center gap-3"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.5 }}
+                className="flex items-center justify-between mb-4"
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
               >
-                <div className="w-8 h-8 rounded-full bg-gray-700 flex-shrink-0"></div>
-                <div className="text-sm text-gray-400">Message AI Assistant…</div>
-                <div className="text-sm text-gray-400 ml-auto">Google Meet with John</div>
+                <div className="text-sm font-medium text-blue-400">Agente de Ventas AI</div>
+                <motion.div 
+                  className="w-2 h-2 bg-green-500 rounded-full"
+                  animate={{ scale: [1, 1.3, 1] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                />
               </motion.div>
 
               <motion.div 
-                className="flex gap-3"
-                initial={{ opacity: 0, x: -30 }}
+                className="space-y-2"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.5 }}
+              >
+                <div className="flex justify-between text-xs">
+                  <span className="text-gray-400">Leads procesados</span>
+                  <span className="text-green-400">+247%</span>
+                </div>
+                <div className="flex justify-between text-xs">
+                  <span className="text-gray-400">Tiempo de respuesta</span>
+                  <span className="text-blue-400">2.3s</span>
+                </div>
+                <div className="flex justify-between text-xs">
+                  <span className="text-gray-400">Conversión</span>
+                  <span className="text-green-400">+89%</span>
+                </div>
+              </motion.div>
+
+              <motion.div 
+                className="glass px-3 py-2 rounded text-xs"
+                initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.7 }}
               >
-                <div className="w-8 h-8 rounded-full bg-blue-600 flex-shrink-0 flex items-center justify-center text-xs font-bold">
-                  T
-                </div>
-                <div className="flex-1">
-                  <div className="text-xs text-gray-500 mb-1">You</div>
-                  <motion.div 
-                    className="glass px-3 py-2 rounded-lg text-sm interactive"
-                    whileHover={{ backgroundColor: "rgba(75, 85, 99, 0.3)" }}
-                  >
-                    Schedule a Google meeting with John for 3:45PM tomorrow!
-                  </motion.div>
-                  <div className="text-xs text-gray-500 mt-1">8:15 AM</div>
-                </div>
-              </motion.div>
-
-              <motion.div 
-                className="flex gap-3"
-                initial={{ opacity: 0, x: 30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.9 }}
-              >
-                <div className="w-8 h-8 rounded-full bg-purple-600 flex-shrink-0 flex items-center justify-center text-xs font-bold">
-                  AI
-                </div>
-                <div className="flex-1">
-                  <div className="text-xs text-gray-500 mb-1">AI Assistant</div>
-                  <motion.div 
-                    className="bg-purple-900/50 px-3 py-2 rounded-lg text-sm interactive"
-                    whileHover={{ backgroundColor: "rgba(147, 51, 234, 0.3)" }}
-                  >
-                    I've successfully scheduled a Google meeting with John for 3:45PM tomorrow.
-                  </motion.div>
-                  <div className="text-xs text-gray-500 mt-1">8:15 AM</div>
-                </div>
+                <div className="text-gray-500 mb-1">Última acción:</div>
+                <div className="text-gray-300">Calificó lead de empresa tecnológica → Prioridad Alta</div>
               </motion.div>
             </div>
           </motion.div>
         );
 
-      case "generator":
+      case "consulting":
         return (
           <motion.div 
             className="glass-strong rounded-lg p-4"
             whileHover={{ scale: 1.02 }}
           >
             <div className="space-y-4">
-              <motion.input
-                type="text"
-                value="Generate an image of a smiling quokka on the beach."
-                readOnly
-                className="w-full glass px-4 py-2 rounded-lg text-sm text-gray-300 interactive"
-                whileFocus={{ scale: 1.02 }}
-              />
-
-              <div className="flex gap-2">
-                <motion.input
-                  type="text"
-                  value="Generate an image of…"
-                  readOnly
-                  className="glass px-4 py-2 rounded-lg text-sm flex-grow text-gray-400 interactive"
-                  whileFocus={{ scale: 1.02 }}
-                />
-                <motion.button 
-                  className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors ripple interactive hover-glow"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Generate
-                </motion.button>
-              </div>
+              <motion.div 
+                className="text-center"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.3 }}
+              >
+                <div className="text-lg font-bold text-blue-400 mb-1">Análisis de Oportunidades</div>
+                <div className="text-xs text-gray-400">Evaluación completa de procesos</div>
+              </motion.div>
 
               <motion.div 
-                className="bg-gradient-to-r from-purple-900/50 to-blue-900/50 text-center py-3 rounded-lg text-sm text-purple-200 pulse-slow"
-                animate={{ opacity: [0.7, 1, 0.7] }}
-                transition={{ duration: 2, repeat: Infinity }}
+                className="grid grid-cols-2 gap-3"
+                variants={containerVariants}
+                initial="hidden"
+                animate="visible"
               >
-                Generating image…
+                {[
+                  { area: "Atención al Cliente", potential: "Alto", color: "text-green-400" },
+                  { area: "Gestión Documental", potential: "Medio", color: "text-yellow-400" },
+                  { area: "Análisis de Datos", potential: "Alto", color: "text-green-400" },
+                  { area: "Recursos Humanos", potential: "Bajo", color: "text-red-400" }
+                ].map((item, i) => (
+                  <motion.div
+                    key={i}
+                    className="glass rounded p-2 text-xs"
+                    variants={{
+                      hidden: { opacity: 0, y: 20 },
+                      visible: { 
+                        opacity: 1, 
+                        y: 0,
+                        transition: { delay: i * 0.1 + 0.5 }
+                      }
+                    }}
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    <div className="text-gray-300 font-medium">{item.area}</div>
+                    <div className={`${item.color} font-semibold`}>{item.potential}</div>
+                  </motion.div>
+                ))}
+              </motion.div>
+
+              <motion.div 
+                className="text-center text-xs text-gray-400"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1 }}
+              >
+                ROI estimado: <span className="text-green-400 font-semibold">340%</span> en 12 meses
               </motion.div>
             </div>
           </motion.div>
         );
 
-      case "charts":
+      case "customcases":
         return (
-          <motion.div className="grid grid-cols-2 gap-4">
-            <motion.div 
-              className="glass-strong rounded-lg p-4 text-center hover-glow"
-              whileHover={{ scale: 1.05, rotateY: 5 }}
-            >
-              <div className="text-red-400 font-semibold mb-2">Cost -67%</div>
-              <motion.svg 
-                width="60" 
-                height="30" 
-                viewBox="0 0 120 60" 
-                className="mx-auto opacity-60"
-                whileHover={{ opacity: 1 }}
+          <motion.div 
+            className="glass-strong rounded-lg p-4"
+            whileHover={{ scale: 1.02 }}
+          >
+            <div className="space-y-3">
+              <motion.div 
+                className="text-center mb-3"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.3 }}
               >
-                <motion.path 
-                  d="M0,50 Q30,20 60,30 Q90,10 120,40" 
-                  stroke="#ef4444" 
-                  strokeWidth="2" 
-                  fill="none"
-                  initial={{ pathLength: 0 }}
-                  animate={{ pathLength: 1 }}
-                  transition={{ duration: 2, delay: 0.5 }}
-                />
-              </motion.svg>
-            </motion.div>
+                <div className="text-sm font-medium text-purple-400">Caso: E-commerce</div>
+                <div className="text-xs text-gray-400">Recomendaciones Personalizadas</div>
+              </motion.div>
 
-            <motion.div 
-              className="glass-strong rounded-lg p-4 text-center hover-glow"
-              whileHover={{ scale: 1.05, rotateY: -5 }}
-            >
-              <div className="text-green-400 font-semibold mb-2">Efficiency +103%</div>
-              <motion.svg 
-                width="60" 
-                height="30" 
-                viewBox="0 0 120 60" 
-                className="mx-auto opacity-60"
-                whileHover={{ opacity: 1 }}
+              <motion.div 
+                className="space-y-2"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
               >
-                <motion.path 
-                  d="M0,50 Q30,40 60,20 Q90,10 120,5" 
-                  stroke="#22c55e" 
-                  strokeWidth="2" 
-                  fill="none"
-                  initial={{ pathLength: 0 }}
-                  animate={{ pathLength: 1 }}
-                  transition={{ duration: 2, delay: 0.7 }}
-                />
-              </motion.svg>
-            </motion.div>
+                <div className="glass rounded p-2">
+                  <div className="flex justify-between items-center">
+                    <span className="text-xs text-gray-400">Precisión de recomendaciones</span>
+                    <span className="text-green-400 font-semibold">94.2%</span>
+                  </div>
+                  <motion.div 
+                    className="w-full bg-gray-700 rounded-full h-1 mt-1"
+                    initial={{ scaleX: 0 }}
+                    animate={{ scaleX: 1 }}
+                    transition={{ delay: 0.7, duration: 1 }}
+                  >
+                    <motion.div 
+                      className="bg-gradient-to-r from-green-500 to-blue-500 h-1 rounded-full"
+                      initial={{ width: "0%" }}
+                      animate={{ width: "94%" }}
+                      transition={{ delay: 0.8, duration: 1 }}
+                    />
+                  </motion.div>
+                </div>
+
+                <div className="glass rounded p-2">
+                  <div className="flex justify-between items-center">
+                    <span className="text-xs text-gray-400">Incremento en ventas</span>
+                    <span className="text-green-400 font-semibold">+156%</span>
+                  </div>
+                </div>
+
+                <div className="glass rounded p-2">
+                  <div className="flex justify-between items-center">
+                    <span className="text-xs text-gray-400">Tiempo de implementación</span>
+                    <span className="text-blue-400 font-semibold">6 semanas</span>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
           </motion.div>
         );
 
       case "automation":
         return (
-          <div>
-            <motion.div 
-              className="grid grid-cols-4 gap-3 mb-4"
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
-            >
-              {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
-                <motion.div
-                  key={i}
-                  className="flex justify-center"
-                  variants={{
-                    hidden: { opacity: 0, scale: 0 },
-                    visible: { 
-                      opacity: 1, 
-                      scale: 1,
-                      transition: { delay: i * 0.1 }
-                    }
-                  }}
-                >
-                  <motion.div 
-                    className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded hover-scale"
-                    whileHover={{ 
-                      scale: 1.2,
-                      boxShadow: "0 0 20px rgba(99, 152, 229, 0.5)"
-                    }}
-                    animate={{ 
-                      opacity: [0.7, 1, 0.7],
-                      scale: [1, 1.05, 1]
-                    }}
-                    transition={{ 
-                      duration: 2, 
-                      repeat: Infinity,
-                      delay: i * 0.2
-                    }}
-                  />
-                </motion.div>
-              ))}
-            </motion.div>
-
-            <motion.div 
-              className="text-center"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1 }}
-            >
+          <motion.div 
+            className="glass-strong rounded-lg p-4"
+            whileHover={{ scale: 1.02 }}
+          >
+            <div className="space-y-4">
               <motion.div 
-                className="text-3xl font-bold gradient-text mb-1"
-                animate={{ scale: [1, 1.05, 1] }}
-                transition={{ duration: 2, repeat: Infinity }}
+                className="text-center"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.3 }}
               >
-                87+
+                <div className="text-sm font-medium text-orange-400">Flujo de Automatización</div>
+                <div className="text-xs text-gray-400">Procesamiento de Facturas</div>
               </motion.div>
-              <div className="text-sm text-gray-300">Automations</div>
-            </motion.div>
-          </div>
+
+              <motion.div 
+                className="flex items-center justify-between"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.5 }}
+              >
+                {[
+                  { step: "Recepción", icon: "📧", status: "completed" },
+                  { step: "Extracción", icon: "🔍", status: "processing" },
+                  { step: "Validación", icon: "✅", status: "pending" },
+                  { step: "Archivo", icon: "📁", status: "pending" }
+                ].map((item, i) => (
+                  <motion.div
+                    key={i}
+                    className="flex flex-col items-center"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.7 + i * 0.2 }}
+                  >
+                    <motion.div 
+                      className={`w-8 h-8 rounded-full flex items-center justify-center text-xs mb-1 ${
+                        item.status === 'completed' ? 'bg-green-600' :
+                        item.status === 'processing' ? 'bg-blue-600' : 'bg-gray-600'
+                      }`}
+                      animate={item.status === 'processing' ? { 
+                        scale: [1, 1.1, 1],
+                        boxShadow: ["0 0 0 rgba(59, 130, 246, 0)", "0 0 20px rgba(59, 130, 246, 0.5)", "0 0 0 rgba(59, 130, 246, 0)"]
+                      } : {}}
+                      transition={{ duration: 2, repeat: Infinity }}
+                    >
+                      {item.icon}
+                    </motion.div>
+                    <div className="text-xs text-gray-400 text-center">{item.step}</div>
+                  </motion.div>
+                ))}
+              </motion.div>
+
+              <motion.div 
+                className="text-center text-xs"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.5 }}
+              >
+                <div className="text-gray-400">Tiempo promedio: <span className="text-green-400">2.3 min</span></div>
+                <div className="text-gray-400">Precisión: <span className="text-green-400">99.7%</span></div>
+              </motion.div>
+            </div>
+          </motion.div>
         );
 
       case "llm":
@@ -292,43 +315,47 @@ const ServicesSection = () => {
             className="glass-strong rounded-lg p-4"
             whileHover={{ scale: 1.02 }}
           >
-            <div className="space-y-4">
+            <div className="space-y-3">
               <motion.div 
-                className="glass px-4 py-3 rounded-lg interactive"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
+                className="text-center mb-3"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
                 transition={{ delay: 0.3 }}
               >
-                <div className="font-medium text-sm mb-1">Where do Quokka's live?</div>
-                <div className="text-gray-300 text-sm">Quokka's live on Rottnest Island.</div>
+                <div className="text-sm font-medium text-cyan-400">LLM Empresarial</div>
+                <div className="text-xs text-gray-400">Asistente Legal Especializado</div>
               </motion.div>
 
-              <div className="flex gap-2">
-                <motion.input
-                  type="text"
-                  value="Write your prompt…"
-                  readOnly
-                  className="glass px-4 py-2 rounded-lg text-sm flex-grow text-gray-400 interactive"
-                  whileFocus={{ scale: 1.02 }}
-                />
-                <motion.button 
-                  className="glass hover:bg-gray-600 p-2 rounded-lg transition-colors interactive"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                >
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                    <path d="M22 12L3 3L6 12L3 21L22 12Z" stroke="white" strokeWidth="2" strokeLinejoin="round" />
-                  </svg>
-                </motion.button>
-              </div>
-
               <motion.div 
-                className="glass px-4 py-3 rounded-lg interactive"
+                className="glass px-3 py-2 rounded text-xs"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6 }}
+                transition={{ delay: 0.5 }}
               >
-                <div className="font-medium text-sm">And are Quokka's big?</div>
+                <div className="text-gray-500 mb-1">Consulta:</div>
+                <div className="text-gray-300">"Analiza este contrato de servicios y identifica cláusulas de riesgo"</div>
+              </motion.div>
+
+              <motion.div 
+                className="glass px-3 py-2 rounded text-xs"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.7 }}
+              >
+                <div className="text-cyan-400 mb-1">Análisis completado:</div>
+                <div className="text-gray-300">• 3 cláusulas de alto riesgo identificadas</div>
+                <div className="text-gray-300">• Recomendaciones de modificación generadas</div>
+                <div className="text-gray-300">• Precedentes legales relevantes encontrados</div>
+              </motion.div>
+
+              <motion.div 
+                className="flex justify-between text-xs"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.9 }}
+              >
+                <span className="text-gray-400">Tiempo de análisis:</span>
+                <span className="text-green-400">12 segundos</span>
               </motion.div>
             </div>
           </motion.div>
