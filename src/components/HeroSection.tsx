@@ -56,23 +56,17 @@ const HeroSection = () => {
       {/* Enhanced background with subtle gradients */}
       <div className="absolute inset-0 gradient-hero -z-10"></div>
       
-      {/* Refined floating decorative elements */}
+      {/* Very subtle background elements - barely visible */}
       <motion.div 
-        className="absolute top-24 left-12 w-40 h-40 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-full blur-3xl"
+        className="absolute top-24 left-12 w-96 h-96 bg-gradient-to-r from-blue-500/2 to-purple-500/2 rounded-full blur-3xl"
         variants={floatingVariants}
         animate="float"
       />
       <motion.div 
-        className="absolute bottom-24 right-12 w-32 h-32 bg-gradient-to-r from-purple-500/10 to-cyan-500/10 rounded-full blur-3xl"
+        className="absolute bottom-24 right-12 w-80 h-80 bg-gradient-to-r from-purple-500/2 to-cyan-500/2 rounded-full blur-3xl"
         variants={floatingVariants}
         animate="float"
         transition={{ delay: 3 }}
-      />
-      <motion.div 
-        className="absolute top-1/2 left-1/4 w-24 h-24 bg-gradient-to-r from-cyan-500/8 to-blue-500/8 rounded-full blur-2xl"
-        variants={floatingVariants}
-        animate="float"
-        transition={{ delay: 1.5 }}
       />
 
       <div className="container-6xl mx-auto px-6 text-center relative z-10">

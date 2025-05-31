@@ -392,7 +392,7 @@
   }
 
   .btn-ghost:hover {
-    @apply bg-secondary border-border-hover;
+    @apply bg-secondary border-white/20;
     transform: translateY(-1px);
   }
 
