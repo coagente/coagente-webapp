@@ -13,8 +13,8 @@ const ServicesSection = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3,
+        staggerChildren: 0.15,
+        delayChildren: 0.2,
       },
     },
   };
@@ -22,8 +22,8 @@ const ServicesSection = () => {
   const cardVariants = {
     hidden: { 
       opacity: 0, 
-      y: 100,
-      scale: 0.8
+      y: 80,
+      scale: 0.9
     },
     visible: {
       opacity: 1,
@@ -69,47 +69,47 @@ const ServicesSection = () => {
       case "agents":
         return (
           <motion.div 
-            className="glass-strong rounded-lg p-4"
+            className="glass-strong rounded-xl p-5"
             whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.2 }}
           >
-            <div className="space-y-3">
+            <div className="space-y-4">
               <motion.div 
                 className="flex items-center justify-between mb-4"
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
               >
-                <div className="text-sm font-medium text-blue-400">Agente de Ventas AI</div>
+                <div className="text-sm font-semibold text-blue-400">Agente de Ventas AI</div>
                 <motion.div 
-                  className="w-2 h-2 bg-green-500 rounded-full"
+                  className="w-2 h-2 bg-green-500 rounded-full shadow-glow"
                   animate={{ scale: [1, 1.3, 1] }}
                   transition={{ duration: 2, repeat: Infinity }}
                 />
               </motion.div>
 
               <motion.div 
-                className="space-y-2"
+                className="space-y-3"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5 }}
               >
                 <div className="flex justify-between text-xs">
                   <span className="text-gray-400">Leads procesados</span>
-                  <span className="text-green-400">+247%</span>
+                  <span className="text-green-400 font-semibold">+247%</span>
                 </div>
                 <div className="flex justify-between text-xs">
                   <span className="text-gray-400">Tiempo de respuesta</span>
-                  <span className="text-blue-400">2.3s</span>
+                  <span className="text-blue-400 font-semibold">2.3s</span>
                 </div>
                 <div className="flex justify-between text-xs">
                   <span className="text-gray-400">Conversión</span>
-                  <span className="text-green-400">+89%</span>
+                  <span className="text-green-400 font-semibold">+89%</span>
                 </div>
               </motion.div>
 
               <motion.div 
-                className="glass px-3 py-2 rounded text-xs"
+                className="glass px-4 py-3 rounded-lg text-xs"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.7 }}
@@ -124,7 +124,7 @@ const ServicesSection = () => {
       case "consulting":
         return (
           <motion.div 
-            className="glass-strong rounded-lg p-4"
+            className="glass-strong rounded-xl p-5"
             whileHover={{ scale: 1.02 }}
           >
             <div className="space-y-4">
@@ -152,7 +152,7 @@ const ServicesSection = () => {
                 ].map((item, i) => (
                   <motion.div
                     key={i}
-                    className="glass rounded p-2 text-xs"
+                    className="glass rounded-lg p-3 text-xs hover:shadow-elevation-1 transition-all duration-300"
                     variants={{
                       hidden: { opacity: 0, y: 20 },
                       visible: { 
@@ -184,10 +184,10 @@ const ServicesSection = () => {
       case "customcases":
         return (
           <motion.div 
-            className="glass-strong rounded-lg p-4"
+            className="glass-strong rounded-xl p-5"
             whileHover={{ scale: 1.02 }}
           >
-            <div className="space-y-3">
+            <div className="space-y-4">
               <motion.div 
                 className="text-center mb-3"
                 initial={{ opacity: 0 }}
@@ -199,24 +199,24 @@ const ServicesSection = () => {
               </motion.div>
 
               <motion.div 
-                className="space-y-2"
+                className="space-y-3"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
               >
-                <div className="glass rounded p-2">
+                <div className="glass rounded-lg p-3">
                   <div className="flex justify-between items-center">
                     <span className="text-xs text-gray-400">Precisión de recomendaciones</span>
                     <span className="text-green-400 font-semibold">94.2%</span>
                   </div>
                   <motion.div 
-                    className="w-full bg-gray-700 rounded-full h-1 mt-1"
+                    className="w-full bg-gray-700 rounded-full h-1.5 mt-2"
                     initial={{ scaleX: 0 }}
                     animate={{ scaleX: 1 }}
                     transition={{ delay: 0.7, duration: 1 }}
                   >
                     <motion.div 
-                      className="bg-gradient-to-r from-green-500 to-blue-500 h-1 rounded-full"
+                      className="bg-gradient-to-r from-green-500 to-blue-500 h-1.5 rounded-full"
                       initial={{ width: "0%" }}
                       animate={{ width: "94%" }}
                       transition={{ delay: 0.8, duration: 1 }}
@@ -224,14 +224,14 @@ const ServicesSection = () => {
                   </motion.div>
                 </div>
 
-                <div className="glass rounded p-2">
+                <div className="glass rounded-lg p-3">
                   <div className="flex justify-between items-center">
                     <span className="text-xs text-gray-400">Incremento en ventas</span>
                     <span className="text-green-400 font-semibold">+156%</span>
                   </div>
                 </div>
 
-                <div className="glass rounded p-2">
+                <div className="glass rounded-lg p-3">
                   <div className="flex justify-between items-center">
                     <span className="text-xs text-gray-400">Tiempo de implementación</span>
                     <span className="text-blue-400 font-semibold">6 semanas</span>
@@ -245,7 +245,7 @@ const ServicesSection = () => {
       case "automation":
         return (
           <motion.div 
-            className="glass-strong rounded-lg p-4"
+            className="glass-strong rounded-xl p-5"
             whileHover={{ scale: 1.02 }}
           >
             <div className="space-y-4">
@@ -279,7 +279,7 @@ const ServicesSection = () => {
                     transition={{ delay: 0.7 + i * 0.2 }}
                   >
                     <motion.div 
-                      className={`w-8 h-8 rounded-full flex items-center justify-center text-xs mb-1 ${
+                      className={`w-10 h-10 rounded-full flex items-center justify-center text-sm mb-2 shadow-elevation-1 ${
                         item.status === 'completed' ? 'bg-green-600' :
                         item.status === 'processing' ? 'bg-blue-600' : 'bg-gray-600'
                       }`}
@@ -312,10 +312,10 @@ const ServicesSection = () => {
       case "llm":
         return (
           <motion.div 
-            className="glass-strong rounded-lg p-4"
+            className="glass-strong rounded-xl p-5"
             whileHover={{ scale: 1.02 }}
           >
-            <div className="space-y-3">
+            <div className="space-y-4">
               <motion.div 
                 className="text-center mb-3"
                 initial={{ opacity: 0 }}
@@ -327,7 +327,7 @@ const ServicesSection = () => {
               </motion.div>
 
               <motion.div 
-                className="glass px-3 py-2 rounded text-xs"
+                className="glass px-4 py-3 rounded-lg text-xs"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
@@ -337,7 +337,7 @@ const ServicesSection = () => {
               </motion.div>
 
               <motion.div 
-                className="glass px-3 py-2 rounded text-xs"
+                className="glass px-4 py-3 rounded-lg text-xs"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.7 }}
@@ -367,24 +367,24 @@ const ServicesSection = () => {
   };
 
   return (
-    <section id="services" className="py-20 gradient-bg relative overflow-hidden">
-      {/* Floating decorative elements */}
+    <section id="services" className="section-padding gradient-bg relative overflow-hidden">
+      {/* Enhanced floating decorative elements */}
       <motion.div 
-        className="absolute top-10 right-10 w-40 h-40 bg-gradient-to-r from-purple-500/10 to-blue-500/10 rounded-full blur-3xl"
+        className="absolute top-10 right-10 w-48 h-48 bg-gradient-to-r from-purple-500/8 to-blue-500/8 rounded-full blur-3xl"
         animate={{ 
           scale: [1, 1.2, 1],
           opacity: [0.3, 0.6, 0.3]
         }}
         transition={{ 
-          duration: 6,
+          duration: 8,
           repeat: Infinity,
           ease: "easeInOut"
         }}
       />
 
-      <div className="container mx-auto px-4" ref={ref}>
+      <div className="container mx-auto container-padding" ref={ref}>
         <motion.h2 
-          className="text-fluid-4xl font-bold mb-16 text-center gradient-text text-shadow-glow"
+          className="text-fluid-4xl font-bold mb-20 text-center gradient-text text-shadow-glow"
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ duration: 0.8 }}
@@ -400,15 +400,15 @@ const ServicesSection = () => {
         >
           {services.map((service, index) => (
             <motion.div key={index} variants={cardVariants}>
-              <Card className="glass-strong text-white hover-glow hover-float group h-full interactive shadow-elevation-2">
-                <CardHeader>
-                  <CardTitle className="text-white text-xl font-semibold mb-4 group-hover:gradient-text transition-all duration-300">
+              <Card className="glass-strong text-white hover-glow hover-float group h-full interactive shadow-elevation-2 rounded-2xl border-0 transition-all duration-500">
+                <CardHeader className="pb-4">
+                  <CardTitle className="text-white text-xl font-semibold mb-4 group-hover:gradient-text transition-all duration-300 leading-tight">
                     {service.title}
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-6">
                   <motion.p 
-                    className="text-gray-300 leading-relaxed"
+                    className="text-gray-300 leading-relaxed content-width"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.2 }}
