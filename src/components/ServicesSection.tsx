@@ -8,6 +8,37 @@ const ServicesSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
+  const services = [
+    {
+      title: "Agentes de Atención",
+      subtitle: "al Cliente",
+      description: "Agentes de IA que manejan consultas de clientes 24/7 con respuestas precisas y naturales.",
+      demo: "chatbot",
+      color: "from-blue-500 to-purple-500"
+    },
+    {
+      title: "Análisis de",
+      subtitle: "Oportunidades",
+      description: "Sistemas que identifican oportunidades de negocio mediante análisis inteligente de datos.",
+      demo: "analysis",
+      color: "from-purple-500 to-pink-500"
+    },
+    {
+      title: "Automatización de",
+      subtitle: "Procesos",
+      description: "Automatización inteligente de flujos de trabajo para maximizar la eficiencia operativa.",
+      demo: "automation",
+      color: "from-pink-500 to-red-500"
+    },
+    {
+      title: "Análisis de",
+      subtitle: "Documentos",
+      description: "Procesamiento y análisis automático de documentos legales y contratos empresariales.",
+      demo: "documents",
+      color: "from-red-500 to-orange-500"
+    }
+  ];
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -22,169 +53,26 @@ const ServicesSection = () => {
   const cardVariants = {
     hidden: { 
       opacity: 0, 
-      y: 100,
-      scale: 0.8
+      y: 50,
+      scale: 0.9
     },
     visible: {
       opacity: 1,
       y: 0,
       scale: 1,
       transition: {
-        duration: 0.8,
+        duration: 0.6,
         ease: [0.25, 0.46, 0.45, 0.94],
       },
     },
   };
 
-  const services = [
-    {
-      title: "Desarrollo de agentes de IA",
-      description: "Creamos agentes inteligentes que toman decisiones autónomas y aprenden constantemente, transformando la manera en que tu empresa interactúa y opera.",
-      demo: "agents"
-    },
-    {
-      title: "Consultoría de AI para productividad",
-      description: "Te asesoramos estratégicamente para implementar soluciones de IA impulsando el crecimiento y la transformación de tu negocio.",
-      demo: "consulting"
-    },
-    {
-      title: "Casos de uso personalizados de IA",
-      description: "Creamos soluciones de IA que automatizan y optimizan los procesos de tu empresa, impulsando resultados medibles alineados con tus objetivos de negocio.",
-      demo: "customcases"
-    },
-    {
-      title: "Automatización de procesos de negocio",
-      description: "Automatizamos tareas repetitivas con IA para impulsar la eficiencia, ahorrar tiempo y eliminar errores en tus procesos empresariales.",
-      demo: "automation"
-    },
-    {
-      title: "Desarrollo de LLMs",
-      description: "Creamos e integramos LLMs personalizados que revolucionan cómo tu empresa procesa información e interactúa con clientes.",
-      demo: "llm"
-    }
-  ];
-
   const renderDemo = (type: string) => {
-    switch(type) {
-      case "agents":
+    switch (type) {
+      case "chatbot":
         return (
           <motion.div 
-            className="glass-strong rounded-lg p-4"
-            whileHover={{ scale: 1.02 }}
-            transition={{ duration: 0.2 }}
-          >
-            <div className="space-y-3">
-              <motion.div 
-                className="flex items-center justify-between mb-4"
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
-              >
-                <div className="text-sm font-medium text-blue-400">Agente de Ventas AI</div>
-                <motion.div 
-                  className="w-2 h-2 bg-green-500 rounded-full"
-                  animate={{ scale: [1, 1.3, 1] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                />
-              </motion.div>
-
-              <motion.div 
-                className="space-y-2"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.5 }}
-              >
-                <div className="flex justify-between text-xs">
-                  <span className="text-gray-400">Leads procesados</span>
-                  <span className="text-green-400">+247%</span>
-                </div>
-                <div className="flex justify-between text-xs">
-                  <span className="text-gray-400">Tiempo de respuesta</span>
-                  <span className="text-blue-400">2.3s</span>
-                </div>
-                <div className="flex justify-between text-xs">
-                  <span className="text-gray-400">Conversión</span>
-                  <span className="text-green-400">+89%</span>
-                </div>
-              </motion.div>
-
-              <motion.div 
-                className="glass px-3 py-2 rounded text-xs"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.7 }}
-              >
-                <div className="text-gray-500 mb-1">Última acción:</div>
-                <div className="text-gray-300">Calificó lead de empresa tecnológica → Prioridad Alta</div>
-              </motion.div>
-            </div>
-          </motion.div>
-        );
-
-      case "consulting":
-        return (
-          <motion.div 
-            className="glass-strong rounded-lg p-4"
-            whileHover={{ scale: 1.02 }}
-          >
-            <div className="space-y-4">
-              <motion.div 
-                className="text-center"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.3 }}
-              >
-                <div className="text-lg font-bold text-blue-400 mb-1">Análisis de Oportunidades</div>
-                <div className="text-xs text-gray-400">Evaluación completa de procesos</div>
-              </motion.div>
-
-              <motion.div 
-                className="grid grid-cols-2 gap-3"
-                variants={containerVariants}
-                initial="hidden"
-                animate="visible"
-              >
-                {[
-                  { area: "Atención al Cliente", potential: "Alto", color: "text-green-400" },
-                  { area: "Gestión Documental", potential: "Medio", color: "text-yellow-400" },
-                  { area: "Análisis de Datos", potential: "Alto", color: "text-green-400" },
-                  { area: "Recursos Humanos", potential: "Bajo", color: "text-red-400" }
-                ].map((item, i) => (
-                  <motion.div
-                    key={i}
-                    className="glass rounded p-2 text-xs"
-                    variants={{
-                      hidden: { opacity: 0, y: 20 },
-                      visible: { 
-                        opacity: 1, 
-                        y: 0,
-                        transition: { delay: i * 0.1 + 0.5 }
-                      }
-                    }}
-                    whileHover={{ scale: 1.05 }}
-                  >
-                    <div className="text-gray-300 font-medium">{item.area}</div>
-                    <div className={`${item.color} font-semibold`}>{item.potential}</div>
-                  </motion.div>
-                ))}
-              </motion.div>
-
-              <motion.div 
-                className="text-center text-xs text-gray-400"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1 }}
-              >
-                ROI estimado: <span className="text-green-400 font-semibold">340%</span> en 12 meses
-              </motion.div>
-            </div>
-          </motion.div>
-        );
-
-      case "customcases":
-        return (
-          <motion.div 
-            className="glass-strong rounded-lg p-4"
+            className="bg-slate-800/50 rounded-lg p-4 border border-slate-700"
             whileHover={{ scale: 1.02 }}
           >
             <div className="space-y-3">
@@ -194,8 +82,8 @@ const ServicesSection = () => {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.3 }}
               >
-                <div className="text-sm font-medium text-purple-400">Caso: E-commerce</div>
-                <div className="text-xs text-gray-400">Recomendaciones Personalizadas</div>
+                <div className="text-sm font-medium text-blue-400">Dashboard de Ventas AI</div>
+                <div className="text-xs text-gray-400">Agente especializado en conversiones</div>
               </motion.div>
 
               <motion.div 
@@ -204,37 +92,68 @@ const ServicesSection = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
               >
-                <div className="glass rounded p-2">
+                <div className="bg-slate-700/50 rounded p-2">
                   <div className="flex justify-between items-center">
-                    <span className="text-xs text-gray-400">Precisión de recomendaciones</span>
-                    <span className="text-green-400 font-semibold">94.2%</span>
-                  </div>
-                  <motion.div 
-                    className="w-full bg-gray-700 rounded-full h-1 mt-1"
-                    initial={{ scaleX: 0 }}
-                    animate={{ scaleX: 1 }}
-                    transition={{ delay: 0.7, duration: 1 }}
-                  >
-                    <motion.div 
-                      className="bg-gradient-to-r from-green-500 to-blue-500 h-1 rounded-full"
-                      initial={{ width: "0%" }}
-                      animate={{ width: "94%" }}
-                      transition={{ delay: 0.8, duration: 1 }}
-                    />
-                  </motion.div>
-                </div>
-
-                <div className="glass rounded p-2">
-                  <div className="flex justify-between items-center">
-                    <span className="text-xs text-gray-400">Incremento en ventas</span>
-                    <span className="text-green-400 font-semibold">+156%</span>
+                    <span className="text-xs text-gray-400">Leads calificados hoy</span>
+                    <span className="text-green-400 font-semibold">47</span>
                   </div>
                 </div>
-
-                <div className="glass rounded p-2">
+                <div className="bg-slate-700/50 rounded p-2">
                   <div className="flex justify-between items-center">
-                    <span className="text-xs text-gray-400">Tiempo de implementación</span>
-                    <span className="text-blue-400 font-semibold">6 semanas</span>
+                    <span className="text-xs text-gray-400">Tasa de conversión</span>
+                    <span className="text-blue-400 font-semibold">23.5%</span>
+                  </div>
+                </div>
+                <div className="bg-slate-700/50 rounded p-2">
+                  <div className="flex justify-between items-center">
+                    <span className="text-xs text-gray-400">Tiempo promedio respuesta</span>
+                    <span className="text-purple-400 font-semibold">0.8s</span>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </motion.div>
+        );
+
+      case "analysis":
+        return (
+          <motion.div 
+            className="bg-slate-800/50 rounded-lg p-4 border border-slate-700"
+            whileHover={{ scale: 1.02 }}
+          >
+            <div className="space-y-3">
+              <motion.div 
+                className="text-center mb-3"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.3 }}
+              >
+                <div className="text-sm font-medium text-purple-400">Análisis de Oportunidades</div>
+                <div className="text-xs text-gray-400">Mercado B2B - Sector Tecnología</div>
+              </motion.div>
+
+              <motion.div 
+                className="space-y-2"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+              >
+                <div className="bg-slate-700/50 rounded p-2">
+                  <div className="flex justify-between items-center">
+                    <span className="text-xs text-gray-400">Oportunidades detectadas</span>
+                    <span className="text-green-400 font-semibold">12</span>
+                  </div>
+                </div>
+                <div className="bg-slate-700/50 rounded p-2">
+                  <div className="flex justify-between items-center">
+                    <span className="text-xs text-gray-400">Valor potencial estimado</span>
+                    <span className="text-blue-400 font-semibold">$2.4M</span>
+                  </div>
+                </div>
+                <div className="bg-slate-700/50 rounded p-2">
+                  <div className="flex justify-between items-center">
+                    <span className="text-xs text-gray-400">Probabilidad de éxito</span>
+                    <span className="text-purple-400 font-semibold">78%</span>
                   </div>
                 </div>
               </motion.div>
@@ -245,74 +164,7 @@ const ServicesSection = () => {
       case "automation":
         return (
           <motion.div 
-            className="glass-strong rounded-lg p-4"
-            whileHover={{ scale: 1.02 }}
-          >
-            <div className="space-y-4">
-              <motion.div 
-                className="text-center"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.3 }}
-              >
-                <div className="text-sm font-medium text-orange-400">Flujo de Automatización</div>
-                <div className="text-xs text-gray-400">Procesamiento de Facturas</div>
-              </motion.div>
-
-              <motion.div 
-                className="flex items-center justify-between"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.5 }}
-              >
-                {[
-                  { step: "Recepción", icon: "📧", status: "completed" },
-                  { step: "Extracción", icon: "🔍", status: "processing" },
-                  { step: "Validación", icon: "✅", status: "pending" },
-                  { step: "Archivo", icon: "📁", status: "pending" }
-                ].map((item, i) => (
-                  <motion.div
-                    key={i}
-                    className="flex flex-col items-center"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.7 + i * 0.2 }}
-                  >
-                    <motion.div 
-                      className={`w-8 h-8 rounded-full flex items-center justify-center text-xs mb-1 ${
-                        item.status === 'completed' ? 'bg-green-600' :
-                        item.status === 'processing' ? 'bg-blue-600' : 'bg-gray-600'
-                      }`}
-                      animate={item.status === 'processing' ? { 
-                        scale: [1, 1.1, 1],
-                        boxShadow: ["0 0 0 rgba(59, 130, 246, 0)", "0 0 20px rgba(59, 130, 246, 0.5)", "0 0 0 rgba(59, 130, 246, 0)"]
-                      } : {}}
-                      transition={{ duration: 2, repeat: Infinity }}
-                    >
-                      {item.icon}
-                    </motion.div>
-                    <div className="text-xs text-gray-400 text-center">{item.step}</div>
-                  </motion.div>
-                ))}
-              </motion.div>
-
-              <motion.div 
-                className="text-center text-xs"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1.5 }}
-              >
-                <div className="text-gray-400">Tiempo promedio: <span className="text-green-400">2.3 min</span></div>
-                <div className="text-gray-400">Precisión: <span className="text-green-400">99.7%</span></div>
-              </motion.div>
-            </div>
-          </motion.div>
-        );
-
-      case "llm":
-        return (
-          <motion.div 
-            className="glass-strong rounded-lg p-4"
+            className="bg-slate-800/50 rounded-lg p-4 border border-slate-700"
             whileHover={{ scale: 1.02 }}
           >
             <div className="space-y-3">
@@ -322,40 +174,80 @@ const ServicesSection = () => {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.3 }}
               >
-                <div className="text-sm font-medium text-cyan-400">LLM Empresarial</div>
-                <div className="text-xs text-gray-400">Asistente Legal Especializado</div>
+                <div className="text-sm font-medium text-pink-400">Procesamiento de Facturas</div>
+                <div className="text-xs text-gray-400">Automatización OCR + Validación</div>
               </motion.div>
 
               <motion.div 
-                className="glass px-3 py-2 rounded text-xs"
+                className="space-y-2"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
               >
-                <div className="text-gray-500 mb-1">Consulta:</div>
-                <div className="text-gray-300">"Analiza este contrato de servicios y identifica cláusulas de riesgo"</div>
+                <div className="bg-slate-700/50 rounded p-2">
+                  <div className="flex justify-between items-center">
+                    <span className="text-xs text-gray-400">Facturas procesadas hoy</span>
+                    <span className="text-green-400 font-semibold">1,247</span>
+                  </div>
+                </div>
+                <div className="bg-slate-700/50 rounded p-2">
+                  <div className="flex justify-between items-center">
+                    <span className="text-xs text-gray-400">Precisión de extracción</span>
+                    <span className="text-blue-400 font-semibold">99.2%</span>
+                  </div>
+                </div>
+                <div className="bg-slate-700/50 rounded p-2">
+                  <div className="flex justify-between items-center">
+                    <span className="text-xs text-gray-400">Tiempo ahorrado</span>
+                    <span className="text-purple-400 font-semibold">18.5h</span>
+                  </div>
+                </div>
               </motion.div>
+            </div>
+          </motion.div>
+        );
 
+      case "documents":
+        return (
+          <motion.div 
+            className="bg-slate-800/50 rounded-lg p-4 border border-slate-700"
+            whileHover={{ scale: 1.02 }}
+          >
+            <div className="space-y-3">
               <motion.div 
-                className="glass px-3 py-2 rounded text-xs"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.7 }}
-              >
-                <div className="text-cyan-400 mb-1">Análisis completado:</div>
-                <div className="text-gray-300">• 3 cláusulas de alto riesgo identificadas</div>
-                <div className="text-gray-300">• Recomendaciones de modificación generadas</div>
-                <div className="text-gray-300">• Precedentes legales relevantes encontrados</div>
-              </motion.div>
-
-              <motion.div 
-                className="flex justify-between text-xs"
+                className="text-center mb-3"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 0.9 }}
+                transition={{ delay: 0.3 }}
               >
-                <span className="text-gray-400">Tiempo de análisis:</span>
-                <span className="text-green-400">12 segundos</span>
+                <div className="text-sm font-medium text-orange-400">Análisis de Contratos</div>
+                <div className="text-xs text-gray-400">Revisión Legal Automatizada</div>
+              </motion.div>
+
+              <motion.div 
+                className="space-y-2"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+              >
+                <div className="bg-slate-700/50 rounded p-2">
+                  <div className="flex justify-between items-center">
+                    <span className="text-xs text-gray-400">Contratos analizados</span>
+                    <span className="text-green-400 font-semibold">89</span>
+                  </div>
+                </div>
+                <div className="bg-slate-700/50 rounded p-2">
+                  <div className="flex justify-between items-center">
+                    <span className="text-xs text-gray-400">Riesgos identificados</span>
+                    <span className="text-red-400 font-semibold">7</span>
+                  </div>
+                </div>
+                <div className="bg-slate-700/50 rounded p-2">
+                  <div className="flex justify-between items-center">
+                    <span className="text-xs text-gray-400">Tiempo de revisión</span>
+                    <span className="text-blue-400 font-semibold">2.3 min</span>
+                  </div>
+                </div>
               </motion.div>
             </div>
           </motion.div>
@@ -367,62 +259,40 @@ const ServicesSection = () => {
   };
 
   return (
-    <section id="services" className="py-20 gradient-bg relative overflow-hidden">
-      {/* Floating decorative elements */}
-      <motion.div 
-        className="absolute top-10 right-10 w-40 h-40 bg-gradient-to-r from-purple-500/10 to-blue-500/10 rounded-full blur-3xl"
-        animate={{ 
-          scale: [1, 1.2, 1],
-          opacity: [0.3, 0.6, 0.3]
-        }}
-        transition={{ 
-          duration: 6,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-      />
-
+    <section id="services" className="py-20 bg-slate-900 relative overflow-hidden">
       <div className="container mx-auto px-4" ref={ref}>
         <motion.h2 
-          className="text-fluid-4xl font-bold mb-16 text-center gradient-text text-shadow-glow"
+          className="text-4xl md:text-5xl font-bold mb-16 text-center text-white"
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ duration: 0.8 }}
         >
-          ¿Que hacemos?
+          ¿Qué hacemos?
         </motion.h2>
 
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto"
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
           {services.map((service, index) => (
             <motion.div key={index} variants={cardVariants}>
-              <Card className="glass-strong text-white hover-glow hover-float group h-full interactive shadow-elevation-2">
+              <Card className="bg-slate-800/50 border-slate-700 text-white hover:bg-slate-800/70 transition-all duration-300 h-full">
                 <CardHeader>
-                  <CardTitle className="text-white text-xl font-semibold mb-4 group-hover:gradient-text transition-all duration-300">
-                    {service.title}
+                  <CardTitle className="text-white text-xl leading-tight">
+                    {service.title}<br />{service.subtitle}
                   </CardTitle>
                 </CardHeader>
+                
                 <CardContent className="space-y-6">
-                  <motion.p 
-                    className="text-gray-300 leading-relaxed"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.2 }}
-                  >
+                  <p className="text-gray-300 leading-relaxed text-sm">
                     {service.description}
-                  </motion.p>
+                  </p>
 
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.4 }}
-                  >
+                  <div>
                     {renderDemo(service.demo)}
-                  </motion.div>
+                  </div>
                 </CardContent>
               </Card>
             </motion.div>

@@ -1,20 +1,51 @@
 "use client";
 
-import { motion, useInView, useMotionValue, useTransform, animate } from "framer-motion";
-import { useRef, useEffect, useState } from "react";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 
 const BenefitsSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
+  const benefits = [
+    {
+      icon: "⚡",
+      title: "Reducción de tiempo",
+      value: "80%",
+      description: "Automatización de procesos repetitivos",
+      color: "from-blue-500 to-purple-500"
+    },
+    {
+      icon: "💰",
+      title: "Ahorro en costos",
+      value: "60%",
+      description: "Optimización de recursos operativos",
+      color: "from-purple-500 to-pink-500"
+    },
+    {
+      icon: "📈",
+      title: "Incremento en productividad",
+      value: "150%",
+      description: "Mejora en eficiencia de equipos",
+      color: "from-pink-500 to-red-500"
+    },
+    {
+      icon: "🎯",
+      title: "Precisión en resultados",
+      value: "95%",
+      description: "Análisis y decisiones basadas en datos",
+      color: "from-red-500 to-orange-500"
+    }
+  ];
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.3,
-        delayChildren: 0.2,
+        staggerChildren: 0.2,
+        delayChildren: 0.3,
       },
     },
   };
@@ -22,127 +53,28 @@ const BenefitsSection = () => {
   const cardVariants = {
     hidden: { 
       opacity: 0, 
-      y: 80,
-      scale: 0.8,
-      rotateX: -30
+      y: 50,
+      scale: 0.8
     },
     visible: {
       opacity: 1,
       y: 0,
       scale: 1,
-      rotateX: 0,
       transition: {
-        duration: 0.8,
+        duration: 0.6,
         ease: [0.25, 0.46, 0.45, 0.94],
       },
     },
   };
 
-  // Count animation hook
-  const useCountAnimation = (endValue: number, suffix: string = "", delay: number = 0) => {
-    const [displayValue, setDisplayValue] = useState("0");
-    const count = useMotionValue(0);
-    const rounded = useTransform(count, latest => {
-      if (suffix === "%" || suffix === "+") {
-        return Math.round(latest) + suffix;
-      } else if (suffix === "h") {
-        return Math.round(latest) + " h";
-      } else if (suffix === "k (usd)") {
-        return Math.round(latest) + "k (usd)";
-      }
-      return Math.round(latest) + suffix;
-    });
-
-    useEffect(() => {
-      if (isInView) {
-        const controls = animate(count, endValue, {
-          duration: 2,
-          delay: delay,
-          ease: "easeOut",
-        });
-        
-        const unsubscribe = rounded.onChange(setDisplayValue);
-        
-        return () => {
-          controls.stop();
-          unsubscribe();
-        };
-      }
-    }, [isInView, count, endValue, delay, rounded]);
-
-    return displayValue;
-  };
-
-  const benefits = [
-    {
-      title: "Soluciones entregadas",
-      value: useCountAnimation(27, "+", 0.5),
-      description: "Casos de uso exitosos implementados con resultados excepcionales",
-      icon: "🚀",
-      color: "from-blue-500 to-cyan-500"
-    },
-    {
-      title: "Usuarios satisfechos",
-      value: useCountAnimation(100, "%", 0.7),
-      description: "Satisfacción garantizada para todos nuestros clientes",
-      icon: "⭐",
-      color: "from-green-500 to-emerald-500"
-    },
-    {
-      title: "Horas operativas ahorradas por mes",
-      value: useCountAnimation(300, "h", 0.9),
-      description: "Nuestras soluciones ahorran a nuestros clientes un promedio de 300 horas de trabajo mensuales",
-      icon: "⏰",
-      color: "from-purple-500 to-violet-500"
-    },
-    {
-      title: "Costos ahorrados por mes",
-      value: useCountAnimation(45, "k (usd)", 1.1),
-      description: "Nuestras soluciones generan ahorros promedio de $45,000 usd mensuales para nuestros clientes",
-      icon: "💰",
-      color: "from-orange-500 to-red-500"
-    }
-  ];
-
   return (
-    <section id="statistics" className="py-20 gradient-bg relative overflow-hidden">
-      {/* Floating background elements */}
-      <motion.div 
-        className="absolute top-20 left-20 w-60 h-60 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-full blur-3xl"
-        animate={{ 
-          scale: [1, 1.3, 1],
-          opacity: [0.2, 0.5, 0.2],
-          x: [0, 50, 0],
-          y: [0, -30, 0]
-        }}
-        transition={{ 
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-      />
-      
-      <motion.div 
-        className="absolute bottom-20 right-20 w-80 h-80 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-full blur-3xl"
-        animate={{ 
-          scale: [1.2, 1, 1.2],
-          opacity: [0.3, 0.6, 0.3],
-          x: [0, -70, 0],
-          y: [0, 40, 0]
-        }}
-        transition={{ 
-          duration: 10,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-      />
-
+    <section id="statistics" className="py-20 bg-slate-900 relative overflow-hidden">
       <div className="container mx-auto px-4" ref={ref}>
         <motion.h2 
-          className="text-fluid-4xl font-bold mb-16 text-center gradient-text text-shadow-glow"
-          initial={{ opacity: 0, y: 50, scale: 0.8 }}
-          animate={isInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 50, scale: 0.8 }}
-          transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
+          className="text-4xl md:text-5xl font-bold mb-16 text-center text-white"
+          initial={{ opacity: 0, y: 50 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+          transition={{ duration: 0.8 }}
         >
           Beneficios
         </motion.h2>
@@ -155,100 +87,27 @@ const BenefitsSection = () => {
         >
           {benefits.map((benefit, index) => (
             <motion.div key={index} variants={cardVariants}>
-              <Card className="glass-strong text-white text-center hover-glow hover-float group h-full interactive shadow-elevation-3 relative overflow-hidden">
-                {/* Animated background gradient */}
-                <motion.div 
-                  className={`absolute inset-0 bg-gradient-to-br ${benefit.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}
-                  initial={{ scale: 0, rotate: 180 }}
-                  whileHover={{ scale: 1.5, rotate: 0 }}
-                  transition={{ duration: 0.6 }}
-                />
-                
-                <CardContent className="pt-8 pb-8 relative z-10">
-                  {/* Icon with float animation */}
-                  <motion.div 
-                    className="text-4xl mb-4"
-                    animate={{ 
-                      y: [0, -10, 0],
-                      rotate: [0, 5, -5, 0]
-                    }}
-                    transition={{ 
-                      duration: 4,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                      delay: index * 0.2
-                    }}
-                  >
+              <Card className="bg-slate-800/50 border-slate-700 text-white text-center hover:bg-slate-800/70 transition-all duration-300 h-full">
+                <CardContent className="pt-8 pb-8">
+                  <div className="text-4xl mb-4">
                     {benefit.icon}
-                  </motion.div>
+                  </div>
 
                   <h3 className="text-lg text-gray-300 mb-6 font-medium leading-tight">
                     {benefit.title}
                   </h3>
                   
-                  {/* Animated counter */}
-                  <motion.div 
-                    className="text-6xl md:text-7xl font-bold mb-6 gradient-text-fast text-shadow-glow"
-                    whileHover={{ 
-                      scale: 1.1,
-                      textShadow: "0 0 30px rgba(99, 152, 229, 0.8)"
-                    }}
-                  >
+                  <div className="text-6xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
                     {benefit.value}
-                  </motion.div>
+                  </div>
                   
-                  <motion.p 
-                    className="text-sm text-gray-400 leading-relaxed"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.5 + index * 0.1 }}
-                  >
+                  <p className="text-sm text-gray-400 leading-relaxed">
                     {benefit.description}
-                  </motion.p>
-
-                  {/* Pulse effect on hover */}
-                  <motion.div
-                    className="absolute inset-0 rounded-lg border-2 border-transparent"
-                    whileHover={{
-                      borderColor: "rgba(99, 152, 229, 0.5)",
-                      scale: 1.02,
-                    }}
-                    transition={{ duration: 0.3 }}
-                  />
+                  </p>
                 </CardContent>
               </Card>
             </motion.div>
           ))}
-        </motion.div>
-
-        {/* Animated bottom decoration */}
-        <motion.div 
-          className="flex justify-center mt-16"
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ delay: 2, duration: 0.8 }}
-        >
-          <motion.div 
-            className="flex space-x-2"
-            animate={{ scale: [1, 1.05, 1] }}
-            transition={{ duration: 3, repeat: Infinity }}
-          >
-            {[...Array(5)].map((_, i) => (
-              <motion.div
-                key={i}
-                className="w-3 h-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"
-                animate={{ 
-                  scale: [1, 1.2, 1],
-                  opacity: [0.5, 1, 0.5]
-                }}
-                transition={{ 
-                  duration: 2,
-                  repeat: Infinity,
-                  delay: i * 0.2
-                }}
-              />
-            ))}
-          </motion.div>
         </motion.div>
       </div>
     </section>
