@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { 
   Mail, 
   Phone, 
@@ -14,9 +15,13 @@ import {
   User,
   Building,
   MessageSquare,
-  Zap,
   Award,
-  Users
+  Users,
+  Linkedin,
+  Twitter,
+  Github,
+  ArrowUp,
+  ChevronRight
 } from "lucide-react";
 
 const ContactSection = () => {
@@ -31,6 +36,7 @@ const ContactSection = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const currentYear = new Date().getFullYear();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -48,6 +54,10 @@ const ContactSection = () => {
       ...formData,
       [e.target.name]: e.target.value
     });
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const contactMethods = [
@@ -84,10 +94,11 @@ const ContactSection = () => {
     { icon: Award, text: "Expertos certificados" }
   ];
 
-  const processSteps = [
-    { step: "1", title: "Consulta inicial", description: "Análisis gratuito de 30 min" },
-    { step: "2", title: "Propuesta técnica", description: "Plan detallado en 48 horas" },
-    { step: "3", title: "Implementación", description: "Desarrollo y despliegue" }
+  const stats = [
+    { number: "50+", label: "Proyectos Completados", icon: Award },
+    { number: "98%", label: "Satisfacción Cliente", icon: Users },
+    { number: "24/7", label: "Soporte Técnico", icon: Shield },
+    { number: "3+", label: "Años Experiencia", icon: Award }
   ];
 
   const containerVariants = {
@@ -170,7 +181,7 @@ const ContactSection = () => {
   }
 
   return (
-    <section id="contact" className="py-20 bg-slate-800 relative overflow-hidden">
+    <section id="contact" className="relative bg-slate-800 overflow-hidden">
       {/* Subtle background */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-transparent to-purple-500/10" />
@@ -184,265 +195,475 @@ const ContactSection = () => {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
         >
-          {/* Header */}
+          {/* Contact Form Section */}
+          <div className="py-20">
+            {/* Header */}
+            <motion.div 
+              className="text-center mb-16"
+              variants={itemVariants}
+            >
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+                Comencemos tu Proyecto de AI
+              </h2>
+              <p className="text-xl text-white/70 max-w-3xl mx-auto">
+                Agenda una consulta gratuita y descubre cómo la inteligencia artificial puede transformar tu negocio
+              </p>
+            </motion.div>
+
+            <div className="grid lg:grid-cols-12 gap-12">
+              
+              {/* Left Column - Contact Methods & Info */}
+              <div className="lg:col-span-5 space-y-8">
+                
+                {/* Contact Methods */}
+                <motion.div variants={itemVariants}>
+                  <h3 className="text-2xl font-bold text-white mb-6">Múltiples formas de contacto</h3>
+                  <div className="space-y-4">
+                    {contactMethods.map((method, index) => (
+                      <motion.a
+                        key={method.title}
+                        href={method.action}
+                        className="group block p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl hover:bg-white/10 transition-all duration-300"
+                        whileHover={{ scale: 1.02, y: -2 }}
+                        whileTap={{ scale: 0.98 }}
+                      >
+                        <div className="flex items-center space-x-4">
+                          <div className={`p-3 bg-gradient-to-r ${method.color} rounded-lg group-hover:scale-110 transition-transform`}>
+                            <method.icon size={24} className="text-white" />
+                          </div>
+                          <div className="flex-1">
+                            <h4 className="text-lg font-semibold text-white group-hover:text-blue-400 transition-colors">
+                              {method.title}
+                            </h4>
+                            <p className="text-white/60 text-sm">{method.description}</p>
+                            <p className="text-white/80 font-medium">{method.value}</p>
+                          </div>
+                          <ArrowRight size={20} className="text-white/40 group-hover:text-white/80 group-hover:translate-x-1 transition-all" />
+                        </div>
+                      </motion.a>
+                    ))}
+                  </div>
+                </motion.div>
+
+                {/* Trust Indicators */}
+                <motion.div variants={itemVariants}>
+                  <h3 className="text-xl font-semibold text-white mb-4">¿Por qué elegirnos?</h3>
+                  <div className="grid grid-cols-2 gap-4">
+                    {trustIndicators.map((indicator, index) => (
+                      <motion.div
+                        key={indicator.text}
+                        className="flex items-center space-x-3 p-4 bg-white/5 rounded-lg"
+                        whileHover={{ scale: 1.05 }}
+                      >
+                        <indicator.icon size={18} className="text-blue-400" />
+                        <span className="text-white/80 text-sm font-medium">{indicator.text}</span>
+                      </motion.div>
+                    ))}
+                  </div>
+                </motion.div>
+
+                {/* Office Info */}
+                <motion.div 
+                  className="p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl"
+                  variants={itemVariants}
+                >
+                  <h3 className="text-lg font-semibold text-white mb-4 flex items-center">
+                    <MapPin size={20} className="mr-2 text-blue-400" />
+                    Nuestra oficina
+                  </h3>
+                  <div className="text-white/80 space-y-1">
+                    <p>Frida Kahlo 303, Valle Oriente</p>
+                    <p>San Pedro Garza García, México</p>
+                    <p className="text-white/60 text-sm mt-3">
+                      Lunes a Viernes: 9:00 AM - 6:00 PM (CST)
+                    </p>
+                  </div>
+                </motion.div>
+              </div>
+
+              {/* Right Column - Contact Form */}
+              <div className="lg:col-span-7">
+                <motion.div 
+                  className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8"
+                  variants={itemVariants}
+                >
+                  <div className="mb-8">
+                    <h3 className="text-2xl font-bold text-white mb-2">
+                      Cuéntanos sobre tu proyecto
+                    </h3>
+                    <p className="text-white/70">
+                      Completa el formulario y te contactaremos en las próximas 2 horas
+                    </p>
+                  </div>
+
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div>
+                        <label className="block text-white/80 text-sm font-medium mb-2">
+                          Nombre completo *
+                        </label>
+                        <div className="relative">
+                          <User size={18} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white/40" />
+                          <input
+                            type="text"
+                            name="name"
+                            required
+                            value={formData.name}
+                            onChange={handleInputChange}
+                            className="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-blue-400 focus:bg-white/10 transition-all duration-300"
+                            placeholder="Tu nombre"
+                          />
+                        </div>
+                      </div>
+
+                      <div>
+                        <label className="block text-white/80 text-sm font-medium mb-2">
+                          Email corporativo *
+                        </label>
+                        <div className="relative">
+                          <Mail size={18} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white/40" />
+                          <input
+                            type="email"
+                            name="email"
+                            required
+                            value={formData.email}
+                            onChange={handleInputChange}
+                            className="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-blue-400 focus:bg-white/10 transition-all duration-300"
+                            placeholder="tu@empresa.com"
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div>
+                        <label className="block text-white/80 text-sm font-medium mb-2">
+                          Empresa *
+                        </label>
+                        <div className="relative">
+                          <Building size={18} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white/40" />
+                          <input
+                            type="text"
+                            name="company"
+                            required
+                            value={formData.company}
+                            onChange={handleInputChange}
+                            className="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-blue-400 focus:bg-white/10 transition-all duration-300"
+                            placeholder="Nombre de tu empresa"
+                          />
+                        </div>
+                      </div>
+
+                      <div>
+                        <label className="block text-white/80 text-sm font-medium mb-2">
+                          Tipo de proyecto
+                        </label>
+                        <select
+                          name="projectType"
+                          value={formData.projectType}
+                          onChange={handleInputChange}
+                          className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-blue-400 focus:bg-white/10 transition-all duration-300"
+                        >
+                          <option value="">Selecciona una opción</option>
+                          <option value="automation">Automatización de procesos</option>
+                          <option value="chatbot">Agente de atención al cliente</option>
+                          <option value="analytics">Análisis de datos con AI</option>
+                          <option value="custom">Solución personalizada</option>
+                          <option value="consultation">Consultoría general</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div>
+                      <label className="block text-white/80 text-sm font-medium mb-2">
+                        Presupuesto estimado
+                      </label>
+                      <select
+                        name="budget"
+                        value={formData.budget}
+                        onChange={handleInputChange}
+                        className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-blue-400 focus:bg-white/10 transition-all duration-300"
+                      >
+                        <option value="">Selecciona un rango</option>
+                        <option value="50k-100k">$50K - $100K USD</option>
+                        <option value="100k-250k">$100K - $250K USD</option>
+                        <option value="250k-500k">$250K - $500K USD</option>
+                        <option value="500k+">$500K+ USD</option>
+                        <option value="discuss">Prefiero discutirlo</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block text-white/80 text-sm font-medium mb-2">
+                        Cuéntanos sobre tu proyecto *
+                      </label>
+                      <div className="relative">
+                        <MessageSquare size={18} className="absolute left-3 top-3 text-white/40" />
+                        <textarea
+                          name="message"
+                          required
+                          rows={4}
+                          value={formData.message}
+                          onChange={handleInputChange}
+                          className="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-blue-400 focus:bg-white/10 transition-all duration-300 resize-none"
+                          placeholder="Describe tu proyecto, objetivos y cualquier requerimiento específico..."
+                        />
+                      </div>
+                    </div>
+
+                    <motion.button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="w-full py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl hover:shadow-blue-500/25 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
+                      whileHover={{ scale: isSubmitting ? 1 : 1.02, y: isSubmitting ? 0 : -2 }}
+                      whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                          <span>Enviando...</span>
+                        </>
+                      ) : (
+                        <>
+                          <span>Enviar solicitud</span>
+                          <ArrowRight size={20} />
+                        </>
+                      )}
+                    </motion.button>
+
+                    <p className="text-white/50 text-sm text-center">
+                      Al enviar este formulario, aceptas que nos pongamos en contacto contigo sobre tu proyecto.
+                      <br />
+                      Respetamos tu privacidad y nunca compartimos tu información.
+                    </p>
+                  </form>
+                </motion.div>
+              </div>
+            </div>
+          </div>
+
+          {/* Stats Section */}
           <motion.div 
-            className="text-center mb-16"
-            variants={itemVariants}
+            className="grid grid-cols-2 lg:grid-cols-4 gap-8 py-12 border-t border-slate-700/50"
+            variants={containerVariants}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Comencemos tu Proyecto de AI
-            </h2>
-            <p className="text-xl text-white/70 max-w-3xl mx-auto">
-              Agenda una consulta gratuita y descubre cómo la inteligencia artificial puede transformar tu negocio
-            </p>
+            {stats.map((stat, index) => (
+              <motion.div
+                key={stat.label}
+                className="text-center group"
+                variants={itemVariants}
+                whileHover={{ scale: 1.05 }}
+              >
+                <div className="flex justify-center mb-3">
+                  <div className="p-3 bg-slate-700/50 rounded-lg group-hover:bg-slate-600/50 transition-colors">
+                    <stat.icon size={24} className="text-blue-400" />
+                  </div>
+                </div>
+                <div className="text-2xl font-bold text-white mb-1">{stat.number}</div>
+                <div className="text-sm text-white/60">{stat.label}</div>
+              </motion.div>
+            ))}
           </motion.div>
 
-          <div className="grid lg:grid-cols-12 gap-12">
-            
-            {/* Left Column - Contact Methods & Info */}
-            <div className="lg:col-span-5 space-y-8">
+          {/* Footer Section */}
+          <div className="border-t border-slate-700/50 pt-12 pb-8">
+            <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 mb-12">
               
-              {/* Contact Methods */}
-              <motion.div variants={itemVariants}>
-                <h3 className="text-2xl font-bold text-white mb-6">Múltiples formas de contacto</h3>
-                <div className="space-y-4">
-                  {contactMethods.map((method, index) => (
+              {/* Company Section */}
+              <motion.div 
+                className="lg:col-span-1 space-y-6"
+                variants={itemVariants}
+              >
+                {/* Enhanced Logo */}
+                <div className="flex items-center space-x-3">
+                  <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center shadow-lg">
+                    <div className="w-5 h-5 bg-white rounded-sm opacity-90" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-white tracking-tight">
+                      coagente
+                    </h3>
+                    <p className="text-xs text-blue-400 font-medium tracking-wider uppercase opacity-80">
+                      AI Solutions
+                    </p>
+                  </div>
+                </div>
+
+                <p className="text-white/60 leading-relaxed text-sm max-w-sm">
+                  Desarrollamos soluciones de inteligencia artificial personalizadas para empresas que buscan transformar sus procesos y maximizar su productividad.
+                </p>
+
+                {/* Social Links */}
+                <div className="flex items-center space-x-4">
+                  {[
+                    { icon: Linkedin, href: "#", label: "LinkedIn" },
+                    { icon: Twitter, href: "#", label: "Twitter" },
+                    { icon: Github, href: "#", label: "GitHub" }
+                  ].map((social, index) => (
                     <motion.a
-                      key={method.title}
-                      href={method.action}
-                      className="group block p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl hover:bg-white/10 transition-all duration-300"
-                      whileHover={{ scale: 1.02, y: -2 }}
-                      whileTap={{ scale: 0.98 }}
+                      key={social.label}
+                      href={social.href}
+                      className="p-2 bg-slate-700/50 hover:bg-slate-600/50 rounded-lg transition-all duration-300 group"
+                      whileHover={{ scale: 1.1, y: -2 }}
+                      whileTap={{ scale: 0.95 }}
+                      aria-label={social.label}
                     >
-                      <div className="flex items-center space-x-4">
-                        <div className={`p-3 bg-gradient-to-r ${method.color} rounded-lg group-hover:scale-110 transition-transform`}>
-                          <method.icon size={24} className="text-white" />
-                        </div>
-                        <div className="flex-1">
-                          <h4 className="text-lg font-semibold text-white group-hover:text-blue-400 transition-colors">
-                            {method.title}
-                          </h4>
-                          <p className="text-white/60 text-sm">{method.description}</p>
-                          <p className="text-white/80 font-medium">{method.value}</p>
-                        </div>
-                        <ArrowRight size={20} className="text-white/40 group-hover:text-white/80 group-hover:translate-x-1 transition-all" />
-                      </div>
+                      <social.icon size={18} className="text-white/60 group-hover:text-white transition-colors" />
                     </motion.a>
                   ))}
                 </div>
               </motion.div>
 
-              {/* Trust Indicators */}
-              <motion.div variants={itemVariants}>
-                <h3 className="text-xl font-semibold text-white mb-4">¿Por qué elegirnos?</h3>
-                <div className="grid grid-cols-2 gap-4">
-                  {trustIndicators.map((indicator, index) => (
-                    <motion.div
-                      key={indicator.text}
-                      className="flex items-center space-x-3 p-4 bg-white/5 rounded-lg"
-                      whileHover={{ scale: 1.05 }}
-                    >
-                      <indicator.icon size={18} className="text-blue-400" />
-                      <span className="text-white/80 text-sm font-medium">{indicator.text}</span>
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
-
-              {/* Process Preview */}
-              <motion.div variants={itemVariants}>
-                <h3 className="text-xl font-semibold text-white mb-4">Nuestro proceso</h3>
-                <div className="space-y-4">
-                  {processSteps.map((step, index) => (
-                    <div key={step.step} className="flex items-start space-x-4">
-                      <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white text-sm font-semibold flex-shrink-0">
-                        {step.step}
-                      </div>
-                      <div>
-                        <h4 className="text-white font-semibold">{step.title}</h4>
-                        <p className="text-white/60 text-sm">{step.description}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-
-              {/* Office Info */}
+              {/* Services Section */}
               <motion.div 
-                className="p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl"
+                className="space-y-6"
                 variants={itemVariants}
               >
-                <h3 className="text-lg font-semibold text-white mb-4 flex items-center">
-                  <MapPin size={20} className="mr-2 text-blue-400" />
-                  Nuestra oficina
-                </h3>
-                <div className="text-white/80 space-y-1">
-                  <p>Frida Kahlo 303, Valle Oriente</p>
-                  <p>San Pedro Garza García, México</p>
-                  <p className="text-white/60 text-sm mt-3">
-                    Lunes a Viernes: 9:00 AM - 6:00 PM (CST)
-                  </p>
+                <h4 className="text-lg font-semibold text-white">Servicios</h4>
+                <nav className="space-y-3">
+                  {[
+                    { href: "/#services", text: "Agentes de IA" },
+                    { href: "/#services", text: "Análisis de Datos" },
+                    { href: "/#services", text: "Automatización" },
+                    { href: "/#services", text: "Consultoría AI" },
+                    { href: "/#process", text: "Implementación" }
+                  ].map((item, index) => (
+                    <motion.div
+                      key={item.text}
+                      whileHover={{ x: 4 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <Link 
+                        href={item.href}
+                        className="group flex items-center text-sm text-white/60 hover:text-white transition-colors duration-300"
+                      >
+                        <ChevronRight size={14} className="mr-2 text-white/40 group-hover:text-blue-400 transition-colors" />
+                        {item.text}
+                      </Link>
+                    </motion.div>
+                  ))}
+                </nav>
+              </motion.div>
+
+              {/* Company Info */}
+              <motion.div 
+                className="space-y-6"
+                variants={itemVariants}
+              >
+                <h4 className="text-lg font-semibold text-white">Empresa</h4>
+                <nav className="space-y-3">
+                  {[
+                    { href: "/#process", text: "Nuestro Proceso" },
+                    { href: "/#faq", text: "Preguntas Frecuentes" },
+                    { href: "/#contact", text: "Equipo" },
+                    { href: "/privacy", text: "Privacidad" },
+                    { href: "/terms", text: "Términos" }
+                  ].map((item, index) => (
+                    <motion.div
+                      key={item.text}
+                      whileHover={{ x: 4 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <Link 
+                        href={item.href}
+                        className="group flex items-center text-sm text-white/60 hover:text-white transition-colors duration-300"
+                      >
+                        <ChevronRight size={14} className="mr-2 text-white/40 group-hover:text-blue-400 transition-colors" />
+                        {item.text}
+                      </Link>
+                    </motion.div>
+                  ))}
+                </nav>
+              </motion.div>
+
+              {/* Quick Contact */}
+              <motion.div 
+                className="space-y-6"
+                variants={itemVariants}
+              >
+                <h4 className="text-lg font-semibold text-white">Contacto Rápido</h4>
+                
+                <div className="space-y-4">
+                  <motion.div 
+                    className="flex items-center space-x-3 text-sm text-white/60"
+                    whileHover={{ scale: 1.02 }}
+                  >
+                    <Mail size={16} className="text-blue-400" />
+                    <a href="mailto:info@coagente.com" className="hover:text-white transition-colors">
+                      info@coagente.com
+                    </a>
+                  </motion.div>
+                  
+                  <motion.div 
+                    className="flex items-center space-x-3 text-sm text-white/60"
+                    whileHover={{ scale: 1.02 }}
+                  >
+                    <Phone size={16} className="text-blue-400" />
+                    <a href="tel:+528112345678" className="hover:text-white transition-colors">
+                      +52 81 1234 5678
+                    </a>
+                  </motion.div>
                 </div>
+
+                {/* Quick CTA */}
+                <motion.div 
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <button 
+                    onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                    className="w-full py-3 px-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-sm font-semibold rounded-lg shadow-lg hover:shadow-xl hover:shadow-blue-500/25 transition-all duration-300 flex items-center justify-center space-x-2"
+                  >
+                    <span>Comenzar Proyecto</span>
+                    <ChevronRight size={16} />
+                  </button>
+                </motion.div>
               </motion.div>
             </div>
 
-            {/* Right Column - Contact Form */}
-            <div className="lg:col-span-7">
-              <motion.div 
-                className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8"
-                variants={itemVariants}
-              >
-                <div className="mb-8">
-                  <h3 className="text-2xl font-bold text-white mb-2">
-                    Cuéntanos sobre tu proyecto
-                  </h3>
-                  <p className="text-white/70">
-                    Completa el formulario y te contactaremos en las próximas 2 horas
-                  </p>
-                </div>
+            {/* Bottom Bar */}
+            <div className="border-t border-slate-700/50 pt-6">
+              <div className="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0">
+                
+                {/* Copyright */}
+                <motion.div 
+                  className="text-sm text-white/50"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ duration: 0.6 }}
+                >
+                  © {currentYear} Coagente. Todos los derechos reservados.
+                </motion.div>
 
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-white/80 text-sm font-medium mb-2">
-                        Nombre completo *
-                      </label>
-                      <div className="relative">
-                        <User size={18} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white/40" />
-                        <input
-                          type="text"
-                          name="name"
-                          required
-                          value={formData.name}
-                          onChange={handleInputChange}
-                          className="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-blue-400 focus:bg-white/10 transition-all duration-300"
-                          placeholder="Tu nombre"
-                        />
-                      </div>
-                    </div>
+                {/* Legal Links */}
+                <motion.div 
+                  className="flex items-center space-x-6 text-sm"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                >
+                  <Link href="/privacy" className="text-white/50 hover:text-white transition-colors">
+                    Política de Privacidad
+                  </Link>
+                  <Link href="/terms" className="text-white/50 hover:text-white transition-colors">
+                    Términos de Servicio
+                  </Link>
+                  <Link href="/cookies" className="text-white/50 hover:text-white transition-colors">
+                    Cookies
+                  </Link>
+                </motion.div>
 
-                    <div>
-                      <label className="block text-white/80 text-sm font-medium mb-2">
-                        Email corporativo *
-                      </label>
-                      <div className="relative">
-                        <Mail size={18} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white/40" />
-                        <input
-                          type="email"
-                          name="email"
-                          required
-                          value={formData.email}
-                          onChange={handleInputChange}
-                          className="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-blue-400 focus:bg-white/10 transition-all duration-300"
-                          placeholder="tu@empresa.com"
-                        />
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-white/80 text-sm font-medium mb-2">
-                        Empresa *
-                      </label>
-                      <div className="relative">
-                        <Building size={18} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white/40" />
-                        <input
-                          type="text"
-                          name="company"
-                          required
-                          value={formData.company}
-                          onChange={handleInputChange}
-                          className="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-blue-400 focus:bg-white/10 transition-all duration-300"
-                          placeholder="Nombre de tu empresa"
-                        />
-                      </div>
-                    </div>
-
-                    <div>
-                      <label className="block text-white/80 text-sm font-medium mb-2">
-                        Tipo de proyecto
-                      </label>
-                      <select
-                        name="projectType"
-                        value={formData.projectType}
-                        onChange={handleInputChange}
-                        className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-blue-400 focus:bg-white/10 transition-all duration-300"
-                      >
-                        <option value="">Selecciona una opción</option>
-                        <option value="automation">Automatización de procesos</option>
-                        <option value="chatbot">Agente de atención al cliente</option>
-                        <option value="analytics">Análisis de datos con AI</option>
-                        <option value="custom">Solución personalizada</option>
-                        <option value="consultation">Consultoría general</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-white/80 text-sm font-medium mb-2">
-                      Presupuesto estimado
-                    </label>
-                    <select
-                      name="budget"
-                      value={formData.budget}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-blue-400 focus:bg-white/10 transition-all duration-300"
-                    >
-                      <option value="">Selecciona un rango</option>
-                      <option value="50k-100k">$50K - $100K USD</option>
-                      <option value="100k-250k">$100K - $250K USD</option>
-                      <option value="250k-500k">$250K - $500K USD</option>
-                      <option value="500k+">$500K+ USD</option>
-                      <option value="discuss">Prefiero discutirlo</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className="block text-white/80 text-sm font-medium mb-2">
-                      Cuéntanos sobre tu proyecto *
-                    </label>
-                    <div className="relative">
-                      <MessageSquare size={18} className="absolute left-3 top-3 text-white/40" />
-                      <textarea
-                        name="message"
-                        required
-                        rows={4}
-                        value={formData.message}
-                        onChange={handleInputChange}
-                        className="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-blue-400 focus:bg-white/10 transition-all duration-300 resize-none"
-                        placeholder="Describe tu proyecto, objetivos y cualquier requerimiento específico..."
-                      />
-                    </div>
-                  </div>
-
-                  <motion.button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl hover:shadow-blue-500/25 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
-                    whileHover={{ scale: isSubmitting ? 1 : 1.02, y: isSubmitting ? 0 : -2 }}
-                    whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
-                  >
-                    {isSubmitting ? (
-                      <>
-                        <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                        <span>Enviando...</span>
-                      </>
-                    ) : (
-                      <>
-                        <span>Enviar solicitud</span>
-                        <ArrowRight size={20} />
-                      </>
-                    )}
-                  </motion.button>
-
-                  <p className="text-white/50 text-sm text-center">
-                    Al enviar este formulario, aceptas que nos pongamos en contacto contigo sobre tu proyecto.
-                    <br />
-                    Respetamos tu privacidad y nunca compartimos tu información.
-                  </p>
-                </form>
-              </motion.div>
+                {/* Back to Top */}
+                <motion.button
+                  onClick={scrollToTop}
+                  className="p-2 bg-slate-700/50 hover:bg-slate-600/50 rounded-lg transition-all duration-300 group"
+                  whileHover={{ scale: 1.1, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  aria-label="Volver arriba"
+                >
+                  <ArrowUp size={18} className="text-white/60 group-hover:text-white transition-colors" />
+                </motion.button>
+              </div>
             </div>
           </div>
         </motion.div>

@@ -5,7 +5,6 @@ import ProcessSection from "@/components/ProcessSection";
 import BenefitsSection from "@/components/BenefitsSection";
 import FAQSection from "@/components/FAQSection";
 import ContactSection from "@/components/ContactSection";
-import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -17,7 +16,6 @@ export default function Home() {
       <BenefitsSection />
       <FAQSection />
       <ContactSection />
-      <Footer />
     </main>
   );
 }
