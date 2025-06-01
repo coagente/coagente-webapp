@@ -210,84 +210,6 @@ const ContactSection = () => {
               </p>
             </motion.div>
 
-            {/* Team Section */}
-            <div id="team" className="py-20 border-t border-slate-700/50">
-              <motion.div 
-                className="text-center mb-16"
-                variants={itemVariants}
-              >
-                <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                  Nuestro Equipo
-                </h2>
-                <p className="text-xl text-white/70 max-w-3xl mx-auto">
-                  Expertos en inteligencia artificial comprometidos con transformar tu negocio
-                </p>
-              </motion.div>
-
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                {[
-                  {
-                    name: "Dr. Ana García",
-                    role: "CEO & AI Strategist",
-                    description: "15+ años en AI empresarial. PhD en Machine Learning por Stanford. Ex-Google AI.",
-                    image: "/api/placeholder/300/300"
-                  },
-                  {
-                    name: "Carlos Mendoza",
-                    role: "CTO & Lead Developer",
-                    description: "Arquitecto de soluciones AI. Ex-Microsoft Azure AI. Especialista en MLOps y escalabilidad.",
-                    image: "/api/placeholder/300/300"
-                  },
-                  {
-                    name: "María Rodriguez",
-                    role: "Head of Implementation",
-                    description: "Gestión de proyectos AI. MBA + Certificación PMP. 200+ implementaciones exitosas.",
-                    image: "/api/placeholder/300/300"
-                  }
-                ].map((member, index) => (
-                  <motion.div
-                    key={member.name}
-                    className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8 text-center hover:bg-white/10 transition-all duration-300"
-                    variants={itemVariants}
-                    whileHover={{ scale: 1.02, y: -4 }}
-                  >
-                    <div className="w-24 h-24 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full mx-auto mb-6 flex items-center justify-center">
-                      <Users size={32} className="text-white" />
-                    </div>
-                    <h3 className="text-xl font-bold text-white mb-2">{member.name}</h3>
-                    <p className="text-blue-400 font-semibold mb-4">{member.role}</p>
-                    <p className="text-white/70 text-sm leading-relaxed">{member.description}</p>
-                  </motion.div>
-                ))}
-              </div>
-
-              <motion.div 
-                className="text-center mt-16"
-                variants={itemVariants}
-              >
-                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8 max-w-4xl mx-auto">
-                  <h3 className="text-2xl font-bold text-white mb-4">
-                    ¿Quieres unirte a nuestro equipo?
-                  </h3>
-                  <p className="text-white/70 mb-6">
-                    Estamos siempre buscando talento excepcional en AI, desarrollo y consultoría empresarial.
-                  </p>
-                  <motion.div
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <a
-                      href="mailto:careers@coagente.com"
-                      className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl hover:shadow-blue-500/25 transition-all duration-300"
-                    >
-                      <span>Enviar CV</span>
-                      <ArrowRight size={20} className="ml-2" />
-                    </a>
-                  </motion.div>
-                </div>
-              </motion.div>
-            </div>
-
             <div className="grid lg:grid-cols-12 gap-12">
               
               {/* Left Column - Contact Methods & Info */}
@@ -604,7 +526,7 @@ const ContactSection = () => {
                     { href: "/#services", text: "Análisis de Datos" },
                     { href: "/#services", text: "Automatización" },
                     { href: "/#services", text: "Consultoría AI" },
-                    { href: "/#process", text: "Implementación" }
+                    { href: "/process", text: "Implementación" }
                   ].map((item, index) => (
                     <motion.div
                       key={item.text}
@@ -631,9 +553,9 @@ const ContactSection = () => {
                 <h4 className="text-lg font-semibold text-white">Empresa</h4>
                 <nav className="space-y-3">
                   {[
-                    { href: "/#process", text: "Nuestro Proceso" },
-                    { href: "/#faq", text: "Preguntas Frecuentes" },
-                    { href: "/#team", text: "Nuestro Equipo" },
+                    { href: "/process", text: "Nuestro Proceso" },
+                    { href: "/faq", text: "Preguntas Frecuentes" },
+                    { href: "/team", text: "Nuestro Equipo" },
                     { href: "/privacy", text: "Privacidad" },
                     { href: "/terms", text: "Términos" }
                   ].map((item, index) => (
