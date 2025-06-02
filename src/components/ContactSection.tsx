@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import emailjs from '@emailjs/browser';
 import { 
   Mail, 
   Phone, 
@@ -36,17 +37,61 @@ const ContactSection = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const currentYear = new Date().getFullYear();
+
+  // EmailJS configuration - Replace with your actual values
+  const EMAILJS_SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || 'service_coagente';
+  const EMAILJS_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || 'template_contact';
+  const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || 'your_public_key';
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitError(null);
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    try {
+      // Initialize EmailJS (only needs to be done once)
+      emailjs.init(EMAILJS_PUBLIC_KEY);
+
+      // Prepare template parameters
+      const templateParams = {
+        to_email: 'info@coagente.com',
+        from_name: formData.name,
+        from_email: formData.email,
+        company: formData.company,
+        project_type: formData.projectType || 'No especificado',
+        budget: formData.budget || 'No especificado',
+        message: formData.message,
+        reply_to: formData.email,
+      };
+
+      // Send email using EmailJS
+      const result = await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        templateParams
+      );
+
+      console.log('Email sent successfully:', result);
+      setSubmitted(true);
+      
+      // Reset form
+      setFormData({
+        name: "",
+        email: "",
+        company: "",
+        projectType: "",
+        message: "",
+        budget: ""
+      });
+
+    } catch (error) {
+      console.error('Error sending email:', error);
+      setSubmitError('Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo o contáctanos directamente a info@coagente.com');
+    }
     
     setIsSubmitting(false);
-    setSubmitted(true);
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -410,6 +455,17 @@ const ContactSection = () => {
                         />
                       </div>
                     </div>
+
+                    {/* Error Message */}
+                    {submitError && (
+                      <motion.div
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="p-4 bg-red-500/10 border border-red-500/20 rounded-lg"
+                      >
+                        <p className="text-red-400 text-sm">{submitError}</p>
+                      </motion.div>
+                    )}
 
                     <motion.button
                       type="submit"
