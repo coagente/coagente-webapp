@@ -62,18 +62,20 @@ const ContactSection = () => {
 
   const contactMethods = [
     {
-      icon: <Phone className="w-6 h-6" />,
+      icon: Phone,
       title: "Llámanos",
       content: "Disponibles de Lun-Vie 9:00-18:00",
       value: "+52 811 999 3390",
       action: "tel:+528119993390",
+      color: "from-blue-500 to-cyan-500"
     },
     {
-      icon: <Mail className="w-6 h-6" />,
+      icon: Mail,
       title: "Escríbenos",
       content: "Respuesta en menos de 24 hrs",
       value: "info@coagente.com",
       action: "mailto:info@coagente.com",
+      color: "from-green-500 to-emerald-500"
     },
     {
       icon: Calendar,
