@@ -4,21 +4,14 @@ FROM node:20-alpine
 # Establecer el directorio de trabajo
 WORKDIR /app
 
-# Copiar los archivos de configuración
-COPY package.json ./
-COPY tsconfig.json ./
-COPY next.config.ts ./
-COPY tailwind.config.ts ./
-COPY postcss.config.mjs ./
-COPY components.json ./
-COPY eslint.config.mjs ./
+# Copiar los archivos de configuración del paquete
+COPY package.json package-lock.json* ./
 
 # Instalar dependencias
-RUN npm install
+RUN npm ci
 
 # Copiar el resto de los archivos
-COPY src ./src
-COPY public ./public
+COPY . .
 
 # Construir la aplicación para producción
 RUN npm run build
