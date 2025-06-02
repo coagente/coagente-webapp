@@ -63,14 +63,14 @@ export default function TeamPage() {
             <h2 className="text-3xl font-bold text-white mb-12 text-center">Equipo Directivo</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               
-              {/* CEO */}
+              {/* CCO - Elisa Ramírez Urón */}
               <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8 hover:bg-white/10 transition-all duration-300">
                 <div className="text-center mb-6">
-                  <div className="w-32 h-32 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <Brain size={48} className="text-white" />
+                  <div className="w-32 h-32 bg-gradient-to-br from-pink-500 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                    <Users size={48} className="text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-1">Dr. Ana García</h3>
-                  <p className="text-blue-400 font-semibold mb-2">CEO & AI Strategist</p>
+                  <h3 className="text-xl font-bold text-white mb-1">Elisa Ramírez Urón</h3>
+                  <p className="text-pink-400 font-semibold mb-2">Directora Comercial (CCO)</p>
                   <div className="flex justify-center space-x-2 mb-4">
                     <Star size={16} className="text-yellow-400" />
                     <Star size={16} className="text-yellow-400" />
@@ -82,52 +82,52 @@ export default function TeamPage() {
                 
                 <div className="space-y-4 text-sm">
                   <p className="text-white/80 leading-relaxed">
-                    PhD en Machine Learning por Stanford University. 15+ años liderando transformaciones de AI en Fortune 500. 
-                    Ex-Google AI donde dirigió equipos de investigación en NLP y computer vision.
+                    Estratega de crecimiento con +10 años impulsando ventas y alianzas en Latinoamérica. Ha liderado equipos de hasta 25 personas, 
+                    gestionado cuentas enterprise y fundado negocios e-commerce rentables.
                   </p>
                   
                   <div className="space-y-2">
                     <div className="flex items-center space-x-2">
-                      <Award size={14} className="text-blue-400" />
-                      <span className="text-white/70">PhD Machine Learning - Stanford</span>
+                      <Award size={14} className="text-pink-400" />
+                      <span className="text-white/70">MBA Marketing - Universidad de Chile</span>
                     </div>
                     <div className="flex items-center space-x-2">
-                      <Globe size={14} className="text-blue-400" />
-                      <span className="text-white/70">Ex-Google AI Research Lead</span>
+                      <Globe size={14} className="text-pink-400" />
+                      <span className="text-white/70">Ex-Option Business Specialist</span>
                     </div>
                     <div className="flex items-center space-x-2">
-                      <Users size={14} className="text-blue-400" />
-                      <span className="text-white/70">50+ equipos liderados</span>
+                      <Users size={14} className="text-pink-400" />
+                      <span className="text-white/70">30% aumento en ventas</span>
                     </div>
                   </div>
 
                   <div className="pt-4 border-t border-white/10">
                     <h4 className="text-white font-semibold mb-2">Especialidades:</h4>
                     <div className="flex flex-wrap gap-2">
-                      <span className="px-2 py-1 bg-blue-500/20 text-blue-400 rounded text-xs">AI Strategy</span>
-                      <span className="px-2 py-1 bg-purple-500/20 text-purple-400 rounded text-xs">NLP</span>
-                      <span className="px-2 py-1 bg-green-500/20 text-green-400 rounded text-xs">Computer Vision</span>
+                      <span className="px-2 py-1 bg-pink-500/20 text-pink-400 rounded text-xs">Ventas Enterprise</span>
+                      <span className="px-2 py-1 bg-purple-500/20 text-purple-400 rounded text-xs">IA Generativa</span>
+                      <span className="px-2 py-1 bg-blue-500/20 text-blue-400 rounded text-xs">Transformación Digital</span>
                     </div>
                   </div>
 
                   <div className="flex space-x-3 pt-4">
-                    <a href="mailto:info@coagente.com" className="p-2 bg-blue-500/20 hover:bg-blue-500/30 rounded-lg transition-colors">
-                      <Mail size={16} className="text-blue-400" />
+                    <a href="mailto:info@coagente.com" className="p-2 bg-pink-500/20 hover:bg-pink-500/30 rounded-lg transition-colors">
+                      <Mail size={16} className="text-pink-400" />
                     </a>
-                    <a href="#" className="p-2 bg-blue-500/20 hover:bg-blue-500/30 rounded-lg transition-colors">
-                      <Linkedin size={16} className="text-blue-400" />
+                    <a href="#" className="p-2 bg-pink-500/20 hover:bg-pink-500/30 rounded-lg transition-colors">
+                      <Linkedin size={16} className="text-pink-400" />
                     </a>
                   </div>
                 </div>
               </div>
 
-              {/* CTO */}
+              {/* CTO - Alberto Acuña */}
               <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8 hover:bg-white/10 transition-all duration-300">
                 <div className="text-center mb-6">
-                  <div className="w-32 h-32 bg-gradient-to-br from-purple-500 to-pink-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                  <div className="w-32 h-32 bg-gradient-to-br from-purple-500 to-cyan-600 rounded-full mx-auto mb-4 flex items-center justify-center">
                     <Code size={48} className="text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-1">Carlos Mendoza</h3>
+                  <h3 className="text-xl font-bold text-white mb-1">Alberto Acuña</h3>
                   <p className="text-purple-400 font-semibold mb-2">CTO & Lead Developer</p>
                   <div className="flex justify-center space-x-2 mb-4">
                     <Star size={16} className="text-yellow-400" />
@@ -140,18 +140,18 @@ export default function TeamPage() {
                 
                 <div className="space-y-4 text-sm">
                   <p className="text-white/80 leading-relaxed">
-                    Arquitecto de soluciones AI con 12+ años de experiencia. Ex-Microsoft Azure AI donde lideró 
-                    el desarrollo de plataformas MLOps. Especialista en escalabilidad y arquitecturas cloud-native.
+                    Arquitecto de soluciones AI con 12+ años de experiencia. Especialista en escalabilidad y arquitecturas cloud-native, 
+                    con enfoque en sistemas de alta disponibilidad y MLOps.
                   </p>
                   
                   <div className="space-y-2">
                     <div className="flex items-center space-x-2">
                       <Award size={14} className="text-purple-400" />
-                      <span className="text-white/70">MS Computer Science - MIT</span>
+                      <span className="text-white/70">MS Computer Science</span>
                     </div>
                     <div className="flex items-center space-x-2">
                       <Globe size={14} className="text-purple-400" />
-                      <span className="text-white/70">Ex-Microsoft Azure AI</span>
+                      <span className="text-white/70">Cloud & AI Architecture Expert</span>
                     </div>
                     <div className="flex items-center space-x-2">
                       <Code size={14} className="text-purple-400" />
@@ -179,14 +179,14 @@ export default function TeamPage() {
                 </div>
               </div>
 
-              {/* Head of Implementation */}
+              {/* CGO - Eduardo Treviño */}
               <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8 hover:bg-white/10 transition-all duration-300">
                 <div className="text-center mb-6">
-                  <div className="w-32 h-32 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <Users size={48} className="text-white" />
+                  <div className="w-32 h-32 bg-gradient-to-br from-green-500 to-teal-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                    <Globe size={48} className="text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-1">María Rodriguez</h3>
-                  <p className="text-green-400 font-semibold mb-2">Head of Implementation</p>
+                  <h3 className="text-xl font-bold text-white mb-1">Eduardo Treviño</h3>
+                  <p className="text-green-400 font-semibold mb-2">Chief Growth Officer (CGO)</p>
                   <div className="flex justify-center space-x-2 mb-4">
                     <Star size={16} className="text-yellow-400" />
                     <Star size={16} className="text-yellow-400" />
@@ -198,31 +198,31 @@ export default function TeamPage() {
                 
                 <div className="space-y-4 text-sm">
                   <p className="text-white/80 leading-relaxed">
-                    Experta en gestión de proyectos AI con MBA y certificación PMP. 10+ años liderando implementaciones 
-                    complejas. 200+ proyectos exitosos con 98% de satisfacción del cliente.
+                    Experto en crecimiento empresarial con enfoque en expansión internacional y desarrollo de mercados. 
+                    Especialista en estrategias de penetración y alianzas estratégicas.
                   </p>
                   
                   <div className="space-y-2">
                     <div className="flex items-center space-x-2">
                       <Award size={14} className="text-green-400" />
-                      <span className="text-white/70">MBA + PMP Certified</span>
+                      <span className="text-white/70">Growth Strategy Expert</span>
                     </div>
                     <div className="flex items-center space-x-2">
                       <Globe size={14} className="text-green-400" />
-                      <span className="text-white/70">Ex-Accenture AI Lead</span>
+                      <span className="text-white/70">International Business Development</span>
                     </div>
                     <div className="flex items-center space-x-2">
                       <Users size={14} className="text-green-400" />
-                      <span className="text-white/70">200+ proyectos exitosos</span>
+                      <span className="text-white/70">Market Expansion Leader</span>
                     </div>
                   </div>
 
                   <div className="pt-4 border-t border-white/10">
                     <h4 className="text-white font-semibold mb-2">Especialidades:</h4>
                     <div className="flex flex-wrap gap-2">
-                      <span className="px-2 py-1 bg-green-500/20 text-green-400 rounded text-xs">Project Management</span>
-                      <span className="px-2 py-1 bg-blue-500/20 text-blue-400 rounded text-xs">Change Management</span>
-                      <span className="px-2 py-1 bg-purple-500/20 text-purple-400 rounded text-xs">Training</span>
+                      <span className="px-2 py-1 bg-green-500/20 text-green-400 rounded text-xs">Growth Strategy</span>
+                      <span className="px-2 py-1 bg-blue-500/20 text-blue-400 rounded text-xs">Market Development</span>
+                      <span className="px-2 py-1 bg-purple-500/20 text-purple-400 rounded text-xs">Strategic Partnerships</span>
                     </div>
                   </div>
 
