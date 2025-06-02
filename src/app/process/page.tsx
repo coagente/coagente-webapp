@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowLeft, Search, Code, Rocket, CheckCircle, Clock, Users, Target, BarChart, Shield } from "lucide-react";
+import { ArrowLeft, Settings, CheckCircle, Zap, BarChart, Users, Clock } from "lucide-react";
 
 export default function ProcessPage() {
   return (
@@ -27,321 +27,304 @@ export default function ProcessPage() {
           <div className="text-center mb-16">
             <div className="flex justify-center mb-6">
               <div className="p-4 bg-blue-500/20 rounded-xl">
-                <Target size={48} className="text-blue-400" />
+                <Settings size={48} className="text-blue-400" />
               </div>
             </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Nuestro Proceso de Implementación
+              Nuestro Proceso
             </h1>
             <p className="text-xl text-white/70 max-w-3xl mx-auto">
-              Una metodología probada que garantiza el éxito de tu proyecto de inteligencia artificial desde la concepción hasta la implementación completa.
+              Una metodología probada en más de 200 proyectos que garantiza resultados excepcionales y ROI positivo en tiempo récord.
             </p>
           </div>
 
           {/* Process Overview */}
-          <div className="bg-white/5 rounded-xl p-8 border border-white/10 mb-16">
-            <h2 className="text-2xl font-bold text-white mb-6 text-center">
-              Metodología Coagente: De la Idea al Impacto
-            </h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl font-bold text-white">30</span>
-                </div>
-                <h3 className="text-lg font-semibold text-white mb-2">Días Promedio</h3>
-                <p className="text-white/70 text-sm">Para proyectos de automatización</p>
-              </div>
-              <div className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl font-bold text-white">98%</span>
-                </div>
-                <h3 className="text-lg font-semibold text-white mb-2">Tasa de Éxito</h3>
-                <p className="text-white/70 text-sm">En implementaciones completadas</p>
-              </div>
-              <div className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl font-bold text-white">3x</span>
-                </div>
-                <h3 className="text-lg font-semibold text-white mb-2">ROI Promedio</h3>
-                <p className="text-white/70 text-sm">En el primer año</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Detailed Process Steps */}
-          <div className="space-y-16">
+          <div className="grid md:grid-cols-3 gap-8 mb-20">
             
-            {/* Phase 1 */}
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <div className="flex items-center space-x-4 mb-6">
-                  <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center">
-                    <Search size={24} className="text-white" />
-                  </div>
-                  <div>
-                    <span className="text-blue-400 font-semibold">Fase 1</span>
-                    <h2 className="text-3xl font-bold text-white">Análisis y Descubrimiento</h2>
-                  </div>
+            {/* Step 1: Evaluación */}
+            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8 relative">
+              <div className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-xl font-bold shadow-lg">
+                1
+              </div>
+              
+              <div className="flex items-center space-x-4 mb-6">
+                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
+                  <BarChart size={24} className="text-white" />
                 </div>
-                <p className="text-white/80 text-lg mb-6">
-                  Realizamos un análisis profundo de tu negocio para identificar las mejores oportunidades de implementación de AI.
-                </p>
-                <div className="space-y-4">
-                  <div className="flex items-start space-x-3">
-                    <CheckCircle size={20} className="text-green-400 mt-1 flex-shrink-0" />
-                    <div>
-                      <h4 className="text-white font-semibold">Auditoría de Procesos</h4>
-                      <p className="text-white/70 text-sm">Mapeo completo de workflows y identificación de cuellos de botella</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <CheckCircle size={20} className="text-green-400 mt-1 flex-shrink-0" />
-                    <div>
-                      <h4 className="text-white font-semibold">Análisis de Datos</h4>
-                      <p className="text-white/70 text-sm">Evaluación de calidad y disponibilidad de datos existentes</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <CheckCircle size={20} className="text-green-400 mt-1 flex-shrink-0" />
-                    <div>
-                      <h4 className="text-white font-semibold">Definición de Objetivos</h4>
-                      <p className="text-white/70 text-sm">Establecimiento de KPIs y métricas de éxito claras</p>
-                    </div>
-                  </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-white">Evaluación</h3>
+                  <p className="text-blue-400">de procesos</p>
                 </div>
               </div>
-              <div className="bg-white/5 rounded-xl p-8 border border-white/10">
-                <h3 className="text-xl font-bold text-white mb-4">Entregables Fase 1</h3>
-                <div className="space-y-3">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
-                    <span className="text-white/80">Reporte de análisis de procesos</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
-                    <span className="text-white/80">Matriz de oportunidades AI</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
-                    <span className="text-white/80">Roadmap de implementación</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
-                    <span className="text-white/80">Estimación de ROI</span>
-                  </div>
+
+              <p className="text-white/80 mb-6 leading-relaxed">
+                Analizamos profundamente tus procesos actuales para identificar oportunidades de mejora y automatización con mayor potencial de ROI.
+              </p>
+
+              <div className="space-y-4">
+                <div className="bg-slate-800/50 rounded-lg p-4">
+                  <h4 className="text-white font-semibold mb-3 flex items-center">
+                    <CheckCircle size={16} className="text-green-400 mr-2" />
+                    Análisis de Procesos Actuales
+                  </h4>
+                  <ul className="text-sm text-white/70 space-y-2">
+                    <li>• Mapeo completo de flujos de trabajo</li>
+                    <li>• Identificación de cuellos de botella</li>
+                    <li>• Medición de eficiencia actual</li>
+                    <li>• Evaluación de costos operativos</li>
+                  </ul>
                 </div>
-                <div className="mt-6 p-4 bg-blue-500/10 rounded-lg border border-blue-500/20">
-                  <div className="flex items-center space-x-2 mb-2">
-                    <Clock size={16} className="text-blue-400" />
-                    <span className="text-blue-400 font-semibold">Duración: 1-2 semanas</span>
-                  </div>
-                  <p className="text-white/70 text-sm">Incluye reuniones con stakeholders y análisis técnico</p>
+
+                <div className="bg-slate-800/50 rounded-lg p-4">
+                  <h4 className="text-white font-semibold mb-3 flex items-center">
+                    <Zap size={16} className="text-yellow-400 mr-2" />
+                    Oportunidades de AI
+                  </h4>
+                  <ul className="text-sm text-white/70 space-y-2">
+                    <li>• Automatización de tareas repetitivas</li>
+                    <li>• Optimización de toma de decisiones</li>
+                    <li>• Mejora de experiencia del cliente</li>
+                    <li>• Análisis predictivo de datos</li>
+                  </ul>
                 </div>
               </div>
             </div>
 
-            {/* Phase 2 */}
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="order-2 lg:order-1">
-                <div className="bg-white/5 rounded-xl p-8 border border-white/10">
-                  <h3 className="text-xl font-bold text-white mb-4">Entregables Fase 2</h3>
-                  <div className="space-y-3">
-                    <div className="flex items-center space-x-3">
-                      <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
-                      <span className="text-white/80">Arquitectura técnica detallada</span>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
-                      <span className="text-white/80">Prototipo funcional (MVP)</span>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
-                      <span className="text-white/80">Plan de integración</span>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
-                      <span className="text-white/80">Documentación técnica</span>
-                    </div>
-                  </div>
-                  <div className="mt-6 p-4 bg-purple-500/10 rounded-lg border border-purple-500/20">
-                    <div className="flex items-center space-x-2 mb-2">
-                      <Clock size={16} className="text-purple-400" />
-                      <span className="text-purple-400 font-semibold">Duración: 2-4 semanas</span>
-                    </div>
-                    <p className="text-white/70 text-sm">Desarrollo iterativo con feedback continuo</p>
-                  </div>
+            {/* Step 2: Desarrollo */}
+            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8 relative">
+              <div className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-xl font-bold shadow-lg">
+                2
+              </div>
+              
+              <div className="flex items-center space-x-4 mb-6">
+                <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
+                  <Settings size={24} className="text-white" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-white">Desarrollo</h3>
+                  <p className="text-purple-400">personalizado</p>
                 </div>
               </div>
-              <div className="order-1 lg:order-2">
-                <div className="flex items-center space-x-4 mb-6">
-                  <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
-                    <Code size={24} className="text-white" />
-                  </div>
-                  <div>
-                    <span className="text-purple-400 font-semibold">Fase 2</span>
-                    <h2 className="text-3xl font-bold text-white">Diseño y Desarrollo</h2>
-                  </div>
+
+              <p className="text-white/80 mb-6 leading-relaxed">
+                Creamos soluciones de AI específicamente diseñadas para tus necesidades, objetivos de negocio y infraestructura existente.
+              </p>
+
+              <div className="space-y-4">
+                <div className="bg-slate-800/50 rounded-lg p-4">
+                  <h4 className="text-white font-semibold mb-3 flex items-center">
+                    <CheckCircle size={16} className="text-green-400 mr-2" />
+                    Diseño de Arquitectura
+                  </h4>
+                  <ul className="text-sm text-white/70 space-y-2">
+                    <li>• Arquitectura escalable y segura</li>
+                    <li>• Integración con sistemas existentes</li>
+                    <li>• Selección de tecnologías óptimas</li>
+                    <li>• Planificación de infraestructura</li>
+                  </ul>
                 </div>
-                <p className="text-white/80 text-lg mb-6">
-                  Creamos la solución de AI personalizada utilizando las mejores prácticas y tecnologías de vanguardia.
-                </p>
-                <div className="space-y-4">
-                  <div className="flex items-start space-x-3">
-                    <CheckCircle size={20} className="text-green-400 mt-1 flex-shrink-0" />
-                    <div>
-                      <h4 className="text-white font-semibold">Arquitectura Escalable</h4>
-                      <p className="text-white/70 text-sm">Diseño modular que crece con tu negocio</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <CheckCircle size={20} className="text-green-400 mt-1 flex-shrink-0" />
-                    <div>
-                      <h4 className="text-white font-semibold">Desarrollo Ágil</h4>
-                      <p className="text-white/70 text-sm">Sprints de 2 semanas con demos regulares</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <CheckCircle size={20} className="text-green-400 mt-1 flex-shrink-0" />
-                    <div>
-                      <h4 className="text-white font-semibold">Seguridad Integrada</h4>
-                      <p className="text-white/70 text-sm">Cumplimiento SOC 2 y mejores prácticas de seguridad</p>
-                    </div>
-                  </div>
+
+                <div className="bg-slate-800/50 rounded-lg p-4">
+                  <h4 className="text-white font-semibold mb-3 flex items-center">
+                    <Zap size={16} className="text-yellow-400 mr-2" />
+                    Desarrollo Ágil
+                  </h4>
+                  <ul className="text-sm text-white/70 space-y-2">
+                    <li>• Sprints de 2 semanas con demos</li>
+                    <li>• Feedback continuo del cliente</li>
+                    <li>• Testing automatizado</li>
+                    <li>• Documentación completa</li>
+                  </ul>
                 </div>
               </div>
             </div>
 
-            {/* Phase 3 */}
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <div className="flex items-center space-x-4 mb-6">
-                  <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center">
-                    <Rocket size={24} className="text-white" />
-                  </div>
-                  <div>
-                    <span className="text-green-400 font-semibold">Fase 3</span>
-                    <h2 className="text-3xl font-bold text-white">Implementación y Lanzamiento</h2>
-                  </div>
+            {/* Step 3: Implementación */}
+            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8 relative">
+              <div className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center text-xl font-bold shadow-lg">
+                3
+              </div>
+              
+              <div className="flex items-center space-x-4 mb-6">
+                <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center">
+                  <Users size={24} className="text-white" />
                 </div>
-                <p className="text-white/80 text-lg mb-6">
-                  Desplegamos la solución en tu entorno de producción con monitoreo continuo y soporte completo.
-                </p>
-                <div className="space-y-4">
-                  <div className="flex items-start space-x-3">
-                    <CheckCircle size={20} className="text-green-400 mt-1 flex-shrink-0" />
-                    <div>
-                      <h4 className="text-white font-semibold">Despliegue Gradual</h4>
-                      <p className="text-white/70 text-sm">Implementación por fases para minimizar riesgos</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <CheckCircle size={20} className="text-green-400 mt-1 flex-shrink-0" />
-                    <div>
-                      <h4 className="text-white font-semibold">Capacitación del Equipo</h4>
-                      <p className="text-white/70 text-sm">Entrenamiento completo para usuarios y administradores</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <CheckCircle size={20} className="text-green-400 mt-1 flex-shrink-0" />
-                    <div>
-                      <h4 className="text-white font-semibold">Monitoreo 24/7</h4>
-                      <p className="text-white/70 text-sm">Supervisión continua del rendimiento y alertas automáticas</p>
-                    </div>
-                  </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-white">Implementación</h3>
+                  <p className="text-green-400">y monitoreo</p>
                 </div>
               </div>
-              <div className="bg-white/5 rounded-xl p-8 border border-white/10">
-                <h3 className="text-xl font-bold text-white mb-4">Entregables Fase 3</h3>
-                <div className="space-y-3">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                    <span className="text-white/80">Sistema en producción</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                    <span className="text-white/80">Manual de usuario completo</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                    <span className="text-white/80">Dashboard de monitoreo</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                    <span className="text-white/80">Plan de mantenimiento</span>
-                  </div>
+
+              <p className="text-white/80 mb-6 leading-relaxed">
+                Desplegamos la solución en producción y monitoreamos su rendimiento para garantizar resultados óptimos y mejora continua.
+              </p>
+
+              <div className="space-y-4">
+                <div className="bg-slate-800/50 rounded-lg p-4">
+                  <h4 className="text-white font-semibold mb-3 flex items-center">
+                    <CheckCircle size={16} className="text-green-400 mr-2" />
+                    Despliegue en Producción
+                  </h4>
+                  <ul className="text-sm text-white/70 space-y-2">
+                    <li>• Migración sin interrupciones</li>
+                    <li>• Capacitación del equipo</li>
+                    <li>• Configuración de monitoreo</li>
+                    <li>• Testing en ambiente real</li>
+                  </ul>
                 </div>
-                <div className="mt-6 p-4 bg-green-500/10 rounded-lg border border-green-500/20">
-                  <div className="flex items-center space-x-2 mb-2">
-                    <Clock size={16} className="text-green-400" />
-                    <span className="text-green-400 font-semibold">Duración: 1-2 semanas</span>
-                  </div>
-                  <p className="text-white/70 text-sm">Incluye 3 meses de soporte post-lanzamiento</p>
+
+                <div className="bg-slate-800/50 rounded-lg p-4">
+                  <h4 className="text-white font-semibold mb-3 flex items-center">
+                    <Clock size={16} className="text-blue-400 mr-2" />
+                    Soporte Continuo
+                  </h4>
+                  <ul className="text-sm text-white/70 space-y-2">
+                    <li>• Monitoreo 24/7</li>
+                    <li>• Optimizaciones automáticas</li>
+                    <li>• Reportes de rendimiento</li>
+                    <li>• Actualizaciones regulares</li>
+                  </ul>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Methodologies */}
-          <div className="mt-20 bg-white/5 rounded-xl p-8 border border-white/10">
-            <h2 className="text-2xl font-bold text-white mb-8 text-center">
-              Metodologías y Frameworks
-            </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-blue-500/20 rounded-xl flex items-center justify-center mx-auto mb-4">
-                  <Users size={32} className="text-blue-400" />
+          {/* Methodology Details */}
+          <div className="space-y-12 mb-20">
+            
+            {/* Timeline */}
+            <section className="bg-white/5 rounded-xl p-8 border border-white/10">
+              <h2 className="text-3xl font-bold text-white mb-8 text-center">Timeline Típico de Proyecto</h2>
+              
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span className="text-2xl font-bold text-blue-400">1-2</span>
+                  </div>
+                  <h3 className="text-lg font-semibold text-white mb-2">Semanas</h3>
+                  <p className="text-white/70 text-sm">Evaluación y análisis completo</p>
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-2">Agile/Scrum</h3>
-                <p className="text-white/70 text-sm">Desarrollo iterativo con feedback continuo</p>
-              </div>
-              <div className="text-center">
-                <div className="w-16 h-16 bg-purple-500/20 rounded-xl flex items-center justify-center mx-auto mb-4">
-                  <BarChart size={32} className="text-purple-400" />
+                
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span className="text-2xl font-bold text-purple-400">2-8</span>
+                  </div>
+                  <h3 className="text-lg font-semibold text-white mb-2">Semanas</h3>
+                  <p className="text-white/70 text-sm">Desarrollo y testing</p>
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-2">MLOps</h3>
-                <p className="text-white/70 text-sm">Operaciones de machine learning automatizadas</p>
-              </div>
-              <div className="text-center">
-                <div className="w-16 h-16 bg-green-500/20 rounded-xl flex items-center justify-center mx-auto mb-4">
-                  <Shield size={32} className="text-green-400" />
+                
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span className="text-2xl font-bold text-green-400">1-2</span>
+                  </div>
+                  <h3 className="text-lg font-semibold text-white mb-2">Semanas</h3>
+                  <p className="text-white/70 text-sm">Implementación y lanzamiento</p>
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-2">DevSecOps</h3>
-                <p className="text-white/70 text-sm">Seguridad integrada en todo el ciclo de vida</p>
-              </div>
-              <div className="text-center">
-                <div className="w-16 h-16 bg-cyan-500/20 rounded-xl flex items-center justify-center mx-auto mb-4">
-                  <Target size={32} className="text-cyan-400" />
+                
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-cyan-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span className="text-2xl font-bold text-cyan-400">∞</span>
+                  </div>
+                  <h3 className="text-lg font-semibold text-white mb-2">Continuo</h3>
+                  <p className="text-white/70 text-sm">Soporte y optimización</p>
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-2">Design Thinking</h3>
-                <p className="text-white/70 text-sm">Enfoque centrado en el usuario y la experiencia</p>
               </div>
-            </div>
+            </section>
+
+            {/* Success Metrics */}
+            <section className="bg-white/5 rounded-xl p-8 border border-white/10">
+              <h2 className="text-3xl font-bold text-white mb-8 text-center">Métricas de Éxito Garantizadas</h2>
+              
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="bg-slate-800/50 rounded-lg p-6 text-center">
+                  <div className="text-3xl font-bold text-green-400 mb-2">30-50%</div>
+                  <div className="text-white/70">Reducción de costos operativos</div>
+                </div>
+                
+                <div className="bg-slate-800/50 rounded-lg p-6 text-center">
+                  <div className="text-3xl font-bold text-blue-400 mb-2">40-60%</div>
+                  <div className="text-white/70">Aumento en productividad</div>
+                </div>
+                
+                <div className="bg-slate-800/50 rounded-lg p-6 text-center">
+                  <div className="text-3xl font-bold text-purple-400 mb-2">99.9%</div>
+                  <div className="text-white/70">Disponibilidad del sistema</div>
+                </div>
+                
+                <div className="bg-slate-800/50 rounded-lg p-6 text-center">
+                  <div className="text-3xl font-bold text-cyan-400 mb-2">3X</div>
+                  <div className="text-white/70">ROI en el primer año</div>
+                </div>
+              </div>
+            </section>
+
+            {/* Differentiators */}
+            <section className="bg-white/5 rounded-xl p-8 border border-white/10">
+              <h2 className="text-3xl font-bold text-white mb-8 text-center">Lo que nos hace únicos</h2>
+              
+              <div className="grid md:grid-cols-2 gap-8">
+                <div className="space-y-6">
+                  <div className="flex items-start space-x-4">
+                    <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <CheckCircle size={24} className="text-blue-400" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold text-white mb-2">Metodología Probada</h3>
+                      <p className="text-white/70">200+ proyectos exitosos con 98% de satisfacción del cliente.</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start space-x-4">
+                    <div className="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Zap size={24} className="text-purple-400" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold text-white mb-2">Implementación Rápida</h3>
+                      <p className="text-white/70">Resultados tangibles en 30-90 días, no meses o años.</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="space-y-6">
+                  <div className="flex items-start space-x-4">
+                    <div className="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Users size={24} className="text-green-400" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold text-white mb-2">Equipo Experto</h3>
+                      <p className="text-white/70">Ex-Google, Microsoft, Stanford. 15+ años de experiencia promedio.</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start space-x-4">
+                    <div className="w-12 h-12 bg-cyan-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <BarChart size={24} className="text-cyan-400" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold text-white mb-2">ROI Garantizado</h3>
+                      <p className="text-white/70">Si no ves ROI positivo en 6 meses, trabajamos gratis hasta lograrlo.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
           </div>
 
           {/* CTA Section */}
-          <div className="mt-20 text-center">
-            <div className="bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-xl p-8 border border-white/10">
-              <h2 className="text-2xl font-bold text-white mb-4">
-                ¿Listo para comenzar tu proyecto de AI?
-              </h2>
-              <p className="text-white/70 mb-8 max-w-2xl mx-auto">
-                Nuestro equipo de expertos está preparado para guiarte a través de cada fase del proceso y garantizar el éxito de tu implementación.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link 
-                  href="/#contact"
-                  className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl hover:shadow-blue-500/25 transition-all duration-300"
-                >
-                  Comenzar Proyecto
-                </Link>
-                <Link 
-                  href="/team"
-                  className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white/90 bg-white/5 border border-white/20 rounded-lg hover:bg-white/10 hover:border-white/30 transition-all duration-300 backdrop-blur-sm"
-                >
-                  Conocer al Equipo
-                </Link>
-              </div>
-            </div>
+          <div className="bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-xl p-8 border border-white/10 text-center">
+            <h2 className="text-2xl font-bold text-white mb-4">
+              ¿Listo para transformar tu negocio con AI?
+            </h2>
+            <p className="text-white/70 mb-8 max-w-2xl mx-auto">
+              Agenda una consulta gratuita de 30 minutos y descubre cómo nuestro proceso puede generar resultados extraordinarios en tu empresa.
+            </p>
+            <Link 
+              href="/#contact"
+              className="inline-flex items-center space-x-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300"
+            >
+              <span>Comenzar Ahora</span>
+              <ArrowLeft size={20} className="rotate-180" />
+            </Link>
           </div>
 
           {/* Back to Home */}
@@ -357,5 +340,7 @@ export default function ProcessPage() {
         </div>
       </div>
     </main>
+  );
+} 
   );
 } 
