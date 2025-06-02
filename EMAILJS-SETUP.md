@@ -14,7 +14,7 @@ Este documento explica cómo configurar EmailJS para que el formulario de contac
 2. Click en **"Add New Service"**
 3. Selecciona **"Gmail"** (recomendado para empresas)
 4. Sigue las instrucciones para conectar tu cuenta Gmail
-5. **Anota el Service ID** (ej: `service_abc123`)
+5. **Anota el Service ID** (ej: `service_op14y7a`)
 
 ### 3. Crear Template de Email
 1. Ve a **"Email Templates"**
@@ -59,9 +59,9 @@ Crea un archivo `.env.local` en la raíz del proyecto con:
 
 ```bash
 # EmailJS Configuration
-NEXT_PUBLIC_EMAILJS_SERVICE_ID=service_abc123
-NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=template_xyz789
-NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=abcdefg123456
+NEXT_PUBLIC_EMAILJS_SERVICE_ID=service_op14y7a
+NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=template_wmhhsin
+NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=Evbsb35ak4Bwhndib
 ```
 
 **⚠️ Importante:** Reemplaza los valores de ejemplo con tus valores reales.
