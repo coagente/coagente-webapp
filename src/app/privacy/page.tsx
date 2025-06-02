@@ -126,8 +126,8 @@ export default function PrivacyPage() {
                 </ul>
                 <p className="mt-4">
                   Para ejercer estos derechos, contáctanos en{" "}
-                  <a href="mailto:privacy@coagente.com" className="text-blue-400 hover:text-blue-300">
-                    privacy@coagente.com
+                  <a href="mailto:info@coagente.com" className="text-blue-400 hover:text-blue-300">
+                    info@coagente.com
                   </a>
                 </p>
               </div>
@@ -178,8 +178,8 @@ export default function PrivacyPage() {
                   tu información personal, contáctanos:
                 </p>
                 <div className="space-y-2">
-                  <p><strong>Email:</strong> <a href="mailto:privacy@coagente.com" className="text-blue-400 hover:text-blue-300">privacy@coagente.com</a></p>
-                  <p><strong>Teléfono:</strong> <a href="tel:+528112345678" className="text-blue-400 hover:text-blue-300">+52 81 1234 5678</a></p>
+                  <p><strong>Email:</strong> <a href="mailto:info@coagente.com" className="text-blue-400 hover:text-blue-300">info@coagente.com</a></p>
+                  <p><strong>Teléfono:</strong> <a href="tel:+528119993390" className="text-blue-400 hover:text-blue-300">+52 811 999 3390</a></p>
                   <p><strong>Dirección:</strong> Frida Kahlo 303, Valle Oriente, San Pedro Garza García, México</p>
                 </div>
               </div>

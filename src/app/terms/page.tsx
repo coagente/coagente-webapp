@@ -69,15 +69,20 @@ export default function TermsPage() {
               </div>
               <div className="space-y-4 text-white/80">
                 <p>
-                  Coagente proporciona servicios de consultoría e implementación de inteligencia artificial, incluyendo:
+                  Coagente.com es una empresa líder en consultoría e implementación de inteligencia artificial empresarial, que proporciona:
                 </p>
                 <ul className="list-disc list-inside space-y-2 ml-4">
-                  <li>Desarrollo de agentes de IA personalizados</li>
-                  <li>Automatización de procesos empresariales</li>
-                  <li>Análisis de datos con inteligencia artificial</li>
-                  <li>Consultoría estratégica en AI</li>
-                  <li>Implementación y soporte técnico</li>
+                  <li>Desarrollo e implementación de agentes de IA personalizados para automatización empresarial</li>
+                  <li>Consultoría estratégica en transformación digital con IA</li>
+                  <li>Análisis predictivo y procesamiento de datos con machine learning</li>
+                  <li>Integración de sistemas empresariales existentes con tecnologías de IA</li>
+                  <li>Capacitación y soporte técnico especializado 24/7</li>
+                  <li>Desarrollo de chatbots inteligentes y asistentes virtuales</li>
+                  <li>Optimización de procesos mediante automatización inteligente (RPA + IA)</li>
                 </ul>
+                <p className="mt-4 font-semibold">
+                  Todos nuestros servicios incluyen garantía de ROI positivo en 6 meses y cumplimiento con estándares internacionales de seguridad.
+                </p>
               </div>
             </section>
 
@@ -122,19 +127,30 @@ export default function TermsPage() {
 
             {/* Section 5 */}
             <section className="bg-white/5 rounded-xl p-8 border border-white/10">
-              <h2 className="text-2xl font-bold mb-6">Garantías y Limitaciones</h2>
+              <h2 className="text-2xl font-bold mb-6">Garantías y Compromisos de Calidad</h2>
               <div className="space-y-4 text-white/80">
                 <p>
-                  <strong>Garantías:</strong>
+                  <strong>Garantías de Rendimiento:</strong>
                 </p>
                 <ul className="list-disc list-inside space-y-2 ml-4">
-                  <li>Garantizamos ROI positivo en 6 meses o trabajamos sin costo adicional</li>
-                  <li>Cumplimiento con estándares de seguridad SOC 2 Type II</li>
-                  <li>Soporte técnico 24/7 durante el período acordado</li>
+                  <li>ROI positivo garantizado en 6 meses o continuamos trabajando sin costo adicional</li>
+                  <li>Reducción mínima del 30% en costos operativos en áreas automatizadas</li>
+                  <li>Tiempo de implementación no mayor a 90 días para proyectos estándar</li>
+                  <li>Disponibilidad del sistema del 99.9% (SLA garantizado)</li>
+                  <li>Soporte técnico con tiempo de respuesta máximo de 4 horas</li>
                 </ul>
                 <p className="mt-4">
-                  <strong>Limitaciones:</strong> Nuestra responsabilidad se limita al valor del contrato. 
-                  No somos responsables por daños indirectos, pérdida de beneficios o interrupciones del negocio.
+                  <strong>Estándares de Seguridad y Compliance:</strong>
+                </p>
+                <ul className="list-disc list-inside space-y-2 ml-4">
+                  <li>Cumplimiento con estándares SOC 2 Type II</li>
+                  <li>Certificación ISO 27001 en seguridad de la información</li>
+                  <li>Cumplimiento con GDPR y Ley Federal de Protección de Datos Personales de México</li>
+                  <li>Encriptación end-to-end de todos los datos del cliente</li>
+                </ul>
+                <p className="mt-4">
+                  <strong>Limitaciones de Responsabilidad:</strong> Nuestra responsabilidad total se limita al valor total del contrato firmado. 
+                  No asumimos responsabilidad por daños indirectos, pérdida de beneficios esperados, o interrupciones del negocio no relacionadas directamente con nuestros servicios.
                 </p>
               </div>
             </section>
@@ -160,17 +176,19 @@ export default function TermsPage() {
 
             {/* Section 7 */}
             <section className="bg-white/5 rounded-xl p-8 border border-white/10">
-              <h2 className="text-2xl font-bold mb-6">Pagos y Facturación</h2>
+              <h2 className="text-2xl font-bold mb-6">Términos Comerciales y Facturación</h2>
               <div className="space-y-4 text-white/80">
                 <p>
-                  <strong>Términos de Pago:</strong> Los pagos se realizan según el cronograma acordado en el contrato.
+                  <strong>Estructura de Pagos:</strong> Los proyectos se facturan según hitos específicos acordados, típicamente: 30% al inicio, 40% en entrega de prototipo, 30% en implementación completa.
                 </p>
                 <p>
-                  <strong>Métodos de Pago:</strong> Aceptamos transferencias bancarias, cheques corporativos y pagos ACH.
+                  <strong>Métodos de Pago Aceptados:</strong> Transferencias bancarias (preferido), cheques corporativos, pagos ACH, y tarjetas corporativas para montos menores a $10,000 USD.
                 </p>
                 <p>
-                  <strong>Pagos Atrasados:</strong> Los pagos atrasados pueden resultar en la suspensión temporal 
-                  de servicios hasta que se regularice la situación.
+                  <strong>Política de Pagos Atrasados:</strong> Los pagos vencidos generan un interés del 2% mensual. Después de 45 días de atraso, podemos suspender servicios hasta regularizar la situación.
+                </p>
+                <p>
+                  <strong>Moneda y Facturación:</strong> Todos los precios se expresan en USD o MXN según el contrato. La facturación se realiza mensualmente por servicios recurrentes.
                 </p>
               </div>
             </section>
@@ -218,9 +236,9 @@ export default function TermsPage() {
                   Para preguntas sobre estos términos de servicio o asuntos legales, contáctanos:
                 </p>
                 <div className="space-y-2">
-                  <p><strong>Email Legal:</strong> <a href="mailto:legal@coagente.com" className="text-blue-400 hover:text-blue-300">legal@coagente.com</a></p>
+                  <p><strong>Email Legal:</strong> <a href="mailto:info@coagente.com" className="text-blue-400 hover:text-blue-300">info@coagente.com</a></p>
                   <p><strong>Email General:</strong> <a href="mailto:info@coagente.com" className="text-blue-400 hover:text-blue-300">info@coagente.com</a></p>
-                  <p><strong>Teléfono:</strong> <a href="tel:+528112345678" className="text-blue-400 hover:text-blue-300">+52 81 1234 5678</a></p>
+                  <p><strong>Teléfono:</strong> <a href="tel:+528119993390" className="text-blue-400 hover:text-blue-300">+52 811 999 3390</a></p>
                   <p><strong>Dirección:</strong> Frida Kahlo 303, Valle Oriente, San Pedro Garza García, México</p>
                 </div>
               </div>

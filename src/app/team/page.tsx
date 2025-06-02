@@ -111,7 +111,7 @@ export default function TeamPage() {
                   </div>
 
                   <div className="flex space-x-3 pt-4">
-                    <a href="mailto:ana@coagente.com" className="p-2 bg-blue-500/20 hover:bg-blue-500/30 rounded-lg transition-colors">
+                    <a href="mailto:info@coagente.com" className="p-2 bg-blue-500/20 hover:bg-blue-500/30 rounded-lg transition-colors">
                       <Mail size={16} className="text-blue-400" />
                     </a>
                     <a href="#" className="p-2 bg-blue-500/20 hover:bg-blue-500/30 rounded-lg transition-colors">
@@ -169,7 +169,7 @@ export default function TeamPage() {
                   </div>
 
                   <div className="flex space-x-3 pt-4">
-                    <a href="mailto:carlos@coagente.com" className="p-2 bg-purple-500/20 hover:bg-purple-500/30 rounded-lg transition-colors">
+                    <a href="mailto:info@coagente.com" className="p-2 bg-purple-500/20 hover:bg-purple-500/30 rounded-lg transition-colors">
                       <Mail size={16} className="text-purple-400" />
                     </a>
                     <a href="#" className="p-2 bg-purple-500/20 hover:bg-purple-500/30 rounded-lg transition-colors">
@@ -227,7 +227,7 @@ export default function TeamPage() {
                   </div>
 
                   <div className="flex space-x-3 pt-4">
-                    <a href="mailto:maria@coagente.com" className="p-2 bg-green-500/20 hover:bg-green-500/30 rounded-lg transition-colors">
+                    <a href="mailto:info@coagente.com" className="p-2 bg-green-500/20 hover:bg-green-500/30 rounded-lg transition-colors">
                       <Mail size={16} className="text-green-400" />
                     </a>
                     <a href="#" className="p-2 bg-green-500/20 hover:bg-green-500/30 rounded-lg transition-colors">
@@ -302,14 +302,14 @@ export default function TeamPage() {
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
-                  href="mailto:careers@coagente.com"
+                  href="mailto:info@coagente.com"
                   className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl hover:shadow-blue-500/25 transition-all duration-300"
                 >
                   <Mail size={20} className="mr-2" />
                   Enviar CV
                 </a>
                 <a
-                  href="mailto:careers@coagente.com?subject=Agendar entrevista"
+                  href="mailto:info@coagente.com?subject=Agendar entrevista"
                   className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white/90 bg-white/5 border border-white/20 rounded-lg hover:bg-white/10 hover:border-white/30 transition-all duration-300 backdrop-blur-sm"
                 >
                   <Calendar size={20} className="mr-2" />

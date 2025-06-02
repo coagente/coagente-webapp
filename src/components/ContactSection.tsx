@@ -62,12 +62,18 @@ const ContactSection = () => {
 
   const contactMethods = [
     {
-      icon: Mail,
-      title: "Email Directo",
-      description: "Respuesta en 2 horas",
+      icon: <Phone className="w-6 h-6" />,
+      title: "Llámanos",
+      content: "Disponibles de Lun-Vie 9:00-18:00",
+      value: "+52 811 999 3390",
+      action: "tel:+528119993390",
+    },
+    {
+      icon: <Mail className="w-6 h-6" />,
+      title: "Escríbenos",
+      content: "Respuesta en menos de 24 hrs",
       value: "info@coagente.com",
       action: "mailto:info@coagente.com",
-      color: "from-blue-500 to-cyan-500"
     },
     {
       icon: Calendar,
@@ -77,14 +83,6 @@ const ContactSection = () => {
       action: "#",
       color: "from-purple-500 to-pink-500"
     },
-    {
-      icon: Phone,
-      title: "Llamada Directa",
-      description: "Lun-Vie 9AM-6PM",
-      value: "+52 81 1234 5678",
-      action: "tel:+528112345678",
-      color: "from-green-500 to-emerald-500"
-    }
   ];
 
   const trustIndicators = [
@@ -235,7 +233,7 @@ const ContactSection = () => {
                             <h4 className="text-lg font-semibold text-white group-hover:text-blue-400 transition-colors">
                               {method.title}
                             </h4>
-                            <p className="text-white/60 text-sm">{method.description}</p>
+                            <p className="text-white/60 text-sm">{method.content}</p>
                             <p className="text-white/80 font-medium">{method.value}</p>
                           </div>
                           <ArrowRight size={20} className="text-white/40 group-hover:text-white/80 group-hover:translate-x-1 transition-all" />
@@ -599,8 +597,8 @@ const ContactSection = () => {
                     whileHover={{ scale: 1.02 }}
                   >
                     <Phone size={16} className="text-blue-400" />
-                    <a href="tel:+528112345678" className="hover:text-white transition-colors">
-                      +52 81 1234 5678
+                    <a href="tel:+528119993390" className="hover:text-white transition-colors">
+                      +52 811 999 3390
                     </a>
                   </motion.div>
                 </div>
