@@ -3,6 +3,10 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_EMAILJS_SERVICE_ID: service_op14y7a
+        NEXT_PUBLIC_EMAILJS_TEMPLATE_ID: template_wmhhsin
+        NEXT_PUBLIC_EMAILJS_PUBLIC_KEY: Evbsb35ak4Bwhndib
     ports:
       - "3000:3000"
     volumes:
