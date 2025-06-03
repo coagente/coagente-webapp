@@ -50,12 +50,6 @@ const ContactSection = () => {
     setIsSubmitting(true);
     setSubmitError(null);
     
-    // Debug logging for environment variables
-    console.log('EmailJS Debug Info:');
-    console.log('Service ID:', EMAILJS_SERVICE_ID);
-    console.log('Template ID:', EMAILJS_TEMPLATE_ID);
-    console.log('Public Key:', EMAILJS_PUBLIC_KEY ? 'Set' : 'Not set');
-    
     try {
       // Initialize EmailJS (only needs to be done once)
       emailjs.init(EMAILJS_PUBLIC_KEY);
@@ -71,8 +65,6 @@ const ContactSection = () => {
         message: formData.message,
         reply_to: formData.email,
       };
-
-      console.log('Sending email with params:', templateParams);
 
       // Send email using EmailJS
       const result = await emailjs.send(
@@ -95,9 +87,7 @@ const ContactSection = () => {
       });
 
     } catch (error) {
-      console.error('Detailed error sending email:', error);
-      console.error('Error type:', typeof error);
-      console.error('Error message:', error instanceof Error ? error.message : 'Unknown error');
+      console.error('Error sending email:', error);
       setSubmitError('Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo o contáctanos directamente a info@coagente.com');
     }
     

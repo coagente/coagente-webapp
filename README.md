@@ -1,214 +1,185 @@
-# Coagente AI - Website Corporativo
+# 🚀 Coagente - AI Solutions Website
 
-![Coagente AI](https://img.shields.io/badge/Coagente-AI%20Solutions-blue?style=for-the-badge)
-![Next.js](https://img.shields.io/badge/Next.js-15.2.0-black?style=for-the-badge&logo=next.js)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=for-the-badge&logo=typescript)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-3.4.1-38B2AC?style=for-the-badge&logo=tailwind-css)
+Sitio web corporativo de Coagente, empresa especializada en soluciones de inteligencia artificial para empresas.
 
-## 🚀 Acerca del Proyecto
+## 🌐 **Sitio en Vivo**
+- **Producción:** https://coagente-webapp.fly.dev/
+- **Formulario de contacto:** https://coagente-webapp.fly.dev/#contact
+- **Equipo:** https://coagente-webapp.fly.dev/team
+- **FAQ:** https://coagente-webapp.fly.dev/faq
+- **Proceso:** https://coagente-webapp.fly.dev/process
 
-**Coagente AI** es una empresa especializada en el desarrollo de soluciones de inteligencia artificial personalizadas para compañías que buscan aumentar su productividad. Este repositorio contiene el sitio web corporativo oficial de Coagente, diseñado para mostrar nuestros servicios, procesos y capacidades en el desarrollo de soluciones AI.
+## 🛠️ **Stack Tecnológico**
 
-### 🎯 Objetivo
+- **Framework:** Next.js 15.3.3
+- **Styling:** Tailwind CSS
+- **Animations:** Framer Motion
+- **Icons:** Lucide React
+- **Email Service:** EmailJS
+- **Deployment:** Fly.io
+- **Container:** Docker
 
-Proporcionar una plataforma digital moderna y atractiva que permita a los clientes potenciales conocer nuestros servicios de AI, entender nuestro proceso de trabajo y contactarnos fácilmente para iniciar proyectos de transformación digital.
+## 📧 **Funcionalidades**
 
-## ✨ Características Principales
+✅ **Formulario de contacto funcional** - Envía emails a `info@coagente.com`  
+✅ **Páginas dinámicas** - Equipo, FAQ, Proceso, Términos, Privacidad  
+✅ **Responsive design** - Optimizado para móvil y desktop  
+✅ **SEO optimizado** - Meta tags y estructura semántica  
+✅ **Animaciones fluidas** - Experiencia de usuario premium  
 
-- **🎨 Diseño Moderno**: Interfaz elegante con animaciones fluidas y efectos visuales avanzados
-- **📱 Responsive Design**: Optimizado para todos los dispositivos (móvil, tablet, desktop)
-- **⚡ Performance Optimizada**: Carga rápida con Next.js 15 y optimizaciones avanzadas
-- **🎭 Animaciones Interactivas**: Efectos visuales con Framer Motion para una experiencia inmersiva
-- **🎯 UX/UI Centrado en Conversión**: Diseño enfocado en generar leads y contactos
-- **🔍 SEO Optimizado**: Estructura optimizada para motores de búsqueda
-- **♿ Accesibilidad**: Cumple con estándares de accesibilidad web
+## 🚀 **Deployment Rápido**
 
-## 🛠️ Stack Tecnológico
+### **Opción 1: Script Automático (Recomendado)**
+```bash
+./deploy.sh
+```
 
-### Frontend
-- **[Next.js 15.2.0](https://nextjs.org/)** - Framework React con App Router
-- **[TypeScript 5.0](https://www.typescriptlang.org/)** - Tipado estático para JavaScript
-- **[Tailwind CSS 3.4.1](https://tailwindcss.com/)** - Framework CSS utility-first
-- **[Framer Motion 12.15.0](https://www.framer.com/motion/)** - Librería de animaciones
+### **Opción 2: Manual**
+```bash
+# Configurar secrets de EmailJS
+flyctl secrets set NEXT_PUBLIC_EMAILJS_SERVICE_ID=service_op14y7a
+flyctl secrets set NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=template_wmhhsin
+flyctl secrets set NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=Evbsb35ak4Bwhndib
 
-### UI Components
-- **[Radix UI](https://www.radix-ui.com/)** - Componentes accesibles y sin estilos
-- **[Shadcn/ui](https://ui.shadcn.com/)** - Componentes reutilizables con Radix UI
-- **[Lucide React](https://lucide.dev/)** - Iconos SVG modernos
+# Desplegar
+flyctl deploy
+```
 
-### Herramientas de Desarrollo
-- **[ESLint](https://eslint.org/)** - Linter para JavaScript/TypeScript
-- **[PostCSS](https://postcss.org/)** - Procesador de CSS
-- **[Turbopack](https://turbo.build/pack)** - Bundler ultra-rápido para desarrollo
+## 💻 **Desarrollo Local**
 
-## 🚀 Instalación y Configuración
+### **Prerequisitos**
+- Node.js 20+
+- npm o yarn
+- Docker (opcional)
 
-### Prerrequisitos
-- Node.js 18.0 o superior
-- npm, yarn, pnpm o bun
+### **Instalación**
+```bash
+# Clonar repositorio
+git clone https://github.com/coagente/webapp.git
+cd webapp
 
-### Instalación
+# Instalar dependencias
+npm install
 
-1. **Clonar el repositorio**
-   ```bash
-   git clone https://github.com/coagente/webapp.git
-   cd webapp
-   ```
+# Configurar variables de entorno
+cp .env.example .env.local
+# Editar .env.local con tus credenciales de EmailJS
 
-2. **Instalar dependencias**
-   ```bash
-   npm install
-   # o
-   yarn install
-   # o
-   pnpm install
-   # o
-   bun install
-   ```
+# Ejecutar en desarrollo
+npm run dev
+```
 
-3. **Ejecutar en modo desarrollo**
-   ```bash
-   npm run dev
-   # o
-   yarn dev
-   # o
-   pnpm dev
-   # o
-   bun dev
-   ```
+### **Con Docker**
+```bash
+# Desarrollo con Docker
+docker-compose up --build
 
-4. **Abrir en el navegador**
-   
-   Visita [http://localhost:3000](http://localhost:3000) para ver el sitio web.
+# Acceder a http://localhost:3000
+```
 
-## 📁 Estructura del Proyecto
+## 📁 **Estructura del Proyecto**
 
 ```
 coagente-clone/
 ├── src/
-│   ├── app/                    # App Router de Next.js
-│   │   ├── globals.css        # Estilos globales
-│   │   ├── layout.tsx         # Layout principal
-│   │   └── page.tsx           # Página principal
-│   ├── components/            # Componentes React
-│   │   ├── ui/               # Componentes UI base (Shadcn)
-│   │   ├── BenefitsSection.tsx
-│   │   ├── ContactSection.tsx
-│   │   ├── CustomCursor.tsx
-│   │   ├── FaqSection.tsx
-│   │   ├── Footer.tsx
-│   │   ├── HeroSection.tsx
-│   │   ├── Navbar.tsx
-│   │   ├── ProcessSection.tsx
-│   │   └── ServicesSection.tsx
-│   └── lib/                   # Utilidades y configuraciones
-│       └── utils.ts
-├── public/                    # Archivos estáticos
-├── .gitignore                # Archivos ignorados por Git
-├── components.json           # Configuración de Shadcn/ui
-├── next.config.ts           # Configuración de Next.js
-├── package.json             # Dependencias y scripts
-├── tailwind.config.ts       # Configuración de Tailwind CSS
-└── tsconfig.json           # Configuración de TypeScript
+│   ├── app/                 # App Router de Next.js
+│   │   ├── page.tsx        # Página principal
+│   │   ├── team/           # Página del equipo
+│   │   ├── faq/            # Preguntas frecuentes
+│   │   ├── process/        # Nuestro proceso
+│   │   ├── terms/          # Términos y condiciones
+│   │   ├── privacy/        # Política de privacidad
+│   │   └── cookies/        # Política de cookies
+│   └── components/         # Componentes reutilizables
+│       ├── ContactSection.tsx
+│       ├── HeroSection.tsx
+│       ├── ServicesSection.tsx
+│       └── BenefitsSection.tsx
+├── public/                 # Archivos estáticos
+├── deploy.sh              # Script de deployment
+├── docker-compose.yml     # Configuración Docker
+├── Dockerfile             # Imagen Docker
+├── fly.toml               # Configuración Fly.io
+└── EMAILJS-SETUP.md       # Guía de configuración EmailJS
 ```
 
-## 🎨 Secciones del Sitio Web
+## 📧 **Configuración de EmailJS**
 
-### 🏠 Hero Section
-- Presentación principal de Coagente AI
-- Animaciones llamativas con Framer Motion
-- Call-to-action prominentes
+El formulario de contacto está configurado para enviar emails automáticamente a `info@coagente.com`.
 
-### 🛠️ Services Section
-- Descripción detallada de servicios de AI
-- Iconografía moderna y clara
-- Enfoque en soluciones personalizadas
+### **Variables de Entorno Requeridas:**
+```bash
+NEXT_PUBLIC_EMAILJS_SERVICE_ID=service_op14y7a
+NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=template_wmhhsin
+NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=Evbsb35ak4Bwhndib
+```
 
-### 📋 Process Section
-- Metodología de trabajo paso a paso
-- Visualización del proceso de desarrollo
-- Transparencia en la ejecución de proyectos
+### **Configuración Completa:**
+Ver [EMAILJS-SETUP.md](./EMAILJS-SETUP.md) para instrucciones detalladas.
 
-### 💡 Benefits Section
-- Ventajas competitivas de trabajar con Coagente
-- Métricas y resultados esperados
-- Casos de uso y aplicaciones
-
-### ❓ FAQ Section
-- Preguntas frecuentes sobre servicios AI
-- Información técnica y comercial
-- Resolución de dudas comunes
-
-### 📞 Contact Section
-- Formulario de contacto integrado
-- Información de contacto directa
-- Call-to-action para generar leads
-
-## 🚀 Scripts Disponibles
+## 🔧 **Scripts Disponibles**
 
 ```bash
-# Desarrollo con Turbopack (recomendado)
-npm run dev
-
-# Construcción para producción
-npm run build
-
-# Ejecutar en producción
-npm run start
-
-# Linting del código
-npm run lint
+npm run dev          # Servidor de desarrollo
+npm run build        # Build de producción
+npm run start        # Servidor de producción
+npm run lint         # Linter
+./deploy.sh          # Deploy a Fly.io
 ```
 
-## 🌐 Despliegue
+## 🌟 **Características del Sitio**
 
-### Vercel (Recomendado)
-El sitio está optimizado para desplegarse en [Vercel](https://vercel.com/):
+### **Página Principal**
+- Hero section con call-to-action
+- Servicios de IA destacados
+- Beneficios y garantías
+- Formulario de contacto funcional
+- Footer completo con enlaces
 
-1. Conecta tu repositorio de GitHub a Vercel
-2. Configura las variables de entorno si es necesario
-3. Despliega automáticamente con cada push a main
+### **Página del Equipo**
+- **Elisa Ramírez Urón** - Directora Comercial (CCO)
+- **Alberto Acuña** - CTO & Lead Developer
+- **Eduardo Treviño** - Chief Growth Officer (CGO)
 
-### Otras Plataformas
-- **Netlify**: Compatible con build estático
-- **AWS Amplify**: Soporte completo para Next.js
-- **Docker**: Incluye Dockerfile para containerización
+### **FAQ Interactivo**
+- 5 categorías de preguntas
+- Búsqueda en tiempo real
+- Respuestas detalladas
 
-## 🔧 Configuración Avanzada
+### **Proceso de Trabajo**
+- 3 fases: Evaluación, Desarrollo, Implementación
+- Timeline típico de proyectos
+- Métricas de éxito garantizadas
 
-### Variables de Entorno
-Crea un archivo `.env.local` para configuraciones específicas:
+## 📊 **Información de Contacto**
 
-```env
-# Ejemplo de variables de entorno
-NEXT_PUBLIC_SITE_URL=https://coagente.com
-NEXT_PUBLIC_ANALYTICS_ID=your_analytics_id
-```
+- **Email:** info@coagente.com
+- **Teléfono:** +52 811 999 3390
+- **Dirección:** Frida Kahlo 303, Valle Oriente, San Pedro Garza García, México
 
-### Personalización de Estilos
-Los estilos se pueden personalizar en:
-- `tailwind.config.ts` - Configuración de Tailwind CSS
-- `src/app/globals.css` - Estilos globales y variables CSS
+## 🔒 **Seguridad y Privacidad**
 
-## 🤝 Contribución
+- Políticas de privacidad completas
+- Términos de servicio detallados
+- Política de cookies
+- Cumplimiento GDPR
 
-1. Fork el proyecto
-2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
-3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
-4. Push a la rama (`git push origin feature/AmazingFeature`)
-5. Abre un Pull Request
+## 📈 **Métricas y Garantías**
 
-## 📄 Licencia
+- ✅ ROI garantizado en 6 meses
+- ✅ 30% reducción de costos
+- ✅ 99.9% uptime
+- ✅ Respuesta en 4 horas
+- ✅ Soporte 24/7
 
-Este proyecto es propiedad de **Coagente AI**. Todos los derechos reservados.
+## 🚀 **Próximos Pasos**
 
-## 📞 Contacto
-
-**Coagente AI**
-- Website: [https://coagente.com](https://coagente.com)
-- Email: contacto@coagente.com
-- GitHub: [@coagente](https://github.com/coagente)
+1. **Verificar funcionamiento** del formulario de contacto
+2. **Monitorear emails** en info@coagente.com
+3. **Actualizar contenido** según necesidades
+4. **Optimizar SEO** para mejor posicionamiento
 
 ---
 
-**Desarrollado con ❤️ por el equipo de Coagente AI**
+**Desarrollado con ❤️ para Coagente**  
+*Transformando negocios con inteligencia artificial*
