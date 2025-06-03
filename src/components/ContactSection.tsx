@@ -660,20 +660,6 @@ const ContactSection = () => {
                     </a>
                   </motion.div>
                 </div>
-
-                {/* Quick CTA */}
-                <motion.div 
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <button 
-                    onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                    className="w-full py-3 px-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-sm font-semibold rounded-lg shadow-lg hover:shadow-xl hover:shadow-blue-500/25 transition-all duration-300 flex items-center justify-center space-x-2"
-                  >
-                    <span>Comenzar Proyecto</span>
-                    <ChevronRight size={16} />
-                  </button>
-                </motion.div>
               </motion.div>
             </div>
 

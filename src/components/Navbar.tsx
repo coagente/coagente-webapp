@@ -151,35 +151,6 @@ const Navbar = () => {
               ))}
             </motion.div>
 
-            {/* Enhanced CTA Button */}
-            <motion.div
-              className="hidden lg:flex items-center space-x-4"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.7, duration: 0.6 }}
-            >
-              <Link href="/#contact">
-                <motion.button 
-                  className="relative px-6 py-2.5 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-sm font-semibold rounded-lg shadow-lg hover:shadow-xl hover:shadow-blue-500/25 transition-all duration-300 overflow-hidden group"
-                  whileHover={{ scale: 1.02, y: -1 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <span className="relative z-10 flex items-center space-x-2">
-                    <span>Comenzar Proyecto</span>
-                    <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform duration-300" />
-                  </span>
-                  
-                  {/* Animated Background */}
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-blue-700 to-purple-700"
-                    initial={{ x: "-100%" }}
-                    whileHover={{ x: "0%" }}
-                    transition={{ duration: 0.3 }}
-                  />
-                </motion.button>
-              </Link>
-            </motion.div>
-
             {/* Enhanced Mobile Menu Button */}
             <div className="lg:hidden">
               <motion.button
@@ -262,25 +233,6 @@ const Navbar = () => {
                     </Link>
                   </motion.div>
                 ))}
-                
-                {/* Enhanced Mobile CTA */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.5, duration: 0.4 }}
-                  className="pt-4 mt-4 border-t border-white/10"
-                >
-                  <Link href="/#contact" onClick={() => setIsMenuOpen(false)}>
-                    <motion.button 
-                      className="w-full py-3.5 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center space-x-2"
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                    >
-                      <span>Comenzar Proyecto</span>
-                      <ChevronRight size={16} />
-                    </motion.button>
-                  </Link>
-                </motion.div>
               </div>
             </motion.div>
           )}

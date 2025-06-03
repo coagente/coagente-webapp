@@ -275,31 +275,12 @@ const HeroSection = () => {
               </h2>
             </motion.div>
 
-            {/* Final CTA */}
-            <motion.div 
-              className="mb-16"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 1.7, duration: 0.8 }}
-            >
-              <Link href="/#contact">
-                <motion.button 
-                  className="group inline-flex items-center justify-center px-12 py-5 text-xl font-semibold text-white/90 bg-white/5 border border-white/20 rounded-xl hover:bg-white/10 hover:border-white/30 transition-all duration-300 backdrop-blur-sm hover:shadow-lg"
-                  whileHover={{ scale: 1.05, y: -3 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <span>Descubre tu potencial con AI</span>
-                  <ArrowRight size={20} className="ml-2 group-hover:translate-x-1 transition-transform" />
-                </motion.button>
-              </Link>
-            </motion.div>
-
             {/* Scroll Indicator */}
             <motion.div
-              className="flex justify-center"
+              className="flex justify-center mb-16"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 2, duration: 0.8 }}
+              transition={{ delay: 1.7, duration: 0.8 }}
             >
               <motion.button
                 onClick={() => {
