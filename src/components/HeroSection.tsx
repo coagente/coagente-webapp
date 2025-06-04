@@ -50,7 +50,7 @@ const HeroSection = () => {
   ];
 
   return (
-    <section className="relative pt-24 pb-20 overflow-hidden min-h-screen flex items-center bg-gradient-to-br from-slate-900 via-slate-900 to-slate-800">
+    <section className="relative pt-16 md:pt-20 pb-20 overflow-hidden min-h-screen flex items-center bg-gradient-to-br from-slate-900 via-slate-900 to-slate-800">
       {/* Subtle background pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-transparent to-purple-500/10" />
@@ -175,23 +175,6 @@ const HeroSection = () => {
                   </Link>
                 </motion.div>
               </motion.div>
-
-              {/* Social Proof */}
-              <motion.div 
-                className="text-center lg:text-left"
-                variants={itemVariants}
-              >
-                <p className="text-sm text-white/50 mb-4">
-                  Empresas líderes confían en nuestras soluciones
-                </p>
-                <div className="flex items-center justify-center lg:justify-start space-x-8 opacity-60">
-                  {/* Placeholder for company logos */}
-                  <div className="h-8 w-20 bg-white/10 rounded"></div>
-                  <div className="h-8 w-20 bg-white/10 rounded"></div>
-                  <div className="h-8 w-20 bg-white/10 rounded"></div>
-                  <div className="h-8 w-20 bg-white/10 rounded"></div>
-                </div>
-              </motion.div>
             </div>
 
             {/* Right Column - Trust Indicators */}
@@ -259,20 +242,66 @@ const HeroSection = () => {
             className="text-center mt-20"
             variants={itemVariants}
           >
-            {/* Value Proposition */}
+            {/* Value Proposition - Optimized */}
             <motion.div 
-              className="max-w-4xl mx-auto mb-12"
+              className="max-w-5xl mx-auto mb-12"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.5, duration: 0.8 }}
             >
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white/95 leading-tight">
-                <span className="block mb-2">Somos coagente.</span>
-                <span className="text-white/80">
-                  Desarrollamos soluciones de AI para compañías que buscan 
-                  <span className="text-blue-400"> resultados extraordinarios</span>.
-                </span>
-              </h2>
+              <div className="space-y-6">
+                {/* Main Statement */}
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white leading-tight">
+                  <span className="block mb-3">
+                    Somos <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">coagente</span>.
+                  </span>
+                  <span className="block text-white/90 text-xl md:text-2xl lg:text-3xl font-semibold leading-relaxed">
+                    Transformamos empresas en 
+                    <span className="text-green-400 font-bold"> 30 días</span> con 
+                    <span className="text-blue-400 font-bold"> AI personalizada</span> que 
+                    <span className="text-purple-400 font-bold"> garantiza resultados</span>.
+                  </span>
+                </h2>
+
+                {/* Value Highlights */}
+                <motion.div 
+                  className="grid md:grid-cols-3 gap-6 mt-8"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 1.7, duration: 0.6 }}
+                >
+                  <div className="text-center p-4 bg-white/5 rounded-xl border border-white/10 backdrop-blur-sm">
+                    <div className="text-2xl font-bold text-green-400 mb-1">3x ROI</div>
+                    <div className="text-sm text-white/70">Retorno garantizado en 6 meses</div>
+                  </div>
+                  <div className="text-center p-4 bg-white/5 rounded-xl border border-white/10 backdrop-blur-sm">
+                    <div className="text-2xl font-bold text-blue-400 mb-1">30%</div>
+                    <div className="text-sm text-white/70">Reducción de costos operativos</div>
+                  </div>
+                  <div className="text-center p-4 bg-white/5 rounded-xl border border-white/10 backdrop-blur-sm">
+                    <div className="text-2xl font-bold text-purple-400 mb-1">24/7</div>
+                    <div className="text-sm text-white/70">Soporte especializado</div>
+                  </div>
+                </motion.div>
+
+                {/* Enhanced CTA */}
+                <motion.div 
+                  className="text-center mt-8"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 1.9, duration: 0.6 }}
+                >
+                  <div className="mb-4">
+                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r from-green-500/20 to-blue-500/20 text-green-400 border border-green-500/30">
+                      ✓ Consulta gratuita • Sin compromiso • Resultados en 30 días
+                    </span>
+                  </div>
+                  <p className="text-white/60 text-sm max-w-2xl mx-auto">
+                    <span className="font-semibold text-white/80">50+ empresas</span> ya optimizaron sus procesos. 
+                    <span className="font-semibold text-blue-400"> Tu competencia probablemente ya empezó.</span>
+                  </p>
+                </motion.div>
+              </div>
             </motion.div>
 
             {/* Scroll Indicator */}

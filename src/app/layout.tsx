@@ -13,7 +13,9 @@ export const metadata: Metadata = {
   title: "Coagente - Desarrollamos soluciones de AI personalizadas",
   description: "Coagente desarrolla soluciones personalizadas de IA para empresas innovadoras. Nuestros servicios incluyen desarrollo de chatbots, creación de contenido, automatización de flujos de trabajo, desarrollo LLM y consultoría en IA.",
   icons: {
-    icon: '/favicon.svg',
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/favicon.ico',
   },
 };
 

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import emailjs from '@emailjs/browser';
 import { 
   Mail, 
@@ -530,18 +531,19 @@ const ContactSection = () => {
                 className="lg:col-span-1 space-y-6"
                 variants={itemVariants}
               >
-                {/* Enhanced Logo */}
-                <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center shadow-lg">
-                    <div className="w-5 h-5 bg-white rounded-sm opacity-90" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-white tracking-tight">
-                      coagente
-                    </h3>
-                    <p className="text-xs text-blue-400 font-medium tracking-wider uppercase opacity-80">
-                      AI Solutions
-                    </p>
+                {/* Enhanced Logo - Optimized */}
+                <div className="flex items-center justify-center lg:justify-start mb-6">
+                  <div className="relative flex items-center justify-center h-[48px] md:h-[56px] w-auto">
+                    <Image
+                      src="/logo.png"
+                      alt="Coagente Logo"
+                      width={160}
+                      height={56}
+                      className="h-full w-auto object-contain rounded-lg shadow-lg hover:scale-105 transition-transform duration-300"
+                      style={{ 
+                        maxHeight: '48px'
+                      }}
+                    />
                   </div>
                 </div>
 

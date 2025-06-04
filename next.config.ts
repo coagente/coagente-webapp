@@ -2,8 +2,8 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /* config options here */
-  distDir: process.env.NODE_ENV === "production" ? "build" : ".next",
   images: {
+    unoptimized: process.env.NODE_ENV === "production",
     remotePatterns: [
       {
         protocol: "https",
@@ -24,7 +24,9 @@ const nextConfig: NextConfig = {
         pathname: "/**",
       },
     ],
+    formats: ['image/webp', 'image/avif'],
   },
+  output: 'standalone',
 };
 
 export default nextConfig;

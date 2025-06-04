@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronRight } from "lucide-react";
 
@@ -59,23 +60,23 @@ const Navbar = () => {
       />
 
       <motion.nav 
-        className="fixed top-0 left-0 right-0 z-50 py-3 backdrop-blur-xl bg-slate-900/80 border-b border-white/5 shadow-lg"
+        className="fixed top-0 left-0 right-0 z-50 py-1 md:py-1.5 backdrop-blur-xl bg-slate-900/80 border-b border-white/5 shadow-lg"
         initial={{ y: -32, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       >
         <div className="container-6xl mx-auto px-6">
-          <div className="flex justify-between items-center h-16">
+          <div className="flex justify-between items-center min-h-[48px] md:min-h-[56px]">
             
-            {/* Enhanced Logo */}
+            {/* Enhanced Logo - Optimized */}
             <motion.div
-              className="flex items-center"
+              className="flex items-center justify-start flex-shrink-0"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <Link href="/" className="group flex items-center space-x-3">
+              <Link href="/" className="group block py-1">
                 <motion.div
-                  className="relative"
+                  className="relative flex items-center justify-center"
                   initial={{ scale: 0.8, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ 
@@ -84,22 +85,19 @@ const Navbar = () => {
                     ease: [0.16, 1, 0.3, 1]
                   }}
                 >
-                  {/* Logo Icon */}
-                  <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center shadow-lg group-hover:shadow-blue-500/25 transition-all duration-300">
-                    <div className="w-4 h-4 bg-white rounded-sm opacity-90" />
-                  </div>
-                </motion.div>
-                
-                <motion.div
-                  initial={{ opacity: 0, x: -16 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.8, delay: 0.3 }}
-                >
-                  <span className="text-xl font-bold text-white tracking-tight group-hover:text-white/90 transition-colors duration-300">
-                    coagente
-                  </span>
-                  <div className="text-xs text-blue-400 font-medium tracking-wider uppercase opacity-80">
-                    AI Solutions
+                  {/* Logo Image - Maximized and Centered */}
+                  <div className="relative flex items-center justify-center h-[36px] md:h-[44px] w-auto group-hover:scale-105 transition-transform duration-300">
+                    <Image
+                      src="/logo.png"
+                      alt="Coagente Logo"
+                      width={140}
+                      height={44}
+                      className="h-full w-auto object-contain rounded-lg shadow-lg md:max-h-[44px]"
+                      style={{ 
+                        maxHeight: '36px'
+                      }}
+                      priority
+                    />
                   </div>
                 </motion.div>
               </Link>
@@ -107,7 +105,7 @@ const Navbar = () => {
 
             {/* Enhanced Desktop Navigation */}
             <motion.div 
-              className="hidden lg:flex items-center space-x-1"
+              className="hidden lg:flex items-center space-x-1 flex-shrink-0"
               initial={{ opacity: 0, y: -16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}

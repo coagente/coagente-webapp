@@ -38,6 +38,20 @@ if [ ! -f "fly.toml" ]; then
     exit 1
 fi
 
+# Verificar archivos críticos
+print_status "Verificando archivos críticos..."
+if [ ! -f "public/logo.png" ]; then
+    print_error "No se encuentra public/logo.png. Archivo crítico faltante."
+    exit 1
+fi
+
+if [ ! -f "public/favicon.ico" ]; then
+    print_error "No se encuentra public/favicon.ico. Archivo crítico faltante."
+    exit 1
+fi
+
+print_success "Archivos críticos verificados correctamente"
+
 # Verificar que flyctl está instalado
 if ! command -v flyctl &> /dev/null; then
     print_error "flyctl no está instalado. Instálalo desde https://fly.io/docs/getting-started/installing-flyctl/"
