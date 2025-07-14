@@ -1,0 +1,38 @@
+# Dockerfile optimizado para desarrollo con hot reload
+FROM node:20-alpine
+
+# Instalar dependencias del sistema
+RUN apk add --no-cache libc6-compat
+
+# Establecer directorio de trabajo
+WORKDIR /app
+
+# Declarar build arguments para las variables de EmailJS
+ARG NEXT_PUBLIC_EMAILJS_SERVICE_ID
+ARG NEXT_PUBLIC_EMAILJS_TEMPLATE_ID
+ARG NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+
+# Establecer las variables de entorno desde los build args
+ENV NEXT_PUBLIC_EMAILJS_SERVICE_ID=$NEXT_PUBLIC_EMAILJS_SERVICE_ID
+ENV NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=$NEXT_PUBLIC_EMAILJS_TEMPLATE_ID
+ENV NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=$NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+
+# Variables de entorno para desarrollo
+ENV NODE_ENV=development
+ENV WATCHPACK_POLLING=true
+ENV CHOKIDAR_USEPOLLING=true
+
+# Copiar archivos de dependencias
+COPY package*.json ./
+
+# Instalar dependencias
+RUN npm ci
+
+# Copiar el resto del código fuente
+COPY . .
+
+# Exponer puerto
+EXPOSE 3000
+
+# Comando para desarrollo con hot reload
+CMD ["npm", "run", "dev"]

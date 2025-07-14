@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion } from "./motion-shim";
 import Link from "next/link";
 import Image from "next/image";
 import emailjs from '@emailjs/browser';
@@ -535,7 +535,7 @@ const ContactSection = () => {
                 <div className="flex items-center justify-center lg:justify-start mb-6">
                   <div className="relative flex items-center justify-center h-[48px] md:h-[56px] w-auto">
                     <Image
-                      src="/logo.png"
+                      src="/api/logo"
                       alt="Coagente Logo"
                       width={160}
                       height={56}

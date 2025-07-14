@@ -1,0 +1,33 @@
+services:
+  coagente-app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+      args:
+        NEXT_PUBLIC_EMAILJS_SERVICE_ID: service_op14y7a
+        NEXT_PUBLIC_EMAILJS_TEMPLATE_ID: template_wmhhsin
+        NEXT_PUBLIC_EMAILJS_PUBLIC_KEY: Evbsb35ak4Bwhndib
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./src:/app/src
+      - ./public:/app/public
+      - ./package.json:/app/package.json
+      - ./package-lock.json:/app/package-lock.json
+      - ./next.config.ts:/app/next.config.ts
+      - ./tailwind.config.ts:/app/tailwind.config.ts
+      - ./tsconfig.json:/app/tsconfig.json
+      - ./postcss.config.mjs:/app/postcss.config.mjs
+      - ./components.json:/app/components.json
+      - /app/node_modules
+      - /app/.next
+    environment:
+      - NODE_ENV=development
+      - NEXT_PUBLIC_EMAILJS_SERVICE_ID=service_op14y7a
+      - NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=template_wmhhsin
+      - NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=Evbsb35ak4Bwhndib
+      - WATCHPACK_POLLING=true
+      - CHOKIDAR_USEPOLLING=true
+    restart: unless-stopped
+    stdin_open: true
+    tty: true

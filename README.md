@@ -19,6 +19,52 @@ Sitio web corporativo de Coagente, empresa especializada en soluciones de inteli
 - **Deployment:** Fly.io
 - **Container:** Docker
 
+## 🔧 **Desarrollo Local**
+
+### Entorno de Desarrollo con Docker
+
+#### Iniciar el entorno de desarrollo:
+```bash
+./dev-run.sh
+```
+
+Este script automáticamente:
+- ✅ Verifica todas las dependencias (Docker, Docker Compose)
+- ✅ Crea los archivos de configuración necesarios (`docker-compose.dev.yml`, `Dockerfile.dev`)
+- ✅ Configura hot reload con Turbopack
+- ✅ Habilita polling para sistemas de archivos virtuales
+- ✅ Expone la aplicación en http://localhost:3000
+- ✅ Configura variables de entorno para desarrollo
+
+#### Detener el entorno de desarrollo:
+```bash
+./dev-stop.sh
+```
+
+Este script permite:
+- 🛑 Detener todos los contenedores de desarrollo
+- 🧹 Limpiar volúmenes (opcional)
+- 🧹 Limpiar imágenes de desarrollo (opcional)
+
+### Características del Entorno de Desarrollo
+
+- **Hot Reload:** ✅ Activado con Turbopack
+- **File Watching:** ✅ Optimizado para Docker
+- **Puerto:** 3000
+- **Logs en tiempo real:** ✅ Disponibles en la terminal
+- **Persistent Volumes:** ✅ Para `node_modules` y `.next`
+
+### Desarrollo Sin Docker
+
+Si prefieres desarrollo local sin Docker:
+
+```bash
+npm install
+npm run dev
+```
+
+La aplicación estará disponible en http://localhost:3000
+
 ## 📧 **Funcionalidades**
 
 ✅ **Formulario de contacto funcional** - Envía emails a `info@coagente.com`  

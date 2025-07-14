@@ -6,7 +6,11 @@
     "dev": "next dev -H 0.0.0.0 --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test:latency": "node scripts/test-latency.js",
+    "test:latency:detailed": "node scripts/test-latency-detailed.js",
+    "deploy:fly": "fly deploy --region lax",
+    "deploy:production": "npm run build && fly deploy --region lax"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
