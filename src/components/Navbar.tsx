@@ -68,15 +68,15 @@ const Navbar = () => {
               <Link href="/" className="group block py-1">
                 <div className="relative flex items-center justify-center">
                   {/* Logo Image - Maximized and Centered */}
-                  <div className="relative flex items-center justify-center h-[36px] md:h-[44px] w-auto group-hover:scale-105 transition-transform duration-300">
+                  <div className="relative flex items-center justify-center h-[48px] md:h-[56px] w-auto group-hover:scale-105 transition-transform duration-300">
                     <Image
                       src="/api/logo"
                       alt="Coagente Logo"
-                      width={140}
-                      height={44}
+                      width={180}
+                      height={56}
                       className="h-full w-auto object-contain filter drop-shadow-sm hover:drop-shadow-md transition-all duration-300"
                       style={{ 
-                        maxHeight: '36px'
+                        maxHeight: '56px'
                       }}
                       priority
                     />
