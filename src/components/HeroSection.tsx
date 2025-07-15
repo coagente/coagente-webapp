@@ -43,8 +43,19 @@ const HeroSection = () => {
 
   return (
     <section className="relative pt-16 md:pt-20 pb-20 overflow-hidden min-h-screen flex items-center bg-gradient-to-br from-slate-900 via-slate-900 to-slate-800">
-      {/* Neo-Minimalist: Clean background only */}
-      <div className="absolute inset-0 bg-gradient-primary/5" />
+      {/* Video Background */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover z-0 opacity-30"
+      >
+        <source src="/video.mp4" type="video/mp4" />
+      </video>
+
+      {/* Neo-Minimalist: Clean background overlay */}
+      <div className="absolute inset-0 bg-gradient-primary/20 z-5" />
 
       <div className="container-6xl mx-auto px-6 relative z-10">
         <motion.div 

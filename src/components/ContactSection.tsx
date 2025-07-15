@@ -539,7 +539,7 @@ const ContactSection = () => {
                       alt="Coagente Logo"
                       width={160}
                       height={56}
-                      className="h-full w-auto object-contain rounded-lg shadow-lg hover:scale-105 transition-transform duration-300"
+                      className="h-full w-auto object-contain filter drop-shadow-sm hover:drop-shadow-md hover:scale-105 transition-all duration-300"
                       style={{ 
                         maxHeight: '48px'
                       }}

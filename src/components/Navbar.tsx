@@ -74,7 +74,7 @@ const Navbar = () => {
                       alt="Coagente Logo"
                       width={140}
                       height={44}
-                      className="h-full w-auto object-contain rounded-lg shadow-lg md:max-h-[44px]"
+                      className="h-full w-auto object-contain filter drop-shadow-sm hover:drop-shadow-md transition-all duration-300"
                       style={{ 
                         maxHeight: '36px'
                       }}
