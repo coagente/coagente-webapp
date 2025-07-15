@@ -3,8 +3,38 @@
 import { motion } from "./motion-shim";
 import Link from "next/link";
 import { ArrowRight, Shield, Sparkles, Clock, Users, Award, CheckCircle } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
 
 const HeroSection = () => {
+  const [currentVideo, setCurrentVideo] = useState(0);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const videoSources = [
+    "/part_1.mp4",
+    "/part_2.mp4", 
+    "/part_3.mp4",
+    "/part_4.mp4",
+    "/part_5.mp4"
+  ];
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const handleVideoEnd = () => {
+      setCurrentVideo((prev) => (prev + 1) % videoSources.length);
+    };
+
+    video.addEventListener('ended', handleVideoEnd);
+    return () => video.removeEventListener('ended', handleVideoEnd);
+  }, [videoSources.length]);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      video.load(); // Reload video with new source
+      video.play().catch(console.error);
+    }
+  }, [currentVideo]);
   const trustIndicators = [
     { icon: Clock, text: "30 días", subtext: "Implementación garantizada" },
     { icon: Users, text: "98%", subtext: "Satisfacción del cliente" },
@@ -45,17 +75,20 @@ const HeroSection = () => {
     <section className="relative pt-16 md:pt-20 pb-20 overflow-hidden min-h-screen flex items-center bg-gradient-to-br from-slate-900 via-slate-900 to-slate-800">
       {/* Video Background */}
       <video
+        ref={videoRef}
         autoPlay
         muted
-        loop
         playsInline
-        className="absolute inset-0 w-full h-full object-cover z-0 opacity-30"
+        className="absolute inset-0 w-full h-full object-cover z-0 opacity-40"
       >
-        <source src="/video.mp4" type="video/mp4" />
+        <source src={videoSources[currentVideo]} type="video/mp4" />
       </video>
 
-      {/* Neo-Minimalist: Clean background overlay */}
-      <div className="absolute inset-0 bg-gradient-primary/20 z-5" />
+      {/* Enhanced overlay for better contrast */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-900/60 via-slate-900/50 to-slate-800/60 z-5" />
+      
+      {/* Additional overlay for extra contrast */}
+      <div className="absolute inset-0 bg-gradient-primary/10 z-6" />
 
       <div className="container-6xl mx-auto px-6 relative z-10">
         <motion.div 
@@ -70,14 +103,14 @@ const HeroSection = () => {
             variants={itemVariants}
           >
             <motion.div 
-              className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-gradient-primary/10 border border-white/10 backdrop-blur-sm"
-              whileHover={{ scale: 1.05, borderColor: "rgba(255, 255, 255, 0.2)" }}
+              className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-gradient-primary/20 border border-white/20 backdrop-blur-md shadow-lg"
+              whileHover={{ scale: 1.05, borderColor: "rgba(255, 255, 255, 0.3)" }}
             >
-              <Shield size={16} className="text-brand-blue" />
-              <span className="text-sm font-medium text-white/90">
+              <Shield size={16} className="text-brand-blue drop-shadow-sm" />
+              <span className="text-sm font-medium text-white/95 drop-shadow-sm">
                 Consultora AI Certificada
               </span>
-              <Sparkles size={14} className="text-brand-purple" />
+              <Sparkles size={14} className="text-brand-purple drop-shadow-sm" />
             </motion.div>
           </motion.div>
 
@@ -108,14 +141,15 @@ const HeroSection = () => {
                     transition={{ delay: 0.7, duration: 0.8 }}
                   >
                     con{" "}
-                    <span className="gradient-text">
+                    <span className="gradient-text-hero" data-text="Inteligencia Artificial">
                       Inteligencia Artificial
                     </span>
                   </motion.span>
                 </h1>
 
                 <motion.p 
-                  className="text-xl md:text-2xl text-white/70 max-w-2xl mx-auto lg:mx-0 leading-relaxed"
+                  className="text-xl md:text-2xl text-white/90 max-w-2xl mx-auto lg:mx-0 leading-relaxed drop-shadow-lg"
+                  style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.7)' }}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.9, duration: 0.8 }}
@@ -133,12 +167,13 @@ const HeroSection = () => {
                 {benefits.map((benefit, index) => (
                   <motion.div
                     key={benefit}
-                    className="flex items-center space-x-3 text-white/80"
+                    className="flex items-center space-x-3 text-white/95 drop-shadow-lg"
+                    style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.7)' }}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 1.1 + index * 0.1, duration: 0.6 }}
                   >
-                    <span className="text-success text-lg font-semibold">✓</span>
+                    <span className="text-success text-lg font-semibold drop-shadow-lg">✓</span>
                     <span className="text-sm font-medium">{benefit.slice(2)}</span>
                   </motion.div>
                 ))}
@@ -154,9 +189,9 @@ const HeroSection = () => {
                   whileTap={{ scale: 0.98 }}
                 >
                   <Link href="/#contact">
-                    <button className="group inline-flex items-center justify-center px-8 py-4 bg-gradient-primary text-white text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl hover:shadow-glow transition-all duration-300 min-w-[200px]">
-                      <span>Comenzar Proyecto</span>
-                      <ArrowRight size={20} className="ml-2 group-hover:translate-x-1 transition-transform" />
+                    <button className="group inline-flex items-center justify-center px-8 py-4 bg-gradient-primary text-white text-lg font-semibold rounded-lg shadow-2xl hover:shadow-3xl hover:shadow-glow transition-all duration-300 min-w-[200px] backdrop-blur-sm border border-white/20">
+                      <span className="drop-shadow-sm">Comenzar Proyecto</span>
+                      <ArrowRight size={20} className="ml-2 group-hover:translate-x-1 transition-transform drop-shadow-sm" />
                     </button>
                   </Link>
                 </motion.div>
@@ -166,8 +201,8 @@ const HeroSection = () => {
                   whileTap={{ scale: 0.98 }}
                 >
                   <Link href="/#services">
-                    <button className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white/90 glass border border-white/20 rounded-lg hover:bg-white/10 hover:border-white/30 transition-all duration-300 backdrop-blur-sm min-w-[200px]">
-                      Ver Servicios
+                    <button className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white/95 glass border border-white/30 rounded-lg hover:bg-white/15 hover:border-white/40 transition-all duration-300 backdrop-blur-md min-w-[200px] shadow-xl hover:shadow-2xl">
+                      <span className="drop-shadow-sm">Ver Servicios</span>
                     </button>
                   </Link>
                 </motion.div>
@@ -183,17 +218,17 @@ const HeroSection = () => {
                 {trustIndicators.map((indicator, index) => (
                   <motion.div
                     key={indicator.text}
-                    className="glass border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all duration-300"
+                    className="glass border border-white/20 rounded-xl p-6 hover:bg-white/15 transition-all duration-300 backdrop-blur-md shadow-xl"
                     variants={itemVariants}
                     whileHover={{ scale: 1.02, y: -2 }}
                   >
                     <div className="flex items-center space-x-4">
-                      <div className="p-3 bg-gradient-primary/20 rounded-lg">
-                        <indicator.icon size={24} className="text-brand-blue" />
+                      <div className="p-3 bg-gradient-primary/30 rounded-lg shadow-lg">
+                        <indicator.icon size={24} className="text-brand-blue drop-shadow-sm" />
                       </div>
                       <div>
-                        <div className="text-2xl font-bold text-white">{indicator.text}</div>
-                        <div className="text-sm text-white/60">{indicator.subtext}</div>
+                        <div className="text-2xl font-bold text-white drop-shadow-sm">{indicator.text}</div>
+                        <div className="text-sm text-white/80 drop-shadow-sm">{indicator.subtext}</div>
                       </div>
                     </div>
                   </motion.div>
@@ -201,10 +236,10 @@ const HeroSection = () => {
 
                 {/* Process Preview - Simplified */}
                 <motion.div
-                  className="bg-gradient-primary/10 glass border border-white/10 rounded-xl p-6"
+                  className="bg-gradient-primary/15 glass border border-white/20 rounded-xl p-6 backdrop-blur-md shadow-xl"
                   variants={itemVariants}
                 >
-                  <h4 className="text-lg font-semibold text-white mb-4">Nuestro Proceso</h4>
+                  <h4 className="text-lg font-semibold text-white mb-4 drop-shadow-sm">Nuestro Proceso</h4>
                   <div className="space-y-3">
                     {[
                       { step: "1", text: "Análisis", status: "completed" },
@@ -250,7 +285,7 @@ const HeroSection = () => {
                 {/* Main Statement */}
                 <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white leading-tight">
                   <span className="block mb-3">
-                    Somos <span className="gradient-text">coagente</span>.
+                    Somos <span className="gradient-text-hero" data-text="coagente">coagente</span>.
                   </span>
                   <span className="block text-white/90 text-xl md:text-2xl lg:text-3xl font-semibold leading-relaxed">
                     <span className="text-success font-bold">30 días</span> para transformar tu empresa con 
