@@ -44,15 +44,15 @@ const Navbar = () => {
   const navigationItems = [
     { href: "/#services", text: "Servicios", id: "services" },
     { href: "/#process", text: "Proceso", id: "process" },
-    { href: "/#statistics", text: "Beneficios", id: "statistics" },
+    { href: "/#statistics", text: "Resultados", id: "statistics" },
     { href: "/#contact", text: "Contacto", id: "contact" }
   ];
 
   return (
     <>
-      {/* Scroll Progress Indicator */}
+      {/* Optimized Scroll Progress Indicator */}
       <motion.div
-        className="fixed top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 z-[60] origin-left"
+        className="fixed top-0 left-0 right-0 h-0.5 bg-gradient-primary z-[60] origin-left"
         style={{ scaleX: scrollProgress / 100 }}
         initial={{ scaleX: 0 }}
         animate={{ scaleX: scrollProgress / 100 }}
@@ -97,14 +97,23 @@ const Navbar = () => {
                     
                     {/* Active Section Indicator */}
                     {activeSection === item.id && (
-                      <div className="absolute inset-0 bg-white/8 rounded-lg border border-white/10" />
+                      <motion.div 
+                        className="absolute inset-0 glass border border-white/10 rounded-lg"
+                        layoutId="activeSection"
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                      />
                     )}
                     
                     {/* Hover Effect */}
                     <div className="absolute inset-0 bg-white/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
                     
-                    {/* Subtle Bottom Indicator */}
-                    <div className="absolute bottom-1 left-1/2 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 group-hover:w-6 group-hover:-translate-x-1/2 transition-all duration-300 rounded-full" />
+                    {/* Enhanced Bottom Indicator */}
+                    <motion.div 
+                      className="absolute bottom-1 left-1/2 h-0.5 bg-gradient-primary rounded-full"
+                      initial={{ width: 0, x: "-50%" }}
+                      whileHover={{ width: "50%", x: "-50%" }}
+                      transition={{ duration: 0.3, ease: "easeOut" }}
+                    />
                   </Link>
                 </div>
               ))}
@@ -112,42 +121,77 @@ const Navbar = () => {
 
             {/* Enhanced Mobile Menu Button */}
             <div className="lg:hidden">
-              <button
+              <motion.button
                 onClick={toggleMenu}
-                className="relative p-2.5 text-white/80 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300 group"
+                className="relative p-2.5 text-white/80 hover:text-white glass rounded-lg transition-all duration-300 group"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
-                {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
+                <motion.div
+                  animate={{ rotate: isMenuOpen ? 180 : 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
+                </motion.div>
                 
                 {/* Menu Button Indicator */}
                 <div className="absolute inset-0 border border-white/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
-              </button>
+              </motion.button>
             </div>
           </div>
         </div>
 
         {/* Enhanced Mobile Menu */}
+        <AnimatePresence>
           {isMenuOpen && (
-          <div className="lg:hidden absolute top-full left-0 right-0 backdrop-blur-xl bg-slate-900/95 border-b border-white/10 shadow-2xl">
+            <motion.div 
+              className="lg:hidden absolute top-full left-0 right-0 backdrop-blur-xl bg-slate-900/95 border-b border-white/10 shadow-2xl"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+            >
               <div className="px-6 py-6 space-y-1">
                 {navigationItems.map((item, index) => (
-                <div key={item.href}>
+                  <motion.div 
+                    key={item.href}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.1, duration: 0.3 }}
+                  >
                     <Link
                       href={item.href}
                       className="group flex items-center justify-between py-3 px-4 text-white/80 hover:text-white hover:bg-white/5 transition-all duration-300 rounded-lg"
                       onClick={() => setIsMenuOpen(false)}
                     >
-                    <span className="font-medium">{item.text}</span>
+                      <span className="font-medium">{item.text}</span>
                       
-                      <ChevronRight 
-                        size={16} 
-                        className="text-white/40 group-hover:text-white/60 group-hover:translate-x-1 transition-all duration-300" 
-                      />
+                      <motion.div
+                        initial={{ x: 0 }}
+                        whileHover={{ x: 4 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <ChevronRight 
+                          size={16} 
+                          className="text-white/40 group-hover:text-brand-blue transition-all duration-300" 
+                        />
+                      </motion.div>
                     </Link>
-                </div>
+                  </motion.div>
                 ))}
               </div>
-          </div>
+              
+              {/* Mobile Menu Footer */}
+              <div className="px-6 py-4 border-t border-white/10">
+                <div className="flex items-center justify-center space-x-2 text-xs text-white/50">
+                  <div className="w-2 h-2 bg-gradient-primary rounded-full opacity-60" />
+                  <span>Coagente AI Solutions</span>
+                  <div className="w-2 h-2 bg-gradient-primary rounded-full opacity-60" />
+                </div>
+              </div>
+            </motion.div>
           )}
+        </AnimatePresence>
       </nav>
     </>
   );

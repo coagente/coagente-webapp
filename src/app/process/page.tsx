@@ -43,12 +43,12 @@ export default function ProcessPage() {
             
             {/* Step 1: Evaluación */}
             <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8 relative">
-              <div className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-xl font-bold shadow-lg">
+              <div className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center text-xl font-bold shadow-lg">
                 1
               </div>
               
               <div className="flex items-center space-x-4 mb-6">
-                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
+                <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center">
                   <BarChart size={24} className="text-white" />
                 </div>
                 <div>
@@ -92,12 +92,12 @@ export default function ProcessPage() {
 
             {/* Step 2: Desarrollo */}
             <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8 relative">
-              <div className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-xl font-bold shadow-lg">
+              <div className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-accent rounded-full flex items-center justify-center text-xl font-bold shadow-lg">
                 2
               </div>
               
               <div className="flex items-center space-x-4 mb-6">
-                <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
+                <div className="w-12 h-12 bg-gradient-accent rounded-full flex items-center justify-center">
                   <Settings size={24} className="text-white" />
                 </div>
                 <div>
@@ -141,12 +141,12 @@ export default function ProcessPage() {
 
             {/* Step 3: Implementación */}
             <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8 relative">
-              <div className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center text-xl font-bold shadow-lg">
+              <div className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-success rounded-full flex items-center justify-center text-xl font-bold shadow-lg">
                 3
               </div>
               
               <div className="flex items-center space-x-4 mb-6">
-                <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center">
+                <div className="w-12 h-12 bg-gradient-success rounded-full flex items-center justify-center">
                   <Users size={24} className="text-white" />
                 </div>
                 <div>
@@ -311,7 +311,7 @@ export default function ProcessPage() {
           </div>
 
           {/* CTA Section */}
-          <div className="bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-xl p-8 border border-white/10 text-center">
+                      <div className="bg-gradient-primary/20 rounded-xl p-8 border border-white/10 text-center">
             <h2 className="text-2xl font-bold text-white mb-4">
               ¿Listo para transformar tu negocio con AI?
             </h2>
@@ -320,7 +320,7 @@ export default function ProcessPage() {
             </p>
             <Link 
               href="/#contact"
-              className="inline-flex items-center space-x-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300"
+              className="inline-flex items-center space-x-2 px-8 py-4 bg-gradient-primary text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300"
             >
               <span>Comenzar Ahora</span>
               <ArrowLeft size={20} className="rotate-180" />
@@ -331,7 +331,7 @@ export default function ProcessPage() {
           <div className="text-center mt-16">
             <Link 
               href="/"
-              className="inline-flex items-center space-x-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300"
+              className="inline-flex items-center space-x-2 px-8 py-4 bg-gradient-primary text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300"
             >
               <ArrowLeft size={20} />
               <span>Volver al Inicio</span>

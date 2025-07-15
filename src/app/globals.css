@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    /* Enhanced Design Tokens - Colors (AI + Consulting Best Practices) */
+    /* Optimized Design System - Professional & Cohesive Colors */
     --background: 240 8% 4%;
     --background-secondary: 240 6% 6%;
     --background-tertiary: 240 4% 8%;
@@ -27,27 +27,41 @@
     --muted: 240 4% 12%;
     --muted-foreground: 240 5% 64.9%;
     
-    /* AI Brand Colors (Preserving existing palette) */
-    --accent-blue: 210 100% 70%;        /* #6298e5 equivalent */
-    --accent-purple: 252 58% 75%;       /* #a9a1ea equivalent */
-    --accent-cyan: 180 100% 70%;        /* Electric cyan for tech feel */
-    --accent-violet: 270 100% 80%;      /* Bright violet for AI */
+    /* Optimized Brand Colors - Reduced Palette */
+    --brand-blue: 210 100% 65%;         /* Primary brand color */
+    --brand-blue-light: 210 100% 75%;   /* Lighter variant */
+    --brand-blue-dark: 210 100% 55%;    /* Darker variant */
     
-    /* Semantic Colors */
-    --success: 142 76% 36%;
-    --warning: 38 92% 50%;
-    --error: 0 84% 60%;
-    --info: 210 100% 70%;
+    --brand-purple: 250 60% 70%;        /* Secondary brand color */
+    --brand-purple-light: 250 60% 80%;  /* Lighter variant */
+    --brand-purple-dark: 250 60% 60%;   /* Darker variant */
+    
+    /* Semantic Colors - Neo-Minimalist (Ultra Simplified) */
+    --success: var(--brand-blue);       /* Use brand blue for success */
+    --warning: var(--brand-purple);     /* Use brand purple for warning */
+    --error: 0 50% 60%;                 /* Single red for errors only */
+    
+    /* Neutral System - Extended Grays */
+    --neutral-50: 240 5% 96%;
+    --neutral-100: 240 5% 90%;
+    --neutral-200: 240 4% 80%;
+    --neutral-300: 240 4% 70%;
+    --neutral-400: 240 4% 60%;
+    --neutral-500: 240 4% 50%;
+    --neutral-600: 240 4% 40%;
+    --neutral-700: 240 4% 30%;
+    --neutral-800: 240 4% 20%;
+    --neutral-900: 240 4% 10%;
     
     /* Border System */
     --border: 240 4% 15%;
     --border-hover: 240 6% 20%;
-    --border-accent: 210 100% 70%;
+    --border-accent: var(--brand-blue);
     
     /* Input System */
     --input: 240 4% 12%;
     --input-border: 240 4% 18%;
-    --ring: 210 100% 70%;
+    --ring: var(--brand-blue);
     
     /* Border Radius System */
     --radius-xs: 0.25rem;
@@ -65,8 +79,8 @@
     --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
     --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.04);
     --shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.25);
-    --shadow-glow: 0 0 20px rgba(99, 152, 229, 0.2);
-    --shadow-glow-strong: 0 0 40px rgba(99, 152, 229, 0.3);
+    --shadow-glow: 0 0 20px hsla(var(--brand-blue), 0.15);
+    --shadow-glow-strong: 0 0 40px hsla(var(--brand-blue), 0.25);
     --shadow-inner: inset 0 2px 4px rgba(0, 0, 0, 0.06);
 
     /* Motion System (WCAG 2.2 Compliant) */
@@ -224,20 +238,72 @@
 
   /* Enhanced focus states for accessibility */
   :focus-visible {
-    outline: 2px solid hsl(var(--accent-blue));
+    outline: 2px solid hsl(var(--brand-blue));
     outline-offset: 2px;
     border-radius: var(--radius-sm);
   }
 }
 
 @layer utilities {
-  /* Enhanced Gradient System - Minimal and Clean */
-  .gradient-text {
-    @apply bg-clip-text text-transparent;
+  /* Optimized Gradient System - Consistent Brand Colors */
+  .gradient-primary {
     background: linear-gradient(135deg, 
-      hsl(var(--accent-blue)) 0%, 
-      hsl(var(--accent-purple)) 50%, 
-      hsl(var(--accent-cyan)) 100%);
+      hsl(var(--brand-blue)) 0%, 
+      hsl(var(--brand-purple)) 100%);
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, 
+      hsl(var(--brand-blue)) 0%, 
+      hsl(var(--brand-purple)) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+  }
+
+  .gradient-accent {
+    background: linear-gradient(135deg, 
+      hsl(var(--brand-blue-light)) 0%, 
+      hsl(var(--brand-purple-light)) 100%);
+  }
+
+  /* Simplified gradients for Neo-Minimalism */
+  .gradient-success,
+  .gradient-warning {
+    background: var(--gradient-primary); /* Reuse primary gradient */
+  }
+
+  .gradient-error {
+    background: linear-gradient(135deg, 
+      hsl(var(--error)) 0%, 
+      hsl(var(--brand-blue)) 100%);
+  }
+
+  /* Professional Typography Scale - Neo-Minimalist */
+  .text-display {
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight;
+  }
+  
+  .text-headline {
+    @apply text-2xl md:text-3xl lg:text-4xl font-bold leading-tight;
+  }
+  
+  .text-subheadline {
+    @apply text-xl md:text-2xl font-semibold leading-relaxed;
+  }
+  
+  .text-body-large {
+    @apply text-lg leading-relaxed;
+  }
+  
+  .text-body {
+    @apply text-base leading-relaxed;
+  }
+  
+  .text-body-small {
+    @apply text-sm leading-relaxed;
   }
 
   /* Enhanced Glassmorphism */
@@ -285,7 +351,7 @@
     transform: translateY(-1px);
   }
 
-  /* Button System */
+  /* Optimized Button System */
   .btn {
     @apply inline-flex items-center justify-center;
     @apply px-6 py-3 text-sm font-medium;
@@ -298,14 +364,17 @@
   .btn-primary {
     @apply btn;
     background: linear-gradient(135deg, 
-      hsl(var(--accent-blue)), 
-      hsl(var(--accent-purple)));
+      hsl(var(--brand-blue)), 
+      hsl(var(--brand-purple)));
     @apply text-white shadow-md;
   }
 
   .btn-primary:hover {
     transform: translateY(-1px);
     box-shadow: var(--shadow-lg);
+    background: linear-gradient(135deg, 
+      hsl(var(--brand-blue-light)), 
+      hsl(var(--brand-purple-light)));
   }
 
   .btn-ghost {
@@ -371,22 +440,22 @@
 
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(135deg, 
-    hsl(var(--accent-blue)), 
-    hsl(var(--accent-purple)));
+    hsl(var(--brand-blue)), 
+    hsl(var(--brand-purple)));
   border-radius: var(--radius-md);
   border: 1px solid hsl(var(--background-secondary));
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(135deg, 
-    hsl(var(--accent-purple)), 
-    hsl(var(--accent-cyan)));
+    hsl(var(--brand-blue-light)), 
+    hsl(var(--brand-purple-light)));
   box-shadow: var(--shadow-glow);
 }
 
 /* Enhanced Selection */
 ::selection {
-  background: hsla(var(--accent-blue), 0.3);
+  background: hsla(var(--brand-blue), 0.3);
   color: hsl(var(--foreground));
 }
 
@@ -394,9 +463,9 @@
 button:focus-visible, 
 a:focus-visible, 
 [role="button"]:focus-visible {
-  outline: 2px solid hsl(var(--accent-blue));
+  outline: 2px solid hsl(var(--brand-blue));
   outline-offset: 2px;
-  box-shadow: 0 0 0 4px hsla(var(--accent-blue), 0.2);
+  box-shadow: 0 0 0 4px hsla(var(--brand-blue), 0.2);
   border-radius: var(--radius-sm);
 }
 

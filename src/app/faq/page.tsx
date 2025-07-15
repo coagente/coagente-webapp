@@ -199,7 +199,7 @@ export default function FAQPage() {
                 onClick={() => setActiveCategory(category.id)}
                 className={`flex items-center space-x-2 px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
                   activeCategory === category.id
-                    ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg'
+                    ? 'bg-gradient-primary text-white shadow-lg'
                     : 'bg-white/5 text-white/70 hover:bg-white/10 hover:text-white'
                 }`}
               >
@@ -261,7 +261,7 @@ export default function FAQPage() {
           </div>
 
           {/* CTA Section */}
-          <div className="bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-xl p-8 border border-white/10 text-center">
+                      <div className="bg-gradient-primary/20 rounded-xl p-8 border border-white/10 text-center">
             <h2 className="text-2xl font-bold text-white mb-4">
               ¿No encontraste lo que buscabas?
             </h2>
@@ -270,7 +270,7 @@ export default function FAQPage() {
             </p>
             <Link
               href="/#contact"
-              className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl hover:shadow-blue-500/25 transition-all duration-300"
+                              className="inline-flex items-center justify-center px-8 py-4 bg-gradient-primary text-white text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl hover:shadow-glow transition-all duration-300"
             >
               <span>Contactar Especialista</span>
               <CheckCircle size={20} className="ml-2" />
@@ -281,7 +281,7 @@ export default function FAQPage() {
           <div className="text-center mt-16">
             <Link 
               href="/"
-              className="inline-flex items-center space-x-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300"
+              className="inline-flex items-center space-x-2 px-8 py-4 bg-gradient-primary text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300"
             >
               <ArrowLeft size={20} />
               <span>Volver al Inicio</span>

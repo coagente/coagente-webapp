@@ -133,7 +133,7 @@ const FAQSection = () => {
     <section id="faq" className="py-20 bg-slate-900 relative overflow-hidden">
       {/* Subtle background */}
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-transparent to-purple-500/10" />
+        <div className="absolute inset-0 bg-gradient-primary/10" />
       </div>
 
       <div className="container-6xl mx-auto px-6 relative z-10">
@@ -184,7 +184,7 @@ const FAQSection = () => {
                 onClick={() => setActiveCategory(category.id)}
                 className={`flex items-center space-x-2 px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
                   activeCategory === category.id
-                    ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg'
+                    ? 'bg-gradient-primary text-white shadow-lg'
                     : 'bg-white/5 text-white/70 hover:bg-white/10 hover:text-white'
                 }`}
                 whileHover={{ scale: 1.05 }}
@@ -294,7 +294,7 @@ const FAQSection = () => {
             >
               <a
                 href="#contact"
-                className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl hover:shadow-blue-500/25 transition-all duration-300"
+                className="inline-flex items-center justify-center px-8 py-4 bg-gradient-primary text-white text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl hover:shadow-glow transition-all duration-300"
               >
                 <span>Contactar Especialista</span>
                 <CheckCircle size={20} className="ml-2" />

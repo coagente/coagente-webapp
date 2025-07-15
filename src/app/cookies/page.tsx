@@ -233,7 +233,7 @@ export default function CookiesPage() {
             </section>
 
             {/* Contact Section */}
-            <section className="bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-xl p-8 border border-white/10">
+            <section className="bg-gradient-primary/20 rounded-xl p-8 border border-white/10">
               <h2 className="text-2xl font-bold mb-6">Contacto</h2>
               <div className="space-y-4 text-white/80">
                 <p>
@@ -253,7 +253,7 @@ export default function CookiesPage() {
           <div className="text-center mt-16">
             <Link 
               href="/"
-              className="inline-flex items-center space-x-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300"
+                              className="inline-flex items-center space-x-2 px-8 py-4 bg-gradient-primary text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300"
             >
               <ArrowLeft size={20} />
               <span>Volver al Inicio</span>

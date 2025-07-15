@@ -43,12 +43,47 @@ export default {
   			border: 'hsl(var(--border))',
   			input: 'hsl(var(--input))',
   			ring: 'hsl(var(--ring))',
-  			coagente: {
-  				blue: '#6298e5',
-  				purple: '#a9a1ea',
-  				darkPurple: '#544276',
-  				navy: '#34355a',
-  				darkBlue: '#335178'
+  			
+  			// Optimized Brand Colors
+  			brand: {
+  				blue: {
+  					DEFAULT: 'hsl(var(--brand-blue))',
+  					light: 'hsl(var(--brand-blue-light))',
+  					dark: 'hsl(var(--brand-blue-dark))'
+  				},
+  				purple: {
+  					DEFAULT: 'hsl(var(--brand-purple))',
+  					light: 'hsl(var(--brand-purple-light))',
+  					dark: 'hsl(var(--brand-purple-dark))'
+  				}
+  			},
+  			
+  			// Enhanced Semantic Colors
+  			success: {
+  				DEFAULT: 'hsl(var(--success))',
+  				light: 'hsl(var(--success-light))'
+  			},
+  			warning: {
+  				DEFAULT: 'hsl(var(--warning))',
+  				light: 'hsl(var(--warning-light))'
+  			},
+  			error: {
+  				DEFAULT: 'hsl(var(--error))',
+  				light: 'hsl(var(--error-light))'
+  			},
+  			
+  			// Extended Neutral System
+  			neutral: {
+  				50: 'hsl(var(--neutral-50))',
+  				100: 'hsl(var(--neutral-100))',
+  				200: 'hsl(var(--neutral-200))',
+  				300: 'hsl(var(--neutral-300))',
+  				400: 'hsl(var(--neutral-400))',
+  				500: 'hsl(var(--neutral-500))',
+  				600: 'hsl(var(--neutral-600))',
+  				700: 'hsl(var(--neutral-700))',
+  				800: 'hsl(var(--neutral-800))',
+  				900: 'hsl(var(--neutral-900))'
   			}
   		},
   		borderRadius: {
@@ -96,7 +131,17 @@ export default {
   			'accordion-up': 'accordion-up 0.2s ease-out'
   		},
   		backgroundImage: {
-  			'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))'
+  			'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+  			'gradient-primary': 'linear-gradient(135deg, hsl(var(--brand-blue)), hsl(var(--brand-purple)))',
+  			'gradient-accent': 'linear-gradient(135deg, hsl(var(--brand-blue-light)), hsl(var(--brand-purple-light)))',
+  						'gradient-success': 'linear-gradient(135deg, hsl(var(--brand-blue)), hsl(var(--brand-purple)))',
+			'gradient-warning': 'linear-gradient(135deg, hsl(var(--brand-blue)), hsl(var(--brand-purple)))',
+  			'gradient-error': 'linear-gradient(135deg, hsl(var(--error)), hsl(var(--brand-blue)))'
+  		},
+  		spacing: {
+  			'18': '4.5rem',
+  			'88': '22rem',
+  			'128': '32rem'
   		}
   	}
   },

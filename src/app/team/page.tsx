@@ -66,7 +66,7 @@ export default function TeamPage() {
               {/* CCO - Elisa Ramírez Urón */}
               <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8 hover:bg-white/10 transition-all duration-300">
                 <div className="text-center mb-6">
-                  <div className="w-32 h-32 bg-gradient-to-br from-pink-500 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                  <div className="w-32 h-32 bg-gradient-accent rounded-full mx-auto mb-4 flex items-center justify-center">
                     <Users size={48} className="text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-white mb-1">Elisa Ramírez Urón</h3>
@@ -124,7 +124,7 @@ export default function TeamPage() {
               {/* CTO - Alberto Acuña */}
               <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8 hover:bg-white/10 transition-all duration-300">
                 <div className="text-center mb-6">
-                  <div className="w-32 h-32 bg-gradient-to-br from-purple-500 to-cyan-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                  <div className="w-32 h-32 bg-gradient-primary rounded-full mx-auto mb-4 flex items-center justify-center">
                     <Code size={48} className="text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-white mb-1">Alberto Acuña</h3>
@@ -182,7 +182,7 @@ export default function TeamPage() {
               {/* CGO - Eduardo Treviño */}
               <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8 hover:bg-white/10 transition-all duration-300">
                 <div className="text-center mb-6">
-                  <div className="w-32 h-32 bg-gradient-to-br from-green-500 to-teal-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                  <div className="w-32 h-32 bg-gradient-success rounded-full mx-auto mb-4 flex items-center justify-center">
                     <Globe size={48} className="text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-white mb-1">Eduardo Treviño</h3>
@@ -275,7 +275,7 @@ export default function TeamPage() {
           </div>
 
           {/* Join Our Team */}
-          <div className="bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-xl p-8 border border-white/10 mb-16">
+                      <div className="bg-gradient-primary/20 rounded-xl p-8 border border-white/10 mb-16">
             <div className="text-center">
               <h2 className="text-2xl font-bold text-white mb-4">
                 ¿Quieres unirte a nuestro equipo?
@@ -303,7 +303,7 @@ export default function TeamPage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
                   href="mailto:info@coagente.com"
-                  className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl hover:shadow-blue-500/25 transition-all duration-300"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-gradient-primary text-white text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl hover:shadow-glow transition-all duration-300"
                 >
                   <Mail size={20} className="mr-2" />
                   Enviar CV
@@ -323,7 +323,7 @@ export default function TeamPage() {
           <div className="text-center">
             <Link 
               href="/"
-              className="inline-flex items-center space-x-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300"
+              className="inline-flex items-center space-x-2 px-8 py-4 bg-gradient-primary text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300"
             >
               <ArrowLeft size={20} />
               <span>Volver al Inicio</span>

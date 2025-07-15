@@ -113,7 +113,7 @@ const ContactSection = () => {
       content: "Disponibles de Lun-Vie 9:00-18:00",
       value: "+52 811 999 3390",
       action: "tel:+528119993390",
-      color: "from-blue-500 to-cyan-500"
+      color: "gradient-primary"
     },
     {
       icon: Mail,
@@ -121,7 +121,7 @@ const ContactSection = () => {
       content: "Respuesta en menos de 24 hrs",
       value: "info@coagente.com",
       action: "mailto:info@coagente.com",
-      color: "from-green-500 to-emerald-500"
+      color: "gradient-success"
     },
     {
       icon: Calendar,
@@ -129,7 +129,7 @@ const ContactSection = () => {
       description: "Consulta gratuita 30 min",
       value: "Calendly",
       action: "#",
-      color: "from-purple-500 to-pink-500"
+      color: "gradient-accent"
     },
   ];
 
@@ -181,7 +181,7 @@ const ContactSection = () => {
             transition={{ duration: 0.6 }}
           >
             <motion.div
-              className="w-20 h-20 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-8"
+              className="w-20 h-20 bg-gradient-success rounded-full flex items-center justify-center mx-auto mb-8"
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
@@ -197,24 +197,24 @@ const ContactSection = () => {
               Gracias por tu interés. Nuestro equipo se pondrá en contacto contigo en las próximas 2 horas para discutir tu proyecto de AI.
             </p>
             
-            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6">
+            <div className="glass border border-white/10 rounded-xl p-6">
               <h3 className="text-lg font-semibold text-white mb-4">Próximos pasos:</h3>
               <div className="space-y-3 text-left">
                 <div className="flex items-center space-x-3">
-                  <div className="w-6 h-6 bg-blue-500/20 rounded-full flex items-center justify-center">
-                    <span className="text-blue-400 text-sm font-semibold">1</span>
+                  <div className="w-6 h-6 bg-brand-blue/20 rounded-full flex items-center justify-center">
+                    <span className="text-brand-blue text-sm font-semibold">1</span>
                   </div>
                   <span className="text-white/80">Revisaremos tu solicitud y prepararemos preguntas específicas</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <div className="w-6 h-6 bg-purple-500/20 rounded-full flex items-center justify-center">
-                    <span className="text-purple-400 text-sm font-semibold">2</span>
+                  <div className="w-6 h-6 bg-brand-purple/20 rounded-full flex items-center justify-center">
+                    <span className="text-brand-purple text-sm font-semibold">2</span>
                   </div>
                   <span className="text-white/80">Te contactaremos para agendar una consulta gratuita de 30 minutos</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <div className="w-6 h-6 bg-green-500/20 rounded-full flex items-center justify-center">
-                    <span className="text-green-400 text-sm font-semibold">3</span>
+                  <div className="w-6 h-6 bg-success/20 rounded-full flex items-center justify-center">
+                    <span className="text-success text-sm font-semibold">3</span>
                   </div>
                   <span className="text-white/80">Desarrollaremos una propuesta técnica personalizada</span>
                 </div>
@@ -228,10 +228,10 @@ const ContactSection = () => {
 
   return (
     <section id="contact" className="relative bg-slate-800 overflow-hidden">
-      {/* Subtle background */}
+      {/* Optimized background */}
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-transparent to-purple-500/10" />
-        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl" />
+        <div className="absolute inset-0 bg-gradient-primary/10" />
+        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-brand-purple/5 rounded-full blur-3xl" />
       </div>
 
       <div className="container-6xl mx-auto px-6 relative z-10">
@@ -269,16 +269,16 @@ const ContactSection = () => {
                       <motion.a
                         key={method.title}
                         href={method.action}
-                        className="group block p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl hover:bg-white/10 transition-all duration-300"
+                        className="group block p-6 glass border border-white/10 rounded-xl hover:bg-white/10 transition-all duration-300"
                         whileHover={{ scale: 1.02, y: -2 }}
                         whileTap={{ scale: 0.98 }}
                       >
                         <div className="flex items-center space-x-4">
-                          <div className={`p-3 bg-gradient-to-r ${method.color} rounded-lg group-hover:scale-110 transition-transform`}>
-                            <method.icon size={24} className="text-white" />
+                          <div className={`p-3 bg-gradient-primary/20 rounded-lg group-hover:scale-110 transition-transform`}>
+                            <method.icon size={24} className="text-brand-blue" />
                           </div>
                           <div className="flex-1">
-                            <h4 className="text-lg font-semibold text-white group-hover:text-blue-400 transition-colors">
+                            <h4 className="text-lg font-semibold text-white group-hover:text-brand-blue transition-colors">
                               {method.title}
                             </h4>
                             <p className="text-white/60 text-sm">{method.content}</p>
@@ -298,10 +298,10 @@ const ContactSection = () => {
                     {trustIndicators.map((indicator, index) => (
                       <motion.div
                         key={indicator.text}
-                        className="flex items-center space-x-3 p-4 bg-white/5 rounded-lg"
+                        className="flex items-center space-x-3 p-4 glass rounded-lg"
                         whileHover={{ scale: 1.05 }}
                       >
-                        <indicator.icon size={18} className="text-blue-400" />
+                        <indicator.icon size={18} className="text-brand-blue" />
                         <span className="text-white/80 text-sm font-medium">{indicator.text}</span>
                       </motion.div>
                     ))}
@@ -310,11 +310,11 @@ const ContactSection = () => {
 
                 {/* Office Info */}
                 <motion.div 
-                  className="p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl"
+                  className="p-6 glass border border-white/10 rounded-xl"
                   variants={itemVariants}
                 >
                   <h3 className="text-lg font-semibold text-white mb-4 flex items-center">
-                    <MapPin size={20} className="mr-2 text-blue-400" />
+                    <MapPin size={20} className="mr-2 text-brand-blue" />
                     Nuestra oficina
                   </h3>
                   <div className="text-white/80 space-y-1">
@@ -330,7 +330,7 @@ const ContactSection = () => {
               {/* Right Column - Contact Form */}
               <div className="lg:col-span-7">
                 <motion.div 
-                  className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8"
+                  className="glass border border-white/10 rounded-2xl p-8"
                   variants={itemVariants}
                 >
                   <div className="mb-8">
@@ -356,7 +356,7 @@ const ContactSection = () => {
                             required
                             value={formData.name}
                             onChange={handleInputChange}
-                            className="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-blue-400 focus:bg-white/10 transition-all duration-300"
+                            className="w-full pl-10 pr-4 py-3 glass border border-white/10 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-brand-blue focus:bg-white/10 transition-all duration-300"
                             placeholder="Tu nombre"
                           />
                         </div>
@@ -374,7 +374,7 @@ const ContactSection = () => {
                             required
                             value={formData.email}
                             onChange={handleInputChange}
-                            className="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-blue-400 focus:bg-white/10 transition-all duration-300"
+                            className="w-full pl-10 pr-4 py-3 glass border border-white/10 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-brand-blue focus:bg-white/10 transition-all duration-300"
                             placeholder="tu@empresa.com"
                           />
                         </div>
@@ -394,7 +394,7 @@ const ContactSection = () => {
                             required
                             value={formData.company}
                             onChange={handleInputChange}
-                            className="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-blue-400 focus:bg-white/10 transition-all duration-300"
+                            className="w-full pl-10 pr-4 py-3 glass border border-white/10 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-brand-blue focus:bg-white/10 transition-all duration-300"
                             placeholder="Nombre de tu empresa"
                           />
                         </div>
@@ -408,7 +408,7 @@ const ContactSection = () => {
                           name="projectType"
                           value={formData.projectType}
                           onChange={handleInputChange}
-                          className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-blue-400 focus:bg-white/10 transition-all duration-300"
+                          className="w-full px-4 py-3 glass border border-white/10 rounded-lg text-white focus:outline-none focus:border-brand-blue focus:bg-white/10 transition-all duration-300"
                         >
                           <option value="">Selecciona una opción</option>
                           <option value="automation">Automatización de procesos</option>
@@ -428,7 +428,7 @@ const ContactSection = () => {
                         name="budget"
                         value={formData.budget}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-blue-400 focus:bg-white/10 transition-all duration-300"
+                        className="w-full px-4 py-3 glass border border-white/10 rounded-lg text-white focus:outline-none focus:border-brand-blue focus:bg-white/10 transition-all duration-300"
                       >
                         <option value="">Selecciona un rango</option>
                         <option value="50k-100k">$50K - $100K USD</option>
@@ -451,7 +451,7 @@ const ContactSection = () => {
                           rows={4}
                           value={formData.message}
                           onChange={handleInputChange}
-                          className="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-blue-400 focus:bg-white/10 transition-all duration-300 resize-none"
+                          className="w-full pl-10 pr-4 py-3 glass border border-white/10 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-brand-blue focus:bg-white/10 transition-all duration-300 resize-none"
                           placeholder="Describe tu proyecto, objetivos y cualquier requerimiento específico..."
                         />
                       </div>
@@ -462,16 +462,16 @@ const ContactSection = () => {
                       <motion.div
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="p-4 bg-red-500/10 border border-red-500/20 rounded-lg"
+                        className="p-4 bg-error/10 border border-error/20 rounded-lg"
                       >
-                        <p className="text-red-400 text-sm">{submitError}</p>
+                        <p className="text-error text-sm">{submitError}</p>
                       </motion.div>
                     )}
 
                     <motion.button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl hover:shadow-blue-500/25 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
+                      className="w-full py-4 bg-gradient-primary text-white text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl hover:shadow-glow transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
                       whileHover={{ scale: isSubmitting ? 1 : 1.02, y: isSubmitting ? 0 : -2 }}
                       whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
                     >
@@ -482,7 +482,7 @@ const ContactSection = () => {
                         </>
                       ) : (
                         <>
-                          <span>Enviar solicitud</span>
+                          <span>Contactar Ahora</span>
                           <ArrowRight size={20} />
                         </>
                       )}
@@ -513,7 +513,7 @@ const ContactSection = () => {
               >
                 <div className="flex justify-center mb-3">
                   <div className="p-3 bg-slate-700/50 rounded-lg group-hover:bg-slate-600/50 transition-colors">
-                    <stat.icon size={24} className="text-blue-400" />
+                    <stat.icon size={24} className="text-brand-blue" />
                   </div>
                 </div>
                 <div className="text-2xl font-bold text-white mb-1">{stat.number}</div>
@@ -595,7 +595,7 @@ const ContactSection = () => {
                         href={item.href}
                         className="group flex items-center text-sm text-white/60 hover:text-white transition-colors duration-300"
                       >
-                        <ChevronRight size={14} className="mr-2 text-white/40 group-hover:text-blue-400 transition-colors" />
+                        <ChevronRight size={14} className="mr-2 text-white/40 group-hover:text-brand-blue transition-colors" />
                         {item.text}
                       </Link>
                     </motion.div>
@@ -626,7 +626,7 @@ const ContactSection = () => {
                         href={item.href}
                         className="group flex items-center text-sm text-white/60 hover:text-white transition-colors duration-300"
                       >
-                        <ChevronRight size={14} className="mr-2 text-white/40 group-hover:text-blue-400 transition-colors" />
+                        <ChevronRight size={14} className="mr-2 text-white/40 group-hover:text-brand-blue transition-colors" />
                         {item.text}
                       </Link>
                     </motion.div>
@@ -646,7 +646,7 @@ const ContactSection = () => {
                     className="flex items-center space-x-3 text-sm text-white/60"
                     whileHover={{ scale: 1.02 }}
                   >
-                    <Mail size={16} className="text-blue-400" />
+                    <Mail size={16} className="text-brand-blue" />
                     <a href="mailto:info@coagente.com" className="hover:text-white transition-colors">
                       info@coagente.com
                     </a>
@@ -656,7 +656,7 @@ const ContactSection = () => {
                     className="flex items-center space-x-3 text-sm text-white/60"
                     whileHover={{ scale: 1.02 }}
                   >
-                    <Phone size={16} className="text-blue-400" />
+                    <Phone size={16} className="text-brand-blue" />
                     <a href="tel:+528119993390" className="hover:text-white transition-colors">
                       +52 811 999 3390
                     </a>
