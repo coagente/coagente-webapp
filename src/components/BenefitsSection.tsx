@@ -10,36 +10,28 @@ const BenefitsSection = () => {
 
   const benefits = [
     {
-      icon: "⚡",
-      title: "Reducción de tiempo",
-      value: "80%",
-      description: "Automatización de procesos repetitivos",
-      color: "gradient-primary",
-      metric: "tiempo"
+      title: "Reducción SG&A",
+      value: "42%",
+      description: "Gastos generales en primeros 12 meses",
+      color: "gradient-primary"
     },
     {
-      icon: "💰",
-      title: "Ahorro en costos",
-      value: "60%",
-      description: "Optimización de recursos operativos",
-      color: "gradient-success",
-      metric: "costos"
+      title: "Tiempo Ocioso",
+      value: "-67%",
+      description: "Reducción en esperas y bottlenecks",
+      color: "gradient-success"
     },
     {
-      icon: "📈",
-      title: "Incremento en productividad",
-      value: "150%",
-      description: "Mejora en eficiencia de equipos",
-      color: "gradient-accent",
-      metric: "productividad"
+      title: "Gastos Personal",
+      value: "31%",
+      description: "Optimización de recursos humanos",
+      color: "gradient-accent"
     },
     {
-      icon: "🎯",
-      title: "Precisión en resultados",
-      value: "95%",
-      description: "Análisis y decisiones basadas en datos",
-      color: "gradient-primary",
-      metric: "precisión"
+      title: "Ciclos Operativos",
+      value: "3.4x",
+      description: "Aceleración en procesos críticos",
+      color: "gradient-primary"
     }
   ];
 
@@ -82,21 +74,21 @@ const BenefitsSection = () => {
 
       <div className="container mx-auto px-4 relative z-10" ref={ref}>
         <motion.h2 
-          className="text-4xl md:text-5xl font-bold mb-6 text-center text-white"
+          className="text-3xl md:text-4xl font-bold mb-4 text-center text-white"
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ duration: 0.8 }}
         >
-          Beneficios
+          Métricas clave
         </motion.h2>
 
         <motion.p 
-          className="text-xl text-white/70 text-center max-w-3xl mx-auto mb-16"
+          className="text-lg text-white/70 text-center max-w-2xl mx-auto mb-16"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          Resultados reales y medibles que transforman tu operación desde el primer día
+          Resultados promedio en empresas mexicanas del sector industrial y servicios
         </motion.p>
 
         <motion.div 
@@ -109,21 +101,7 @@ const BenefitsSection = () => {
             <motion.div key={index} variants={cardVariants}>
               <Card className="glass border-slate-700 text-white text-center hover:bg-white/10 transition-all duration-300 h-full group">
                 <CardContent className="pt-8 pb-8">
-                  {/* Icon with enhanced animation */}
-                  <motion.div 
-                    className="text-4xl mb-6"
-                    initial={{ scale: 0.5, rotate: -180 }}
-                    animate={isInView ? { scale: 1, rotate: 0 } : { scale: 0.5, rotate: -180 }}
-                    transition={{ 
-                      delay: 0.5 + index * 0.1, 
-                      duration: 0.8,
-                      type: "spring",
-                      stiffness: 200
-                    }}
-                    whileHover={{ scale: 1.2, rotate: 10 }}
-                  >
-                    {benefit.icon}
-                  </motion.div>
+
 
                   {/* Title */}
                   <motion.h3 
@@ -160,19 +138,7 @@ const BenefitsSection = () => {
                     {benefit.description}
                   </motion.p>
 
-                  {/* Enhanced visual indicator */}
-                  <motion.div 
-                    className="mt-6 pt-4 border-t border-white/10"
-                    initial={{ opacity: 0, scaleX: 0 }}
-                    animate={isInView ? { opacity: 1, scaleX: 1 } : { opacity: 0, scaleX: 0 }}
-                    transition={{ delay: 1.3 + index * 0.1, duration: 0.6 }}
-                  >
-                    <div className="flex items-center justify-center space-x-2">
-                      <div className="w-2 h-2 bg-gradient-primary rounded-full opacity-60 group-hover:opacity-100 transition-opacity" />
-                      <span className="text-xs text-white/50 font-medium capitalize">{benefit.metric}</span>
-                      <div className="w-2 h-2 bg-gradient-primary rounded-full opacity-60 group-hover:opacity-100 transition-opacity" />
-                    </div>
-                  </motion.div>
+
                 </CardContent>
               </Card>
             </motion.div>
@@ -193,52 +159,28 @@ const BenefitsSection = () => {
                 className="glass border border-white/10 rounded-lg p-6 text-center"
                 whileHover={{ scale: 1.02, y: -1 }}
               >
-                <div className="text-2xl font-bold text-white mb-2">50+</div>
-                <div className="text-white/70 text-sm">Empresas transformadas</div>
+                <div className="text-2xl font-bold text-white mb-2">Fortune 500</div>
+                <div className="text-white/70 text-sm">Clientes activos</div>
               </motion.div>
               
               <motion.div 
                 className="glass border border-white/10 rounded-lg p-6 text-center"
                 whileHover={{ scale: 1.02, y: -1 }}
               >
-                <div className="text-2xl font-bold text-white mb-2">98%</div>
-                <div className="text-white/70 text-sm">Satisfacción garantizada</div>
+                <div className="text-2xl font-bold text-white mb-2">$460M MXN</div>
+                <div className="text-white/70 text-sm">Ahorro acumulado</div>
               </motion.div>
               
               <motion.div 
                 className="glass border border-white/10 rounded-lg p-6 text-center"
                 whileHover={{ scale: 1.02, y: -1 }}
               >
-                <div className="text-2xl font-bold text-white mb-2">6 meses</div>
-                <div className="text-white/70 text-sm">ROI garantizado</div>
+                <div className="text-2xl font-bold text-white mb-2">ISO 27001</div>
+                <div className="text-white/70 text-sm">Certificados</div>
               </motion.div>
             </div>
 
-            <h3 className="text-2xl md:text-3xl font-bold text-white mb-6">
-              ¿Listo para <span className="gradient-text">transformar tu empresa</span>?
-            </h3>
-            <p className="text-white/70 text-lg mb-8">
-              Resultados medibles en 30 días. ROI positivo garantizado.
-            </p>
-            
-            <motion.div
-              whileHover={{ scale: 1.02, y: -1 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <a
-                href="#contact"
-                className="btn-primary btn-lg group"
-              >
-                <span>Análisis Gratuito</span>
-                <motion.span 
-                  className="group-hover:translate-x-1 transition-transform duration-200"
-                  animate={{ x: [0, 4, 0] }}
-                  transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                >
-                  →
-                </motion.span>
-              </a>
-            </motion.div>
+
           </div>
         </motion.div>
       </div>

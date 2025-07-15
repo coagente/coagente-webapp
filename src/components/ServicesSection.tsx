@@ -10,31 +10,31 @@ const ServicesSection = () => {
 
   const services = [
     {
-      title: "Agentes de Atención",
-      subtitle: "al Cliente",
-      description: "IA que atiende clientes 24/7. Respuestas precisas y naturales.",
-      demo: "chatbot",
-      color: "gradient-primary"
-    },
-    {
-      title: "Análisis de",
-      subtitle: "Oportunidades",
-      description: "Identifica oportunidades de negocio con análisis inteligente.",
-      demo: "analysis",
-      color: "gradient-accent"
-    },
-    {
-      title: "Automatización de",
-      subtitle: "Procesos",
-      description: "Automatiza flujos de trabajo. Maximiza eficiencia operativa.",
+      title: "Gestión de",
+      subtitle: "Procesos Complejos",
+      description: "Automatización end-to-end de workflows multi-departamentales y optimización de bottlenecks operacionales.",
       demo: "automation",
       color: "gradient-primary"
     },
     {
-      title: "Análisis de",
-      subtitle: "Documentos",
-      description: "Procesa y analiza documentos legales automáticamente.",
+      title: "Gestión de",
+      subtitle: "Canales", 
+      description: "Unificación omnicanal con analytics en tiempo real y personalización dinámica de experiencias.",
+      demo: "chatbot",
+      color: "gradient-accent"
+    },
+    {
+      title: "Gestión de",
+      subtitle: "Conocimiento",
+      description: "Knowledge graphs inteligentes para captura, estructuración y distribución automatizada de expertise organizacional.",
       demo: "documents",
+      color: "gradient-primary"
+    },
+    {
+      title: "Despliegue de",
+      subtitle: "Agentes Especializados",
+      description: "AI agents dedicados por vertical: logística, regulatorio, personalización, marketing y migración de código.",
+      demo: "analysis",
       color: "gradient-accent"
     }
   ];
@@ -279,12 +279,12 @@ const ServicesSection = () => {
 
       <div className="container mx-auto px-4 relative z-10" ref={ref}>
         <motion.h2 
-          className="text-4xl md:text-5xl font-bold mb-16 text-center text-white"
+          className="text-3xl md:text-4xl font-bold mb-16 text-center text-white"
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ duration: 0.8 }}
         >
-          Nuestros Servicios
+          Capacidades
         </motion.h2>
 
         <motion.div 
@@ -323,28 +323,92 @@ const ServicesSection = () => {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ delay: 1, duration: 0.8 }}
         >
-          <p className="text-white/70 text-lg mb-8 max-w-3xl mx-auto">
-            Soluciones IA personalizadas. Resultados medibles desde el día uno.
-          </p>
-          
-          <motion.div
-            whileHover={{ scale: 1.02, y: -1 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            <a
-              href="#contact"
-              className="btn-primary btn-lg group"
-            >
-              <span>Descubre tu solución ideal</span>
-              <motion.span 
-                className="group-hover:translate-x-1 transition-transform duration-200"
-                animate={{ x: [0, 4, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+
+        </motion.div>
+
+        {/* New Verticals Section */}
+        <motion.div 
+          className="mt-24 pt-16 border-t border-slate-700/50"
+          initial={{ opacity: 0, y: 50 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+          transition={{ delay: 1.2, duration: 0.8 }}
+        >
+          <div className="text-center mb-16">
+            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+              Nuestros Agentes Especializados
+            </h3>
+            <p className="text-lg text-white/70 max-w-3xl mx-auto">
+              Soluciones SaaS de negocio customizadas con AI agents para maximizar ROI por vertical
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+            {[
+              {
+                title: "Agentes Logísticos",
+                description: "Optimización end-to-end de supply chain con predicción de demanda",
+                potential: "Reducción 35% costos logísticos",
+                icon: "🚛"
+              },
+              {
+                title: "Agentes Regulatorios", 
+                description: "Compliance automatizado y gestión normativa inteligente",
+                potential: "87% menos tiempo regulatorio",
+                icon: "📋"
+              },
+              {
+                title: "Agentes de Personalización",
+                description: "Experiencias hiperpersonalizadas con ML behavioral",
+                potential: "Incremento 4.2x conversión",
+                icon: "🎯"
+              },
+              {
+                title: "Agentes de Marketing",
+                description: "Attribution models y campaign optimization en tiempo real",
+                potential: "ROI marketing +280%",
+                icon: "📊"
+              },
+              {
+                title: "Agentes de Migración",
+                description: "Modernización de legacy systems y code transformation",
+                potential: "90% aceleración migración",
+                icon: "⚡"
+              }
+            ].map((vertical, index) => (
+              <motion.div
+                key={vertical.title}
+                className="glass border border-white/10 rounded-xl p-6 text-center hover:bg-white/10 transition-all duration-300 group"
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                transition={{ delay: 1.4 + index * 0.1, duration: 0.6 }}
+                whileHover={{ scale: 1.02, y: -2 }}
               >
-                →
-              </motion.span>
-            </a>
-          </motion.div>
+                <div className="text-3xl mb-4">{vertical.icon}</div>
+                <h4 className="text-lg font-semibold text-white mb-3 group-hover:text-brand-blue transition-colors">
+                  {vertical.title}
+                </h4>
+                <p className="text-sm text-white/70 mb-4 leading-relaxed">
+                  {vertical.description}
+                </p>
+                <div className="px-3 py-2 bg-gradient-primary/20 rounded-lg">
+                  <span className="text-xs text-brand-blue font-medium">
+                    {vertical.potential}
+                  </span>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <motion.div
+              className="inline-flex items-center space-x-2 px-6 py-3 glass border border-white/10 rounded-lg"
+              whileHover={{ scale: 1.02 }}
+            >
+              <span className="text-white/80 text-sm">
+                <strong className="text-white">SaaS Implementation:</strong> Deployment completo en 60-120 días
+              </span>
+            </motion.div>
+          </div>
         </motion.div>
       </div>
     </section>

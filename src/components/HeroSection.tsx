@@ -36,16 +36,16 @@ const HeroSection = () => {
     }
   }, [currentVideo]);
   const trustIndicators = [
-    { icon: Clock, text: "30 días", subtext: "Implementación garantizada" },
-    { icon: Users, text: "98%", subtext: "Satisfacción del cliente" },
-    { icon: Award, text: "50+", subtext: "Proyectos completados" }
+    { icon: Clock, text: "$4.6M MXN", subtext: "Ahorro promedio anual" },
+    { icon: Users, text: "47%", subtext: "Reducción SG&A" },
+    { icon: Award, text: "ISO 27001", subtext: "Certificación de seguridad" }
   ];
 
   const benefits = [
-    "✓ Implementación: 30 días",
-    "✓ ROI positivo: 6 meses", 
-    "✓ Soporte 24/7",
-    "✓ Consulta gratuita"
+    "Implementación en 30-90 días",
+    "ROI documentado promedio 3.2x", 
+    "Integración con sistemas existentes",
+    "Sin disruption operacional"
   ];
 
   const containerVariants = {
@@ -79,16 +79,16 @@ const HeroSection = () => {
         autoPlay
         muted
         playsInline
-        className="absolute inset-0 w-full h-full object-cover z-0 opacity-40"
+        className="absolute inset-0 w-full h-full object-cover z-0 opacity-60"
       >
         <source src={videoSources[currentVideo]} type="video/mp4" />
       </video>
 
-      {/* Enhanced overlay for better contrast */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-900/60 via-slate-900/50 to-slate-800/60 z-5" />
+      {/* Enhanced overlay for better contrast - reduced opacity */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-900/40 via-slate-900/30 to-slate-800/40 z-5" />
       
-      {/* Additional overlay for extra contrast */}
-      <div className="absolute inset-0 bg-gradient-primary/10 z-6" />
+      {/* Additional overlay for extra contrast - reduced opacity */}
+      <div className="absolute inset-0 bg-gradient-primary/5 z-6" />
 
       <div className="container-6xl mx-auto px-6 relative z-10">
         <motion.div 
@@ -97,22 +97,7 @@ const HeroSection = () => {
           initial="hidden"
           animate="visible"
         >
-          {/* Trust Badge */}
-          <motion.div 
-            className="text-center mb-8"
-            variants={itemVariants}
-          >
-            <motion.div 
-              className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-gradient-primary/20 border border-white/20 backdrop-blur-md shadow-lg"
-              whileHover={{ scale: 1.05, borderColor: "rgba(255, 255, 255, 0.3)" }}
-            >
-              <Shield size={16} className="text-brand-blue drop-shadow-sm" />
-              <span className="text-sm font-medium text-white/95 drop-shadow-sm">
-                Consultora AI Certificada
-              </span>
-              <Sparkles size={14} className="text-brand-purple drop-shadow-sm" />
-            </motion.div>
-          </motion.div>
+
 
           {/* Main Content Grid - Optimized */}
           <div className="grid lg:grid-cols-12 gap-12 items-center">
@@ -132,7 +117,7 @@ const HeroSection = () => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.5, duration: 0.8 }}
                   >
-                    Transformamos tu empresa
+                    Inteligencia Artificial
                   </motion.span>
                   <motion.span 
                     className="block"
@@ -140,9 +125,9 @@ const HeroSection = () => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.7, duration: 0.8 }}
                   >
-                    con{" "}
-                    <span className="gradient-text-hero" data-text="Inteligencia Artificial">
-                      Inteligencia Artificial
+                    para empresas{" "}
+                    <span className="gradient-text-hero" data-text="con potencial">
+                      con potencial
                     </span>
                   </motion.span>
                 </h1>
@@ -154,8 +139,8 @@ const HeroSection = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.9, duration: 0.8 }}
                 >
-                  Automatizamos procesos empresariales con IA. 
-                  Resultados medibles en 30 días.
+                  Reducimos costos operativos 40-60% mediante automatización inteligente 
+                  de procesos críticos de negocio.
                 </motion.p>
               </motion.div>
 
@@ -167,42 +152,29 @@ const HeroSection = () => {
                 {benefits.map((benefit, index) => (
                   <motion.div
                     key={benefit}
-                    className="flex items-center space-x-3 text-white/95 drop-shadow-lg"
-                    style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.7)' }}
+                    className="text-white/80"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 1.1 + index * 0.1, duration: 0.6 }}
                   >
-                    <span className="text-success text-lg font-semibold drop-shadow-lg">✓</span>
-                    <span className="text-sm font-medium">{benefit.slice(2)}</span>
+                    <span className="text-sm font-medium">{benefit}</span>
                   </motion.div>
                 ))}
               </motion.div>
 
-              {/* CTA Buttons - Optimized */}
+              {/* CTA Button - Single, Professional */}
               <motion.div 
-                className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12"
+                className="flex justify-center lg:justify-start"
                 variants={itemVariants}
               >
                 <motion.div
-                  whileHover={{ scale: 1.02, y: -2 }}
-                  whileTap={{ scale: 0.98 }}
+                  whileHover={{ scale: 1.01 }}
+                  whileTap={{ scale: 0.99 }}
                 >
                   <Link href="/#contact">
-                    <button className="btn-primary btn-lg group min-w-[180px]">
-                      <span>Comenzar Proyecto</span>
-                      <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-200" />
-                    </button>
-                  </Link>
-                </motion.div>
-                
-                <motion.div
-                  whileHover={{ scale: 1.02, y: -2 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <Link href="/#services">
-                    <button className="btn-secondary btn-lg min-w-[180px]">
-                      <span>Ver Servicios</span>
+                    <button className="btn-secondary btn-md group">
+                      <span>Solicitar diagnóstico</span>
+                      <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-200" />
                     </button>
                   </Link>
                 </motion.div>
@@ -234,37 +206,7 @@ const HeroSection = () => {
                   </motion.div>
                 ))}
 
-                {/* Process Preview - Simplified */}
-                <motion.div
-                  className="bg-gradient-primary/15 glass border border-white/20 rounded-xl p-6 backdrop-blur-md shadow-xl"
-                  variants={itemVariants}
-                >
-                  <h4 className="text-lg font-semibold text-white mb-4 drop-shadow-sm">Nuestro Proceso</h4>
-                  <div className="space-y-3">
-                    {[
-                      { step: "1", text: "Análisis", status: "completed" },
-                      { step: "2", text: "Desarrollo", status: "active" },
-                      { step: "3", text: "Implementación", status: "pending" }
-                    ].map((item, index) => (
-                      <div key={item.step} className="flex items-center space-x-3">
-                        <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold ${
-                          item.status === 'completed' ? 'bg-success/20 text-success' :
-                          item.status === 'active' ? 'bg-brand-blue/20 text-brand-blue' :
-                          'bg-white/10 text-white/40'
-                        }`}>
-                          {item.step}
-                        </div>
-                        <span className={`text-sm ${
-                          item.status === 'completed' ? 'text-white' :
-                          item.status === 'active' ? 'text-white' :
-                          'text-white/40'
-                        }`}>
-                          {item.text}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </motion.div>
+
               </motion.div>
             </div>
           </div>
@@ -282,64 +224,11 @@ const HeroSection = () => {
               transition={{ delay: 1.5, duration: 0.8 }}
             >
               <div className="space-y-6">
-                {/* Main Statement */}
-                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white leading-tight">
-                  <span className="block mb-3">
-                    Somos <span className="gradient-text-hero" data-text="coagente">coagente</span>.
-                  </span>
-                  <span className="block text-white/90 text-xl md:text-2xl lg:text-3xl font-semibold leading-relaxed">
-                    <span className="text-success font-bold">30 días</span> para transformar tu empresa con 
-                    <span className="text-brand-blue font-bold">IA personalizada</span>.
-                  </span>
-                </h2>
 
-                {/* Value Highlights - Improved Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
-                  <motion.div 
-                    className="glass border border-white/10 rounded-lg p-6 text-center"
-                    whileHover={{ scale: 1.02, y: -1 }}
-                  >
-                    <div className="text-3xl font-bold gradient-text mb-2">30 días</div>
-                    <div className="text-white/70 text-sm">Implementación garantizada</div>
-                  </motion.div>
-                  
-                  <motion.div 
-                    className="glass border border-white/10 rounded-lg p-6 text-center"
-                    whileHover={{ scale: 1.02, y: -1 }}
-                  >
-                    <div className="text-3xl font-bold gradient-text mb-2">ROI 6m</div>
-                    <div className="text-white/70 text-sm">Retorno garantizado</div>
-                  </motion.div>
-                  
-                  <motion.div 
-                    className="glass border border-white/10 rounded-lg p-6 text-center"
-                    whileHover={{ scale: 1.02, y: -1 }}
-                  >
-                    <div className="text-3xl font-bold gradient-text mb-2">24/7</div>
-                    <div className="text-white/70 text-sm">Soporte especializado</div>
-                  </motion.div>
-                </div>
               </div>
             </motion.div>
 
-            {/* Final CTA */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.8, duration: 0.8 }}
-            >
-              <motion.div
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Link href="/#contact">
-                  <button className="btn-primary btn-lg group">
-                    <span>Consulta Gratuita</span>
-                    <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-200" />
-                  </button>
-                </Link>
-              </motion.div>
-            </motion.div>
+
           </motion.div>
         </motion.div>
       </div>

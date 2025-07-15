@@ -11,25 +11,25 @@ const ProcessSection = () => {
   const steps = [
     {
       number: "1",
-      title: "Evaluación",
-      subtitle: "de procesos",
-      description: "Analizamos tus procesos actuales para identificar oportunidades de mejora y automatización.",
+      title: "Diagnóstico",
+      subtitle: "operacional",
+      description: "Análisis cuantitativo de procesos core. Identificación de bottlenecks y oportunidades de optimización.",
       demo: "evaluation",
       color: "gradient-primary"
     },
     {
       number: "2",
-      title: "Desarrollo",
-      subtitle: "personalizado",
-      description: "Creamos soluciones de AI específicas para tus necesidades y objetivos de negocio.",
+      title: "Arquitectura",
+      subtitle: "de solución",
+      description: "Diseño de modelos y pipelines específicos. Integración con stack tecnológico existente.",
       demo: "development",
       color: "gradient-accent"
     },
     {
       number: "3",
-      title: "Implementación",
-      subtitle: "y monitoreo",
-      description: "Desplegamos la solución y monitoreamos su rendimiento para garantizar resultados óptimos.",
+      title: "Deployment",
+      subtitle: "y escalamiento",
+      description: "Rollout progresivo con KPIs definidos. Monitoreo continuo y optimización iterativa.",
       demo: "monitoring",
       color: "gradient-primary"
     }
@@ -283,12 +283,12 @@ const ProcessSection = () => {
 
       <div className="container mx-auto px-4 relative z-10" ref={ref}>
         <motion.h2 
-          className="text-4xl md:text-5xl font-bold mb-16 text-center text-white"
+          className="text-3xl md:text-4xl font-bold mb-16 text-center text-white"
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ duration: 0.8 }}
         >
-          ¿Cómo lo hacemos?
+          Metodología
         </motion.h2>
 
         <motion.div 
@@ -372,58 +372,7 @@ const ProcessSection = () => {
           transition={{ delay: 1.5, duration: 0.8 }}
         >
           <div className="max-w-4xl mx-auto">
-            <h3 className="text-2xl md:text-3xl font-bold text-white mb-6">
-              Un proceso <span className="gradient-text">probado y escalable</span>
-            </h3>
-            <p className="text-white/70 text-lg mb-8">
-              Nuestro enfoque metodológico garantiza resultados consistentes y medibles en cada proyecto,
-              adaptándose perfectamente a las necesidades específicas de tu empresa.
-            </p>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-              <motion.div 
-                className="glass border border-white/10 rounded-lg p-6 text-center"
-                whileHover={{ scale: 1.02, y: -1 }}
-              >
-                <div className="text-3xl font-bold gradient-text mb-2">1-2</div>
-                <div className="text-white/70 text-sm font-medium">Semanas de análisis</div>
-              </motion.div>
-              
-              <motion.div 
-                className="glass border border-white/10 rounded-lg p-6 text-center"
-                whileHover={{ scale: 1.02, y: -1 }}
-              >
-                <div className="text-3xl font-bold gradient-text mb-2">2-8</div>
-                <div className="text-white/70 text-sm font-medium">Semanas de desarrollo</div>
-              </motion.div>
-              
-              <motion.div 
-                className="glass border border-white/10 rounded-lg p-6 text-center"
-                whileHover={{ scale: 1.02, y: -1 }}
-              >
-                <div className="text-3xl font-bold gradient-text mb-2">24/7</div>
-                <div className="text-white/70 text-sm font-medium">Monitoreo continuo</div>
-              </motion.div>
-            </div>
-            
-            <motion.div
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <a
-                href="#contact"
-                className="btn-primary btn-lg group"
-              >
-                <span>Iniciar Proyecto</span>
-                <motion.span 
-                  className="group-hover:translate-x-1 transition-transform duration-200"
-                  animate={{ x: [0, 4, 0] }}
-                  transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                >
-                  →
-                </motion.span>
-              </a>
-            </motion.div>
+
           </div>
         </motion.div>
       </div>

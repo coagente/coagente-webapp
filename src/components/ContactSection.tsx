@@ -134,18 +134,13 @@ const ContactSection = () => {
   ];
 
   const trustIndicators = [
-    { icon: Clock, text: "Respuesta en 2 horas" },
-    { icon: Shield, text: "Consulta confidencial" },
-    { icon: CheckCircle, text: "Sin compromiso" },
-    { icon: Award, text: "Expertos certificados" }
+    { icon: Clock, text: "24h respuesta" },
+    { icon: Shield, text: "ISO 27001" },
+    { icon: CheckCircle, text: "NDA incluido" },
+    { icon: Award, text: "Fortune 500" }
   ];
 
-  const stats = [
-    { number: "50+", label: "Proyectos Completados", icon: Award },
-    { number: "98%", label: "Satisfacción Cliente", icon: Users },
-    { number: "24/7", label: "Soporte Técnico", icon: Shield },
-    { number: "3+", label: "Años Experiencia", icon: Award }
-  ];
+
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -248,11 +243,11 @@ const ContactSection = () => {
               className="text-center mb-16"
               variants={itemVariants}
             >
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                Comencemos tu Proyecto de AI
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                Contacto
               </h2>
-              <p className="text-xl text-white/70 max-w-3xl mx-auto">
-                Agenda una consulta gratuita y descubre cómo la inteligencia artificial puede transformar tu negocio
+              <p className="text-lg text-white/70 max-w-2xl mx-auto">
+                Solicite un diagnóstico operacional sin costo
               </p>
             </motion.div>
 
@@ -263,7 +258,6 @@ const ContactSection = () => {
                 
                 {/* Contact Methods */}
                 <motion.div variants={itemVariants}>
-                  <h3 className="text-2xl font-bold text-white mb-6">Múltiples formas de contacto</h3>
                   <div className="space-y-4">
                     {contactMethods.map((method, index) => (
                       <motion.a
@@ -293,7 +287,6 @@ const ContactSection = () => {
 
                 {/* Trust Indicators */}
                 <motion.div variants={itemVariants}>
-                  <h3 className="text-xl font-semibold text-white mb-4">¿Por qué elegirnos?</h3>
                   <div className="grid grid-cols-2 gap-4">
                     {trustIndicators.map((indicator, index) => (
                       <motion.div
@@ -334,11 +327,11 @@ const ContactSection = () => {
                   variants={itemVariants}
                 >
                   <div className="mb-8">
-                    <h3 className="text-2xl font-bold text-white mb-2">
-                      Cuéntanos sobre tu proyecto
+                    <h3 className="text-xl font-bold text-white mb-2">
+                      Información del proyecto
                     </h3>
-                    <p className="text-white/70">
-                      Completa el formulario y te contactaremos en las próximas 2 horas
+                    <p className="text-white/70 text-sm">
+                      Respuesta garantizada en 24 horas hábiles
                     </p>
                   </div>
 
@@ -402,46 +395,45 @@ const ContactSection = () => {
 
                       <div>
                         <label className="block text-white/80 text-sm font-medium mb-2">
-                          Tipo de proyecto
+                          Área de interés
                         </label>
                         <select
                           name="projectType"
                           value={formData.projectType}
                           onChange={handleInputChange}
-                          className="w-full px-4 py-3 glass border border-white/10 rounded-lg text-white focus:outline-none focus:border-brand-blue focus:bg-white/10 transition-all duration-300"
+                          className="w-full px-4 py-3 glass border border-white/10 rounded-lg text-white bg-transparent focus:outline-none focus:border-brand-blue focus:bg-white/10 transition-all duration-300 cursor-pointer"
                         >
-                          <option value="">Selecciona una opción</option>
-                          <option value="automation">Automatización de procesos</option>
-                          <option value="chatbot">Agente de atención al cliente</option>
-                          <option value="analytics">Análisis de datos con AI</option>
-                          <option value="custom">Solución personalizada</option>
-                          <option value="consultation">Consultoría general</option>
+                          <option value="" className="bg-slate-800">Seleccionar</option>
+                          <option value="operations" className="bg-slate-800">Optimización operacional</option>
+                          <option value="supply_chain" className="bg-slate-800">Supply chain</option>
+                          <option value="analytics" className="bg-slate-800">Analytics predictivo</option>
+                          <option value="automation" className="bg-slate-800">Automatización RPA</option>
+                          <option value="quality" className="bg-slate-800">Control de calidad</option>
                         </select>
                       </div>
                     </div>
 
                     <div>
                       <label className="block text-white/80 text-sm font-medium mb-2">
-                        Presupuesto estimado
+                        Inversión anual estimada
                       </label>
                       <select
                         name="budget"
                         value={formData.budget}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 glass border border-white/10 rounded-lg text-white focus:outline-none focus:border-brand-blue focus:bg-white/10 transition-all duration-300"
+                        className="w-full px-4 py-3 glass border border-white/10 rounded-lg text-white bg-transparent focus:outline-none focus:border-brand-blue focus:bg-white/10 transition-all duration-300 cursor-pointer"
                       >
-                        <option value="">Selecciona un rango</option>
-                        <option value="50k-100k">$50K - $100K USD</option>
-                        <option value="100k-250k">$100K - $250K USD</option>
-                        <option value="250k-500k">$250K - $500K USD</option>
-                        <option value="500k+">$500K+ USD</option>
-                        <option value="discuss">Prefiero discutirlo</option>
+                        <option value="" className="bg-slate-800">Seleccionar</option>
+                        <option value="<2M" className="bg-slate-800">&lt; $2M MXN</option>
+                        <option value="2M-10M" className="bg-slate-800">$2M - $10M MXN</option>
+                        <option value="10M-20M" className="bg-slate-800">$10M - $20M MXN</option>
+                        <option value=">20M" className="bg-slate-800">&gt; $20M MXN</option>
                       </select>
                     </div>
 
                     <div>
                       <label className="block text-white/80 text-sm font-medium mb-2">
-                        Cuéntanos sobre tu proyecto *
+                        Descripción del requerimiento *
                       </label>
                       <div className="relative">
                         <MessageSquare size={18} className="absolute left-3 top-3 text-white/40" />
@@ -452,7 +444,7 @@ const ContactSection = () => {
                           value={formData.message}
                           onChange={handleInputChange}
                           className="w-full pl-10 pr-4 py-3 glass border border-white/10 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-brand-blue focus:bg-white/10 transition-all duration-300 resize-none"
-                          placeholder="Describe tu proyecto, objetivos y cualquier requerimiento específico..."
+                          placeholder="Procesos a optimizar, volumen de datos, sistemas actuales..."
                         />
                       </div>
                     </div>
@@ -482,16 +474,14 @@ const ContactSection = () => {
                         </>
                       ) : (
                         <>
-                          <span>Contactar Ahora</span>
-                          <ArrowRight size={20} />
+                          <span>Enviar solicitud</span>
+                          <ArrowRight size={16} />
                         </>
                       )}
                     </motion.button>
 
-                    <p className="text-white/50 text-sm text-center">
-                      Al enviar este formulario, aceptas que nos pongamos en contacto contigo sobre tu proyecto.
-                      <br />
-                      Respetamos tu privacidad y nunca compartimos tu información.
+                    <p className="text-white/50 text-xs text-center">
+                      Información confidencial según ISO 27001
                     </p>
                   </form>
                 </motion.div>
@@ -499,28 +489,7 @@ const ContactSection = () => {
             </div>
           </div>
 
-          {/* Stats Section */}
-          <motion.div 
-            className="grid grid-cols-2 lg:grid-cols-4 gap-8 py-12 border-t border-slate-700/50"
-            variants={containerVariants}
-          >
-            {stats.map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                className="text-center group"
-                variants={itemVariants}
-                whileHover={{ scale: 1.05 }}
-              >
-                <div className="flex justify-center mb-3">
-                  <div className="p-3 bg-slate-700/50 rounded-lg group-hover:bg-slate-600/50 transition-colors">
-                    <stat.icon size={24} className="text-brand-blue" />
-                  </div>
-                </div>
-                <div className="text-2xl font-bold text-white mb-1">{stat.number}</div>
-                <div className="text-sm text-white/60">{stat.label}</div>
-              </motion.div>
-            ))}
-          </motion.div>
+
 
           {/* Footer Section */}
           <div className="border-t border-slate-700/50 pt-12 pb-8">
@@ -547,29 +516,9 @@ const ContactSection = () => {
                   </div>
                 </div>
 
-                <p className="text-white/60 leading-relaxed text-sm max-w-sm">
-                  Desarrollamos soluciones de inteligencia artificial personalizadas para empresas que buscan transformar sus procesos y maximizar su productividad.
-                </p>
 
-                {/* Social Links */}
-                <div className="flex items-center space-x-4">
-                  {[
-                    { icon: Linkedin, href: "#", label: "LinkedIn" },
-                    { icon: Twitter, href: "#", label: "Twitter" },
-                    { icon: Github, href: "#", label: "GitHub" }
-                  ].map((social, index) => (
-                    <motion.a
-                      key={social.label}
-                      href={social.href}
-                      className="p-2 bg-slate-700/50 hover:bg-slate-600/50 rounded-lg transition-all duration-300 group"
-                      whileHover={{ scale: 1.1, y: -2 }}
-                      whileTap={{ scale: 0.95 }}
-                      aria-label={social.label}
-                    >
-                      <social.icon size={18} className="text-white/60 group-hover:text-white transition-colors" />
-                    </motion.a>
-                  ))}
-                </div>
+
+
               </motion.div>
 
               {/* Services Section */}
@@ -580,11 +529,10 @@ const ContactSection = () => {
                 <h4 className="text-lg font-semibold text-white">Servicios</h4>
                 <nav className="space-y-3">
                   {[
-                    { href: "/#services", text: "Agentes de IA" },
-                    { href: "/#services", text: "Análisis de Datos" },
-                    { href: "/#services", text: "Automatización" },
-                    { href: "/#services", text: "Consultoría AI" },
-                    { href: "/process", text: "Implementación" }
+                    { href: "/#services", text: "Capacidades" },
+                    { href: "/process", text: "Metodología" },
+                    { href: "/team", text: "Equipo" },
+                    { href: "/faq", text: "FAQ" }
                   ].map((item, index) => (
                     <motion.div
                       key={item.text}
