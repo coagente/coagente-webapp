@@ -191,7 +191,7 @@ const BenefitsSection = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
               <motion.div 
                 className="glass border border-white/10 rounded-lg p-6 text-center"
-                whileHover={{ scale: 1.05, y: -2 }}
+                whileHover={{ scale: 1.02, y: -1 }}
               >
                 <div className="text-2xl font-bold text-white mb-2">50+</div>
                 <div className="text-white/70 text-sm">Empresas transformadas</div>
@@ -199,7 +199,7 @@ const BenefitsSection = () => {
               
               <motion.div 
                 className="glass border border-white/10 rounded-lg p-6 text-center"
-                whileHover={{ scale: 1.05, y: -2 }}
+                whileHover={{ scale: 1.02, y: -1 }}
               >
                 <div className="text-2xl font-bold text-white mb-2">98%</div>
                 <div className="text-white/70 text-sm">Satisfacción garantizada</div>
@@ -207,7 +207,7 @@ const BenefitsSection = () => {
               
               <motion.div 
                 className="glass border border-white/10 rounded-lg p-6 text-center"
-                whileHover={{ scale: 1.05, y: -2 }}
+                whileHover={{ scale: 1.02, y: -1 }}
               >
                 <div className="text-2xl font-bold text-white mb-2">6 meses</div>
                 <div className="text-white/70 text-sm">ROI garantizado</div>
@@ -222,16 +222,16 @@ const BenefitsSection = () => {
             </p>
             
             <motion.div
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.02, y: -1 }}
+              whileTap={{ scale: 0.98 }}
             >
               <a
                 href="#contact"
-                className="inline-flex items-center justify-center px-8 py-4 bg-gradient-primary text-white text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl hover:shadow-glow transition-all duration-300"
+                className="btn-primary btn-lg group"
               >
                 <span>Análisis Gratuito</span>
                 <motion.span 
-                  className="ml-2"
+                  className="group-hover:translate-x-1 transition-transform duration-200"
                   animate={{ x: [0, 4, 0] }}
                   transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
                 >

@@ -168,7 +168,7 @@ const FAQSection = () => {
                 placeholder="Buscar en preguntas frecuentes..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-12 pr-4 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-blue-400 focus:bg-white/10 transition-all duration-300"
+                className="input-search"
               />
             </div>
           </motion.div>
@@ -182,13 +182,13 @@ const FAQSection = () => {
               <motion.button
                 key={category.id}
                 onClick={() => setActiveCategory(category.id)}
-                className={`flex items-center space-x-2 px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
+                className={`flex items-center gap-2 px-5 py-2.5 rounded-lg font-medium transition-all duration-200 ${
                   activeCategory === category.id
-                    ? 'bg-gradient-primary text-white shadow-lg'
-                    : 'bg-white/5 text-white/70 hover:bg-white/10 hover:text-white'
+                    ? 'btn-primary btn-sm'
+                    : 'btn-secondary btn-sm'
                 }`}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
                 <category.icon size={18} />
                 <span>{category.name}</span>
@@ -289,15 +289,15 @@ const FAQSection = () => {
               Nuestro equipo de expertos está listo para responder cualquier pregunta específica sobre tu proyecto de AI.
             </p>
             <motion.div
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.02, y: -1 }}
+              whileTap={{ scale: 0.98 }}
             >
               <a
                 href="#contact"
-                className="inline-flex items-center justify-center px-8 py-4 bg-gradient-primary text-white text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl hover:shadow-glow transition-all duration-300"
+                className="btn-primary btn-lg group"
               >
                 <span>Contactar Especialista</span>
-                <CheckCircle size={20} className="ml-2" />
+                <CheckCircle size={18} className="group-hover:scale-110 transition-transform duration-200" />
               </a>
             </motion.div>
           </motion.div>

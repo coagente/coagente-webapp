@@ -123,9 +123,9 @@ const Navbar = () => {
             <div className="lg:hidden">
               <motion.button
                 onClick={toggleMenu}
-                className="relative p-2.5 text-white/80 hover:text-white glass rounded-lg transition-all duration-300 group"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                className="btn-icon btn-md group"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
                 <motion.div
                   animate={{ rotate: isMenuOpen ? 180 : 0 }}

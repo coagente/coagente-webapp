@@ -189,9 +189,9 @@ const HeroSection = () => {
                   whileTap={{ scale: 0.98 }}
                 >
                   <Link href="/#contact">
-                    <button className="group inline-flex items-center justify-center px-8 py-4 bg-gradient-primary text-white text-lg font-semibold rounded-lg shadow-2xl hover:shadow-3xl hover:shadow-glow transition-all duration-300 min-w-[200px] backdrop-blur-sm border border-white/20">
-                      <span className="drop-shadow-sm">Comenzar Proyecto</span>
-                      <ArrowRight size={20} className="ml-2 group-hover:translate-x-1 transition-transform drop-shadow-sm" />
+                    <button className="btn-primary btn-lg group min-w-[180px]">
+                      <span>Comenzar Proyecto</span>
+                      <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-200" />
                     </button>
                   </Link>
                 </motion.div>
@@ -201,8 +201,8 @@ const HeroSection = () => {
                   whileTap={{ scale: 0.98 }}
                 >
                   <Link href="/#services">
-                    <button className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white/95 glass border border-white/30 rounded-lg hover:bg-white/15 hover:border-white/40 transition-all duration-300 backdrop-blur-md min-w-[200px] shadow-xl hover:shadow-2xl">
-                      <span className="drop-shadow-sm">Ver Servicios</span>
+                    <button className="btn-secondary btn-lg min-w-[180px]">
+                      <span>Ver Servicios</span>
                     </button>
                   </Link>
                 </motion.div>
@@ -218,9 +218,9 @@ const HeroSection = () => {
                 {trustIndicators.map((indicator, index) => (
                   <motion.div
                     key={indicator.text}
-                    className="glass border border-white/20 rounded-xl p-6 hover:bg-white/15 transition-all duration-300 backdrop-blur-md shadow-xl"
+                    className="glass border border-white/20 rounded-xl p-6 hover:bg-white/10 transition-all duration-200 backdrop-blur-md shadow-lg"
                     variants={itemVariants}
-                    whileHover={{ scale: 1.02, y: -2 }}
+                    whileHover={{ scale: 1.01, y: -1 }}
                   >
                     <div className="flex items-center space-x-4">
                       <div className="p-3 bg-gradient-primary/30 rounded-lg shadow-lg">
@@ -297,7 +297,7 @@ const HeroSection = () => {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
                   <motion.div 
                     className="glass border border-white/10 rounded-lg p-6 text-center"
-                    whileHover={{ scale: 1.05, y: -2 }}
+                    whileHover={{ scale: 1.02, y: -1 }}
                   >
                     <div className="text-3xl font-bold gradient-text mb-2">30 días</div>
                     <div className="text-white/70 text-sm">Implementación garantizada</div>
@@ -305,7 +305,7 @@ const HeroSection = () => {
                   
                   <motion.div 
                     className="glass border border-white/10 rounded-lg p-6 text-center"
-                    whileHover={{ scale: 1.05, y: -2 }}
+                    whileHover={{ scale: 1.02, y: -1 }}
                   >
                     <div className="text-3xl font-bold gradient-text mb-2">ROI 6m</div>
                     <div className="text-white/70 text-sm">Retorno garantizado</div>
@@ -313,7 +313,7 @@ const HeroSection = () => {
                   
                   <motion.div 
                     className="glass border border-white/10 rounded-lg p-6 text-center"
-                    whileHover={{ scale: 1.05, y: -2 }}
+                    whileHover={{ scale: 1.02, y: -1 }}
                   >
                     <div className="text-3xl font-bold gradient-text mb-2">24/7</div>
                     <div className="text-white/70 text-sm">Soporte especializado</div>
@@ -333,9 +333,9 @@ const HeroSection = () => {
                 whileTap={{ scale: 0.95 }}
               >
                 <Link href="/#contact">
-                  <button className="inline-flex items-center justify-center px-8 py-4 bg-gradient-primary text-white text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl hover:shadow-glow transition-all duration-300">
+                  <button className="btn-primary btn-lg group">
                     <span>Consulta Gratuita</span>
-                    <ArrowRight size={20} className="ml-2" />
+                    <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-200" />
                   </button>
                 </Link>
               </motion.div>

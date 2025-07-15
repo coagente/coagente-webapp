@@ -328,16 +328,16 @@ const ServicesSection = () => {
           </p>
           
           <motion.div
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.95 }}
+            whileHover={{ scale: 1.02, y: -1 }}
+            whileTap={{ scale: 0.98 }}
           >
             <a
               href="#contact"
-              className="inline-flex items-center justify-center px-8 py-4 bg-gradient-primary text-white text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl hover:shadow-glow transition-all duration-300"
+              className="btn-primary btn-lg group"
             >
               <span>Descubre tu solución ideal</span>
               <motion.span 
-                className="ml-2"
+                className="group-hover:translate-x-1 transition-transform duration-200"
                 animate={{ x: [0, 4, 0] }}
                 transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
               >

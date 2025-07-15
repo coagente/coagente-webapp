@@ -383,7 +383,7 @@ const ProcessSection = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
               <motion.div 
                 className="glass border border-white/10 rounded-lg p-6 text-center"
-                whileHover={{ scale: 1.05, y: -2 }}
+                whileHover={{ scale: 1.02, y: -1 }}
               >
                 <div className="text-3xl font-bold gradient-text mb-2">1-2</div>
                 <div className="text-white/70 text-sm font-medium">Semanas de análisis</div>
@@ -391,7 +391,7 @@ const ProcessSection = () => {
               
               <motion.div 
                 className="glass border border-white/10 rounded-lg p-6 text-center"
-                whileHover={{ scale: 1.05, y: -2 }}
+                whileHover={{ scale: 1.02, y: -1 }}
               >
                 <div className="text-3xl font-bold gradient-text mb-2">2-8</div>
                 <div className="text-white/70 text-sm font-medium">Semanas de desarrollo</div>
@@ -399,7 +399,7 @@ const ProcessSection = () => {
               
               <motion.div 
                 className="glass border border-white/10 rounded-lg p-6 text-center"
-                whileHover={{ scale: 1.05, y: -2 }}
+                whileHover={{ scale: 1.02, y: -1 }}
               >
                 <div className="text-3xl font-bold gradient-text mb-2">24/7</div>
                 <div className="text-white/70 text-sm font-medium">Monitoreo continuo</div>
@@ -412,11 +412,11 @@ const ProcessSection = () => {
             >
               <a
                 href="#contact"
-                className="inline-flex items-center justify-center px-8 py-4 bg-gradient-primary text-white text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl hover:shadow-glow transition-all duration-300"
+                className="btn-primary btn-lg group"
               >
                 <span>Iniciar Proyecto</span>
                 <motion.span 
-                  className="ml-2"
+                  className="group-hover:translate-x-1 transition-transform duration-200"
                   animate={{ x: [0, 4, 0] }}
                   transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
                 >

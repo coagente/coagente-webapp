@@ -471,9 +471,9 @@ const ContactSection = () => {
                     <motion.button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full py-4 bg-gradient-primary text-white text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl hover:shadow-glow transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
-                      whileHover={{ scale: isSubmitting ? 1 : 1.02, y: isSubmitting ? 0 : -2 }}
-                      whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
+                      className="btn-primary btn-lg w-full gap-2"
+                      whileHover={{ scale: isSubmitting ? 1 : 1.01, y: isSubmitting ? 0 : -1 }}
+                      whileTap={{ scale: isSubmitting ? 1 : 0.99 }}
                     >
                       {isSubmitting ? (
                         <>
@@ -700,8 +700,8 @@ const ContactSection = () => {
                 {/* Back to Top */}
                 <motion.button
                   onClick={scrollToTop}
-                  className="p-2 bg-slate-700/50 hover:bg-slate-600/50 rounded-lg transition-all duration-300 group"
-                  whileHover={{ scale: 1.1, y: -2 }}
+                  className="btn-icon btn-md group"
+                  whileHover={{ scale: 1.05, y: -1 }}
                   whileTap={{ scale: 0.95 }}
                   aria-label="Volver arriba"
                 >

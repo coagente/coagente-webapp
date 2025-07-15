@@ -303,16 +303,16 @@ export default function TeamPage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
                   href="mailto:info@coagente.com"
-                  className="inline-flex items-center justify-center px-8 py-4 bg-gradient-primary text-white text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl hover:shadow-glow transition-all duration-300"
+                  className="btn-primary btn-lg group"
                 >
-                  <Mail size={20} className="mr-2" />
+                  <Mail size={18} className="group-hover:scale-110 transition-transform duration-200" />
                   Enviar CV
                 </a>
                 <a
                   href="mailto:info@coagente.com?subject=Agendar entrevista"
-                  className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white/90 bg-white/5 border border-white/20 rounded-lg hover:bg-white/10 hover:border-white/30 transition-all duration-300 backdrop-blur-sm"
+                  className="btn-secondary btn-lg group"
                 >
-                  <Calendar size={20} className="mr-2" />
+                  <Calendar size={18} className="group-hover:scale-110 transition-transform duration-200" />
                   Agendar Entrevista
                 </a>
               </div>
