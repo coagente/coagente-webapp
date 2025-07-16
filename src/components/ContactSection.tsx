@@ -19,9 +19,6 @@ import {
   MessageSquare,
   Award,
   Users,
-  Linkedin,
-  Twitter,
-  Github,
   ArrowUp,
   ChevronRight
 } from "lucide-react";
@@ -41,7 +38,7 @@ const ContactSection = () => {
   const [submitError, setSubmitError] = useState<string | null>(null);
   const currentYear = new Date().getFullYear();
 
-  // EmailJS configuration - Replace with your actual values
+  // EmailJS configuration
   const EMAILJS_SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || 'service_coagente';
   const EMAILJS_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || 'template_contact';
   const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || 'your_public_key';
@@ -52,10 +49,8 @@ const ContactSection = () => {
     setSubmitError(null);
     
     try {
-      // Initialize EmailJS (only needs to be done once)
       emailjs.init(EMAILJS_PUBLIC_KEY);
 
-      // Prepare template parameters
       const templateParams = {
         to_email: 'info@coagente.com',
         from_name: formData.name,
@@ -67,7 +62,6 @@ const ContactSection = () => {
         reply_to: formData.email,
       };
 
-      // Send email using EmailJS
       const result = await emailjs.send(
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID,
@@ -77,7 +71,6 @@ const ContactSection = () => {
       console.log('Email sent successfully:', result);
       setSubmitted(true);
       
-      // Reset form
       setFormData({
         name: "",
         email: "",
@@ -109,58 +102,103 @@ const ContactSection = () => {
   const contactMethods = [
     {
       icon: Phone,
-      title: "Llámanos",
-      content: "Disponibles de Lun-Vie 9:00-18:00",
+      title: "Consulta Telefónica",
+      content: "Disponible Lun-Vie 9:00-18:00 CST",
       value: "+52 811 999 3390",
       action: "tel:+528119993390",
-      color: "gradient-primary"
+      gradient: "from-slate-800/40 via-slate-700/30 to-slate-800/40",
+      iconBg: "from-brand-blue/20 to-brand-purple/20",
+      borderGlow: "group-hover:shadow-brand-blue/20"
     },
     {
       icon: Mail,
-      title: "Escríbenos",
-      content: "Respuesta en menos de 24 hrs",
+      title: "Comunicación Directa",
+      content: "Respuesta garantizada < 2 horas",
       value: "info@coagente.com",
       action: "mailto:info@coagente.com",
-      color: "gradient-success"
+      gradient: "from-slate-800/40 via-slate-700/30 to-slate-800/40",
+      iconBg: "from-brand-blue/20 to-brand-purple/20",
+      borderGlow: "group-hover:shadow-brand-blue/20"
     },
     {
       icon: Calendar,
-      title: "Agendar Llamada",
-      description: "Consulta gratuita 30 min",
-      value: "Calendly",
-      action: "#",
-      color: "gradient-accent"
+      title: "Diagnóstico Estratégico",
+      content: "Sesión gratuita de 30 minutos",
+      value: "Agendar con Elisa",
+      action: "https://calendly.com/elisa-coagente/30min?month=2025-07",
+      gradient: "from-slate-800/40 via-slate-700/30 to-slate-800/40",
+      iconBg: "from-brand-purple/20 to-brand-blue/20",
+      borderGlow: "group-hover:shadow-brand-purple/20"
     },
   ];
 
   const trustIndicators = [
-    { icon: Clock, text: "24h respuesta" },
-    { icon: Shield, text: "ISO 27001" },
-    { icon: CheckCircle, text: "NDA incluido" },
-    { icon: Award, text: "Fortune 500" }
+    { 
+      icon: Clock, 
+      text: "Respuesta 2h", 
+      subtitle: "Tiempo garantizado",
+      gradient: "from-slate-800/30 to-slate-700/30"
+    },
+    { 
+      icon: Shield, 
+      text: "ISO 27001", 
+      subtitle: "Certificación",
+      gradient: "from-slate-800/30 to-slate-700/30"
+    },
+    { 
+      icon: CheckCircle, 
+      text: "NDA Incluido", 
+      subtitle: "Confidencialidad",
+      gradient: "from-slate-800/30 to-slate-700/30"
+    },
+    { 
+      icon: Award, 
+      text: "Fortune 500", 
+      subtitle: "Experiencia",
+      gradient: "from-slate-800/30 to-slate-700/30"
+    }
   ];
-
-
 
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
+        staggerChildren: 0.08,
+        delayChildren: 0.1,
+        ease: [0.16, 1, 0.3, 1]
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { 
+      opacity: 0, 
+      y: 24,
+      scale: 0.95,
+      filter: "blur(4px)"
+    },
     visible: {
       opacity: 1,
       y: 0,
+      scale: 1,
+      filter: "blur(0px)",
+      transition: {
+        duration: 0.8,
+        ease: [0.16, 1, 0.3, 1],
+      },
+    },
+  };
+
+  const formVariants = {
+    hidden: { opacity: 0, x: 20 },
+    visible: {
+      opacity: 1,
+      x: 0,
       transition: {
         duration: 0.6,
         ease: [0.16, 1, 0.3, 1],
+        delay: 0.2
       },
     },
   };
@@ -176,7 +214,7 @@ const ContactSection = () => {
             transition={{ duration: 0.6 }}
           >
             <motion.div
-              className="w-20 h-20 bg-gradient-success rounded-full flex items-center justify-center mx-auto mb-8"
+              className="w-20 h-20 bg-gradient-to-br from-brand-blue to-brand-purple rounded-full flex items-center justify-center mx-auto mb-8"
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
@@ -196,20 +234,20 @@ const ContactSection = () => {
               <h3 className="text-lg font-semibold text-white mb-4">Próximos pasos:</h3>
               <div className="space-y-3 text-left">
                 <div className="flex items-center space-x-3">
-                  <div className="w-6 h-6 bg-brand-blue/20 rounded-full flex items-center justify-center">
+                  <div className="w-6 h-6 bg-brand-blue/30 rounded-full flex items-center justify-center">
                     <span className="text-brand-blue text-sm font-semibold">1</span>
                   </div>
                   <span className="text-white/80">Revisaremos tu solicitud y prepararemos preguntas específicas</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <div className="w-6 h-6 bg-brand-purple/20 rounded-full flex items-center justify-center">
+                  <div className="w-6 h-6 bg-brand-purple/30 rounded-full flex items-center justify-center">
                     <span className="text-brand-purple text-sm font-semibold">2</span>
                   </div>
                   <span className="text-white/80">Te contactaremos para agendar una consulta gratuita de 30 minutos</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <div className="w-6 h-6 bg-success/20 rounded-full flex items-center justify-center">
-                    <span className="text-success text-sm font-semibold">3</span>
+                  <div className="w-6 h-6 bg-brand-blue/30 rounded-full flex items-center justify-center">
+                    <span className="text-brand-blue text-sm font-semibold">3</span>
                   </div>
                   <span className="text-white/80">Desarrollaremos una propuesta técnica personalizada</span>
                 </div>
@@ -224,9 +262,9 @@ const ContactSection = () => {
   return (
     <section id="contact" className="relative bg-slate-800 overflow-hidden">
       {/* Optimized background */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0 bg-gradient-primary/10" />
-        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-brand-purple/5 rounded-full blur-3xl" />
+      <div className="absolute inset-0 opacity-3">
+        <div className="absolute inset-0 bg-gradient-to-br from-brand-blue/5 to-brand-purple/5" />
+        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-brand-blue/3 rounded-full blur-3xl" />
       </div>
 
       <div className="container-6xl mx-auto px-6 relative z-10">
@@ -236,260 +274,265 @@ const ContactSection = () => {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
         >
-          {/* Contact Form Section */}
-          <div className="py-20">
-            {/* Header */}
+          {/* Optimized Header with Ultra-Minimalist Design */}
+          <div className="py-32">
             <motion.div 
-              className="text-center mb-16"
+              className="text-center mb-32"
               variants={itemVariants}
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                Contacto
+              <h2 className="text-display font-light text-white mb-6 tracking-tight">
+                Iniciemos tu{" "}
+                <span className="gradient-text-hero font-normal">
+                  Transformación
+                </span>
               </h2>
-              <p className="text-lg text-white/70 max-w-2xl mx-auto">
-                Solicite un diagnóstico operacional sin costo
-              </p>
+              
+              <motion.p 
+                className="text-subheadline text-white/60 max-w-2xl mx-auto leading-relaxed font-light"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.3, duration: 0.8 }}
+              >
+                Conectemos para explorar cómo la inteligencia artificial puede{" "}
+                <span className="text-white/90">revolucionar tus operaciones</span>{" "}
+                y generar valor mensurable
+              </motion.p>
             </motion.div>
 
-            <div className="grid lg:grid-cols-12 gap-12">
+            <div className="grid md:grid-cols-12 gap-16">
               
-              {/* Left Column - Contact Methods & Info */}
-              <div className="lg:col-span-5 space-y-8">
+              {/* Left Column - Essential Contact & Info */}
+              <div className="md:col-span-5 space-y-16">
                 
-                {/* Contact Methods */}
+                {/* Essential Contact Methods */}
                 <motion.div variants={itemVariants}>
-                  <div className="space-y-4">
-                    {contactMethods.map((method, index) => (
-                      <motion.a
-                        key={method.title}
-                        href={method.action}
-                        className="group block p-6 glass border border-white/10 rounded-xl hover:bg-white/10 transition-all duration-300"
-                        whileHover={{ scale: 1.02, y: -2 }}
-                        whileTap={{ scale: 0.98 }}
-                      >
-                        <div className="flex items-center space-x-4">
-                          <div className={`p-3 bg-gradient-primary/20 rounded-lg group-hover:scale-110 transition-transform`}>
-                            <method.icon size={24} className="text-brand-blue" />
-                          </div>
-                          <div className="flex-1">
-                            <h4 className="text-lg font-semibold text-white group-hover:text-brand-blue transition-colors">
-                              {method.title}
-                            </h4>
-                            <p className="text-white/60 text-sm">{method.content}</p>
-                            <p className="text-white/80 font-medium">{method.value}</p>
-                          </div>
-                          <ArrowRight size={20} className="text-white/40 group-hover:text-white/80 group-hover:translate-x-1 transition-all" />
+                  <div className="space-y-6">
+                    <h3 className="text-headline font-light text-white/90 mb-8">
+                      01. Contacto Directo
+                    </h3>
+                    
+                    {/* Email Contact */}
+                    <motion.a
+                      href="mailto:info@coagente.com"
+                      className="group block glass border border-white/10 rounded-2xl p-8 hover-glow transition-all duration-300"
+                      whileHover={{ y: -2 }}
+                    >
+                      <div className="flex items-center space-x-6">
+                        <div className="p-4 bg-brand-blue/20 rounded-xl">
+                          <Mail size={24} className="text-white" />
                         </div>
-                      </motion.a>
-                    ))}
+                        <div className="flex-1">
+                          <h4 className="text-body font-medium text-white mb-2">
+                            Comunicación Directa
+                          </h4>
+                          <p className="text-body-small text-white/60 mb-3">
+                            Respuesta garantizada en 2 horas
+                          </p>
+                          <p className="text-body-small text-white/80 font-medium">
+                            info@coagente.com
+                          </p>
+                        </div>
+                        <ArrowRight size={18} className="text-white/40 group-hover:text-white/80 transition-colors" />
+                      </div>
+                    </motion.a>
+
+                    {/* Calendar Contact */}
+                    <motion.a
+                      href="https://calendly.com/elisa-coagente/30min?month=2025-07"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group block glass border border-white/10 rounded-2xl p-8 hover-glow transition-all duration-300"
+                      whileHover={{ y: -2 }}
+                    >
+                      <div className="flex items-center space-x-6">
+                        <div className="p-4 bg-brand-purple/20 rounded-xl">
+                          <Calendar size={24} className="text-white" />
+                        </div>
+                        <div className="flex-1">
+                          <h4 className="text-body font-medium text-white mb-2">
+                            Diagnóstico Estratégico
+                          </h4>
+                          <p className="text-body-small text-white/60 mb-3">
+                            Sesión gratuita de 30 minutos
+                          </p>
+                          <p className="text-body-small text-white/80 font-medium">
+                            Agendar con Elisa
+                          </p>
+                        </div>
+                        <ArrowRight size={18} className="text-white/40 group-hover:text-white/80 transition-colors" />
+                      </div>
+                    </motion.a>
                   </div>
                 </motion.div>
 
-                {/* Trust Indicators */}
+                {/* Essential Trust Indicators */}
                 <motion.div variants={itemVariants}>
-                  <div className="grid grid-cols-2 gap-4">
-                    {trustIndicators.map((indicator, index) => (
-                      <motion.div
-                        key={indicator.text}
-                        className="flex items-center space-x-3 p-4 glass rounded-lg"
-                        whileHover={{ scale: 1.05 }}
-                      >
-                        <indicator.icon size={18} className="text-brand-blue" />
-                        <span className="text-white/80 text-sm font-medium">{indicator.text}</span>
-                      </motion.div>
-                    ))}
-                  </div>
-                </motion.div>
-
-                {/* Office Info */}
-                <motion.div 
-                  className="p-6 glass border border-white/10 rounded-xl"
-                  variants={itemVariants}
-                >
-                  <h3 className="text-lg font-semibold text-white mb-4 flex items-center">
-                    <MapPin size={20} className="mr-2 text-brand-blue" />
-                    Nuestra oficina
-                  </h3>
-                  <div className="text-white/80 space-y-1">
-                    <p>Frida Kahlo 303, Valle Oriente</p>
-                    <p>San Pedro Garza García, México</p>
-                    <p className="text-white/60 text-sm mt-3">
-                      Lunes a Viernes: 9:00 AM - 6:00 PM (CST)
-                    </p>
+                  <div className="space-y-6">
+                    <h3 className="text-headline font-light text-white/90 mb-8">
+                      02. Garantías
+                    </h3>
+                    
+                    <div className="space-y-4">
+                      <div className="glass border border-white/10 rounded-xl p-6">
+                        <div className="flex items-center space-x-4">
+                          <Clock size={20} className="text-brand-blue" />
+                          <div>
+                            <p className="text-body font-medium text-white">Respuesta 2h</p>
+                            <p className="text-body-small text-white/60">Tiempo garantizado</p>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div className="glass border border-white/10 rounded-xl p-6">
+                        <div className="flex items-center space-x-4">
+                          <Shield size={20} className="text-brand-purple" />
+                          <div>
+                            <p className="text-body font-medium text-white">ISO 27001</p>
+                            <p className="text-body-small text-white/60">Certificación</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </motion.div>
               </div>
 
-              {/* Right Column - Contact Form */}
-              <div className="lg:col-span-7">
+              {/* Streamlined Contact Form */}
+              <div className="md:col-span-7">
                 <motion.div 
-                  className="glass border border-white/10 rounded-2xl p-8"
-                  variants={itemVariants}
+                  className="glass-strong border border-white/10 rounded-2xl p-8"
+                  variants={formVariants}
                 >
                   <div className="mb-8">
-                    <h3 className="text-xl font-bold text-white mb-2">
-                      Información del proyecto
+                    <h3 className="text-headline font-light text-white mb-4">
+                      03. Información del Proyecto
                     </h3>
-                    <p className="text-white/70 text-sm">
-                      Respuesta garantizada en 24 horas hábiles
+                    <p className="text-body text-white/60 leading-relaxed font-light">
+                      Compártenos los detalles para ofrecerte una{" "}
+                      <span className="text-white/90">propuesta técnica personalizada</span>
                     </p>
                   </div>
 
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid md:grid-cols-2 gap-6">
                       <div>
-                        <label className="block text-white/80 text-sm font-medium mb-2">
+                        <label className="block text-body-small text-white/80 font-medium mb-3">
                           Nombre completo *
                         </label>
-                        <div className="relative">
-                          <User size={18} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white/40" />
-                          <input
-                            type="text"
-                            name="name"
-                            required
-                            value={formData.name}
-                            onChange={handleInputChange}
-                            className="w-full pl-10 pr-4 py-3 glass border border-white/10 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-brand-blue focus:bg-white/10 transition-all duration-300"
-                            placeholder="Tu nombre"
-                          />
-                        </div>
+                        <input
+                          type="text"
+                          name="name"
+                          required
+                          value={formData.name}
+                          onChange={handleInputChange}
+                          className="w-full px-4 py-4 bg-white/5 border border-white/20 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-brand-blue/50 transition-all duration-300"
+                          placeholder="Tu nombre completo"
+                        />
                       </div>
 
                       <div>
-                        <label className="block text-white/80 text-sm font-medium mb-2">
+                        <label className="block text-body-small text-white/80 font-medium mb-3">
                           Email corporativo *
                         </label>
-                        <div className="relative">
-                          <Mail size={18} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white/40" />
-                          <input
-                            type="email"
-                            name="email"
-                            required
-                            value={formData.email}
-                            onChange={handleInputChange}
-                            className="w-full pl-10 pr-4 py-3 glass border border-white/10 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-brand-blue focus:bg-white/10 transition-all duration-300"
-                            placeholder="tu@empresa.com"
-                          />
-                        </div>
+                        <input
+                          type="email"
+                          name="email"
+                          required
+                          value={formData.email}
+                          onChange={handleInputChange}
+                          className="w-full px-4 py-4 bg-white/5 border border-white/20 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-brand-blue/50 transition-all duration-300"
+                          placeholder="tu@empresa.com"
+                        />
                       </div>
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-6">
                       <div>
-                        <label className="block text-white/80 text-sm font-medium mb-2">
+                        <label className="block text-body-small text-white/80 font-medium mb-3">
                           Empresa *
                         </label>
-                        <div className="relative">
-                          <Building size={18} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white/40" />
-                          <input
-                            type="text"
-                            name="company"
-                            required
-                            value={formData.company}
-                            onChange={handleInputChange}
-                            className="w-full pl-10 pr-4 py-3 glass border border-white/10 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-brand-blue focus:bg-white/10 transition-all duration-300"
-                            placeholder="Nombre de tu empresa"
-                          />
-                        </div>
+                        <input
+                          type="text"
+                          name="company"
+                          required
+                          value={formData.company}
+                          onChange={handleInputChange}
+                          className="w-full px-4 py-4 bg-white/5 border border-white/20 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-brand-blue/50 transition-all duration-300"
+                          placeholder="Nombre de tu empresa"
+                        />
                       </div>
 
                       <div>
-                        <label className="block text-white/80 text-sm font-medium mb-2">
+                        <label className="block text-body-small text-white/80 font-medium mb-3">
                           Área de interés
                         </label>
                         <select
                           name="projectType"
                           value={formData.projectType}
                           onChange={handleInputChange}
-                          className="w-full px-4 py-3 glass border border-white/10 rounded-lg text-white bg-transparent focus:outline-none focus:border-brand-blue focus:bg-white/10 transition-all duration-300 cursor-pointer"
+                          className="w-full px-4 py-4 bg-white/5 border border-white/20 rounded-xl text-white focus:outline-none focus:border-brand-blue/50 transition-all duration-300"
                         >
-                          <option value="" className="bg-slate-800">Seleccionar</option>
+                          <option value="" className="bg-slate-800">Seleccionar vertical</option>
                           <option value="operations" className="bg-slate-800">Optimización operacional</option>
-                          <option value="supply_chain" className="bg-slate-800">Supply chain</option>
                           <option value="analytics" className="bg-slate-800">Analytics predictivo</option>
-                          <option value="automation" className="bg-slate-800">Automatización RPA</option>
-                          <option value="quality" className="bg-slate-800">Control de calidad</option>
+                          <option value="automation" className="bg-slate-800">Automatización</option>
                         </select>
                       </div>
                     </div>
 
                     <div>
-                      <label className="block text-white/80 text-sm font-medium mb-2">
-                        Inversión anual estimada
-                      </label>
-                      <select
-                        name="budget"
-                        value={formData.budget}
-                        onChange={handleInputChange}
-                        className="w-full px-4 py-3 glass border border-white/10 rounded-lg text-white bg-transparent focus:outline-none focus:border-brand-blue focus:bg-white/10 transition-all duration-300 cursor-pointer"
-                      >
-                        <option value="" className="bg-slate-800">Seleccionar</option>
-                        <option value="<2M" className="bg-slate-800">&lt; $2M MXN</option>
-                        <option value="2M-10M" className="bg-slate-800">$2M - $10M MXN</option>
-                        <option value="10M-20M" className="bg-slate-800">$10M - $20M MXN</option>
-                        <option value=">20M" className="bg-slate-800">&gt; $20M MXN</option>
-                      </select>
-                    </div>
-
-                    <div>
-                      <label className="block text-white/80 text-sm font-medium mb-2">
+                      <label className="block text-body-small text-white/80 font-medium mb-3">
                         Descripción del requerimiento *
                       </label>
-                      <div className="relative">
-                        <MessageSquare size={18} className="absolute left-3 top-3 text-white/40" />
-                        <textarea
-                          name="message"
-                          required
-                          rows={4}
-                          value={formData.message}
-                          onChange={handleInputChange}
-                          className="w-full pl-10 pr-4 py-3 glass border border-white/10 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-brand-blue focus:bg-white/10 transition-all duration-300 resize-none"
-                          placeholder="Procesos a optimizar, volumen de datos, sistemas actuales..."
-                        />
-                      </div>
+                      <textarea
+                        name="message"
+                        required
+                        rows={4}
+                        value={formData.message}
+                        onChange={handleInputChange}
+                        className="w-full px-4 py-4 bg-white/5 border border-white/20 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-brand-blue/50 transition-all duration-300 resize-none"
+                        placeholder="Procesos a optimizar, objetivos de negocio..."
+                      />
                     </div>
 
-                    {/* Error Message */}
                     {submitError && (
                       <motion.div
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="p-4 bg-error/10 border border-error/20 rounded-lg"
+                        className="p-4 bg-red-500/10 border border-red-500/20 rounded-xl"
                       >
-                        <p className="text-error text-sm">{submitError}</p>
+                        <p className="text-red-300 text-sm">{submitError}</p>
                       </motion.div>
                     )}
 
                     <motion.button
                       type="submit"
                       disabled={isSubmitting}
-                      className="btn-primary btn-lg w-full gap-2"
-                      whileHover={{ scale: isSubmitting ? 1 : 1.01, y: isSubmitting ? 0 : -1 }}
-                      whileTap={{ scale: isSubmitting ? 1 : 0.99 }}
+                      className="w-full px-8 py-4 bg-gradient-primary text-white font-medium rounded-xl hover:shadow-lg transition-all duration-300 disabled:opacity-50"
+                      whileHover={{ y: -1 }}
+                      whileTap={{ scale: 0.98 }}
                     >
                       {isSubmitting ? (
-                        <>
-                          <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                        <div className="flex items-center justify-center space-x-3">
+                          <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                           <span>Enviando...</span>
-                        </>
+                        </div>
                       ) : (
-                        <>
-                          <span>Enviar solicitud</span>
-                          <ArrowRight size={16} />
-                        </>
+                        <div className="flex items-center justify-center space-x-3">
+                          <span>Solicitar Diagnóstico</span>
+                          <ArrowRight size={18} />
+                        </div>
                       )}
                     </motion.button>
 
-                    <p className="text-white/50 text-xs text-center">
-                      Información confidencial según ISO 27001
+                    <p className="text-center text-body-small text-white/40 leading-relaxed">
+                      Información tratada con confidencialidad ISO 27001
                     </p>
                   </form>
                 </motion.div>
               </div>
             </div>
           </div>
-
-
 
           {/* Footer Section */}
           <div className="border-t border-slate-700/50 pt-12 pb-8">
@@ -500,7 +543,6 @@ const ContactSection = () => {
                 className="lg:col-span-1 space-y-6"
                 variants={itemVariants}
               >
-                {/* Enhanced Logo - Optimized */}
                 <div className="flex items-center justify-center lg:justify-start mb-6">
                   <div className="relative flex items-center justify-center h-[48px] md:h-[56px] w-auto">
                     <Image
@@ -515,10 +557,6 @@ const ContactSection = () => {
                     />
                   </div>
                 </div>
-
-
-
-
               </motion.div>
 
               {/* Services Section */}
@@ -526,25 +564,49 @@ const ContactSection = () => {
                 className="space-y-6"
                 variants={itemVariants}
               >
-                <h4 className="text-lg font-semibold text-white">Servicios</h4>
-                <nav className="space-y-3">
+                <h4 className="text-lg font-semibold text-white mb-6 flex items-center">
+                  <div className="w-8 h-0.5 bg-gradient-to-r from-brand-blue to-brand-purple rounded-full mr-3" />
+                  Servicios
+                </h4>
+                <nav className="space-y-4">
                   {[
-                    { href: "/#services", text: "Capacidades" },
-                    { href: "/process", text: "Metodología" },
-                    { href: "/team", text: "Equipo" },
-                    { href: "/faq", text: "FAQ" }
+                    { href: "/#services", text: "Capacidades", icon: "⚡" },
+                    { href: "/process", text: "Metodología", icon: "🔄" },
+                    { href: "/team", text: "Equipo", icon: "👥" },
+                    { href: "/faq", text: "FAQ", icon: "❓" }
                   ].map((item, index) => (
                     <motion.div
                       key={item.text}
-                      whileHover={{ x: 4 }}
-                      transition={{ duration: 0.2 }}
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.1, duration: 0.5 }}
+                      whileHover={{ 
+                        x: 6,
+                        transition: { duration: 0.2, ease: "easeOut" }
+                      }}
                     >
                       <Link 
                         href={item.href}
-                        className="group flex items-center text-sm text-white/60 hover:text-white transition-colors duration-300"
+                        className="group relative flex items-center p-3 rounded-lg bg-gradient-to-r from-transparent to-transparent hover:from-brand-blue/5 hover:to-brand-purple/5 border border-transparent hover:border-white/10 transition-all duration-300"
                       >
-                        <ChevronRight size={14} className="mr-2 text-white/40 group-hover:text-brand-blue transition-colors" />
-                        {item.text}
+                        <div className="flex items-center space-x-3">
+                          <span className="text-lg filter grayscale group-hover:grayscale-0 transition-all duration-300">
+                            {item.icon}
+                          </span>
+                          <span className="text-sm text-white/60 group-hover:text-white transition-colors duration-300 font-medium">
+                            {item.text}
+                          </span>
+                        </div>
+                        <motion.div
+                          className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                          whileHover={{ scale: 1.1, rotate: 90 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          <ChevronRight size={14} className="text-brand-blue" />
+                        </motion.div>
+                        
+                        {/* Elegant hover line */}
+                        <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-gradient-to-r from-brand-blue to-brand-purple group-hover:w-full transition-all duration-500 rounded-full" />
                       </Link>
                     </motion.div>
                   ))}
@@ -556,26 +618,50 @@ const ContactSection = () => {
                 className="space-y-6"
                 variants={itemVariants}
               >
-                <h4 className="text-lg font-semibold text-white">Empresa</h4>
-                <nav className="space-y-3">
+                <h4 className="text-lg font-semibold text-white mb-6 flex items-center">
+                  <div className="w-8 h-0.5 bg-gradient-to-r from-brand-purple to-brand-blue rounded-full mr-3" />
+                  Empresa
+                </h4>
+                <nav className="space-y-4">
                   {[
-                    { href: "/process", text: "Nuestro Proceso" },
-                    { href: "/faq", text: "Preguntas Frecuentes" },
-                    { href: "/team", text: "Nuestro Equipo" },
-                    { href: "/privacy", text: "Privacidad" },
-                    { href: "/terms", text: "Términos" }
+                    { href: "/process", text: "Nuestro Proceso", icon: "🚀" },
+                    { href: "/faq", text: "Preguntas Frecuentes", icon: "💡" },
+                    { href: "/team", text: "Nuestro Equipo", icon: "🏆" },
+                    { href: "/privacy", text: "Privacidad", icon: "🔒" },
+                    { href: "/terms", text: "Términos", icon: "📋" }
                   ].map((item, index) => (
                     <motion.div
                       key={item.text}
-                      whileHover={{ x: 4 }}
-                      transition={{ duration: 0.2 }}
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.2 + index * 0.1, duration: 0.5 }}
+                      whileHover={{ 
+                        x: 6,
+                        transition: { duration: 0.2, ease: "easeOut" }
+                      }}
                     >
                       <Link 
                         href={item.href}
-                        className="group flex items-center text-sm text-white/60 hover:text-white transition-colors duration-300"
+                        className="group relative flex items-center p-3 rounded-lg bg-gradient-to-r from-transparent to-transparent hover:from-brand-purple/5 hover:to-brand-blue/5 border border-transparent hover:border-white/10 transition-all duration-300"
                       >
-                        <ChevronRight size={14} className="mr-2 text-white/40 group-hover:text-brand-blue transition-colors" />
-                        {item.text}
+                        <div className="flex items-center space-x-3">
+                          <span className="text-lg filter grayscale group-hover:grayscale-0 transition-all duration-300">
+                            {item.icon}
+                          </span>
+                          <span className="text-sm text-white/60 group-hover:text-white transition-colors duration-300 font-medium">
+                            {item.text}
+                          </span>
+                        </div>
+                        <motion.div
+                          className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                          whileHover={{ scale: 1.1, rotate: 90 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          <ChevronRight size={14} className="text-brand-purple" />
+                        </motion.div>
+                        
+                        {/* Elegant hover line */}
+                        <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-gradient-to-r from-brand-purple to-brand-blue group-hover:w-full transition-all duration-500 rounded-full" />
                       </Link>
                     </motion.div>
                   ))}
@@ -587,28 +673,61 @@ const ContactSection = () => {
                 className="space-y-6"
                 variants={itemVariants}
               >
-                <h4 className="text-lg font-semibold text-white">Contacto Rápido</h4>
+                <h4 className="text-lg font-semibold text-white mb-6 flex items-center">
+                  <div className="w-8 h-0.5 bg-gradient-to-r from-brand-blue to-brand-purple rounded-full mr-3" />
+                  Contacto Rápido
+                </h4>
                 
                 <div className="space-y-4">
-                  <motion.div 
-                    className="flex items-center space-x-3 text-sm text-white/60"
-                    whileHover={{ scale: 1.02 }}
+                  <motion.a
+                    href="mailto:info@coagente.com"
+                    className="group flex items-center space-x-3 p-3 rounded-lg bg-gradient-to-r from-transparent to-transparent hover:from-brand-blue/5 hover:to-brand-purple/5 border border-transparent hover:border-white/10 transition-all duration-300"
+                    whileHover={{ 
+                      x: 4,
+                      scale: 1.02,
+                      transition: { duration: 0.2 }
+                    }}
                   >
-                    <Mail size={16} className="text-brand-blue" />
-                    <a href="mailto:info@coagente.com" className="hover:text-white transition-colors">
-                      info@coagente.com
-                    </a>
-                  </motion.div>
+                    <div className="p-2 bg-brand-blue/20 rounded-lg group-hover:bg-brand-blue/30 transition-colors duration-300">
+                      <Mail size={16} className="text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <span className="text-sm text-white/60 group-hover:text-white transition-colors duration-300 font-medium">
+                        info@coagente.com
+                      </span>
+                    </div>
+                    <motion.div
+                      className="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                      whileHover={{ scale: 1.2 }}
+                    >
+                      <ChevronRight size={14} className="text-brand-blue" />
+                    </motion.div>
+                  </motion.a>
                   
-                  <motion.div 
-                    className="flex items-center space-x-3 text-sm text-white/60"
-                    whileHover={{ scale: 1.02 }}
+                  <motion.a
+                    href="tel:+528119993390"
+                    className="group flex items-center space-x-3 p-3 rounded-lg bg-gradient-to-r from-transparent to-transparent hover:from-brand-purple/5 hover:to-brand-blue/5 border border-transparent hover:border-white/10 transition-all duration-300"
+                    whileHover={{ 
+                      x: 4,
+                      scale: 1.02,
+                      transition: { duration: 0.2 }
+                    }}
                   >
-                    <Phone size={16} className="text-brand-blue" />
-                    <a href="tel:+528119993390" className="hover:text-white transition-colors">
-                      +52 811 999 3390
-                    </a>
-                  </motion.div>
+                    <div className="p-2 bg-brand-purple/20 rounded-lg group-hover:bg-brand-purple/30 transition-colors duration-300">
+                      <Phone size={16} className="text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <span className="text-sm text-white/60 group-hover:text-white transition-colors duration-300 font-medium">
+                        +52 811 999 3390
+                      </span>
+                    </div>
+                    <motion.div
+                      className="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                      whileHover={{ scale: 1.2 }}
+                    >
+                      <ChevronRight size={14} className="text-brand-purple" />
+                    </motion.div>
+                  </motion.a>
                 </div>
               </motion.div>
             </div>
@@ -664,4 +783,4 @@ const ContactSection = () => {
   );
 };
 
-export default ContactSection;
+export default ContactSection; 
