@@ -75,7 +75,7 @@ services:
         NEXT_PUBLIC_EMAILJS_TEMPLATE_ID: template_wmhhsin
         NEXT_PUBLIC_EMAILJS_PUBLIC_KEY: Evbsb35ak4Bwhndib
     ports:
-      - "3000:3000"
+      - "3001:3000"
     volumes:
       - ./src:/app/src
       - ./public:/app/public
@@ -150,7 +150,7 @@ fi
 
 # Mostrar configuración del entorno
 echo -e "\n${BLUE}🔧 Configuración del entorno de desarrollo:${NC}"
-echo "  - Puerto: 3000"
+echo "  - Puerto: 3002"
 echo "  - Hot Reload: ✅ Activado"
 echo "  - Turbopack: ✅ Activado"
 echo "  - Polling: ✅ Activado (para sistemas de archivos virtuales)"
@@ -181,5 +181,5 @@ fi
 trap 'echo -e "\n${YELLOW}🛑 Deteniendo contenedores...${NC}"; docker-compose -f docker-compose.dev.yml down; exit 0' INT TERM
 
 echo -e "\n${GREEN}🎉 Entorno de desarrollo iniciado exitosamente!${NC}"
-echo -e "${BLUE}📱 Accede a la aplicación en: http://localhost:3000${NC}"
+echo -e "${BLUE}📱 Accede a la aplicación en: http://localhost:3002${NC}"
 echo -e "${YELLOW}💡 Para detener: Ctrl+C${NC}" 

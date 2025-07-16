@@ -30,10 +30,36 @@ const HeroSection = () => {
 
   useEffect(() => {
     const video = videoRef.current;
-    if (video) {
-      video.load(); // Reload video with new source
-      video.play().catch(console.error);
+    if (!video) return;
+
+    // Cancel any existing play promise
+    if (video.readyState >= 3) {
+      video.pause();
     }
+
+    const handleCanPlay = async () => {
+      try {
+        // Ensure video is muted for autoplay policy compliance
+        video.muted = true;
+        await video.play();
+      } catch (error) {
+        console.warn('Autoplay was prevented:', error);
+        // Autoplay was prevented, user interaction required
+      }
+    };
+
+    const handleLoadStart = () => {
+      video.removeEventListener('canplay', handleCanPlay);
+      video.addEventListener('canplay', handleCanPlay, { once: true });
+    };
+
+    video.addEventListener('loadstart', handleLoadStart);
+    video.load(); // Reload video with new source
+
+    return () => {
+      video.removeEventListener('loadstart', handleLoadStart);
+      video.removeEventListener('canplay', handleCanPlay);
+    };
   }, [currentVideo]);
   const trustIndicators = [
     { icon: Clock, text: "$4.6M MXN", subtext: "Ahorro promedio anual" },

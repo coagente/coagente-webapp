@@ -274,66 +274,175 @@ const ContactSection = () => {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
         >
-          {/* Optimized Header with Ultra-Minimalist Design */}
-          <div className="py-32">
+          {/* Enhanced Header with Modern Design */}
+          <div className="py-20 md:py-32">
             <motion.div 
-              className="text-center mb-32"
+              className="text-center mb-20 md:mb-32"
               variants={itemVariants}
             >
-              <h2 className="text-display font-light text-white mb-6 tracking-tight">
-                Iniciemos tu{" "}
-                <span className="gradient-text-hero font-normal">
-                  Transformación
+              {/* Animated Badge */}
+              <motion.div
+                className="inline-flex items-center px-6 py-3 rounded-full glass border border-white/20 mb-8"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1, duration: 0.6 }}
+              >
+                <div className="w-2 h-2 bg-gradient-primary rounded-full mr-3 animate-pulse"></div>
+                <span className="text-body-small text-white/80 font-medium">
+                  Disponibles para nuevos proyectos
                 </span>
-              </h2>
+              </motion.div>
+
+              {/* Main Title with Enhanced Animation */}
+              <motion.h2 
+                className="text-4xl md:text-6xl lg:text-7xl font-light text-white mb-8 tracking-tight leading-tight"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.8 }}
+              >
+                Iniciemos tu{" "}
+                <motion.span 
+                  className="gradient-text-hero font-normal relative inline-block"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.5, duration: 0.8, type: "spring", stiffness: 100 }}
+                >
+                  Transformación
+                  {/* Subtle underline animation */}
+                  <motion.div
+                    className="absolute -bottom-2 left-0 h-1 bg-gradient-primary rounded-full"
+                    initial={{ width: 0 }}
+                    animate={{ width: "100%" }}
+                    transition={{ delay: 1.2, duration: 0.8, ease: "easeOut" }}
+                  />
+                </motion.span>
+              </motion.h2>
               
-              <motion.p 
-                className="text-subheadline text-white/60 max-w-2xl mx-auto leading-relaxed font-light"
+              {/* Enhanced Subtitle with Staggered Animation */}
+              <motion.div
+                className="max-w-4xl mx-auto space-y-4"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 0.3, duration: 0.8 }}
+                transition={{ delay: 0.6, duration: 0.8 }}
               >
-                Conectemos para explorar cómo la inteligencia artificial puede{" "}
-                <span className="text-white/90">revolucionar tus operaciones</span>{" "}
-                y generar valor mensurable
-              </motion.p>
+                <p className="text-xl md:text-2xl text-white/80 leading-relaxed font-light">
+                  Conectemos para explorar cómo la inteligencia artificial puede{" "}
+                  <span className="text-white font-medium">revolucionar tus operaciones</span>{" "}
+                  y generar valor mensurable
+                </p>
+                
+                {/* Value Proposition Points */}
+                <motion.div 
+                  className="flex flex-wrap justify-center gap-6 mt-8 pt-6"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.9, duration: 0.6 }}
+                >
+                  {[
+                    { icon: "⚡", text: "Resultados en 30-90 días", delay: 0 },
+                    { icon: "📊", text: "ROI documentado 3.2x", delay: 0.1 },
+                    { icon: "🔒", text: "Seguridad ISO 27001", delay: 0.2 }
+                  ].map((item, index) => (
+                    <motion.div
+                      key={item.text}
+                      className="flex items-center space-x-2 px-4 py-2 rounded-full glass border border-white/10"
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 1.1 + item.delay, duration: 0.5 }}
+                      whileHover={{ scale: 1.05, y: -2 }}
+                    >
+                      <span className="text-lg">{item.icon}</span>
+                      <span className="text-body-small text-white/70 font-medium whitespace-nowrap">
+                        {item.text}
+                      </span>
+                    </motion.div>
+                  ))}
+                </motion.div>
+              </motion.div>
+
+              {/* Call to Action Arrow */}
+              <motion.div 
+                className="mt-12 flex justify-center"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.5, duration: 0.6 }}
+              >
+                <motion.div
+                  className="w-8 h-8 flex items-center justify-center rounded-full glass border border-white/20"
+                  animate={{ 
+                    y: [0, 8, 0],
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                >
+                  <ChevronRight 
+                    size={16} 
+                    className="text-white/60 rotate-90" 
+                  />
+                </motion.div>
+              </motion.div>
             </motion.div>
 
-            <div className="grid md:grid-cols-12 gap-16">
+            {/* Enhanced Grid Layout with Visual Flow */}
+            <div className="grid md:grid-cols-12 gap-8 lg:gap-16">
               
               {/* Left Column - Essential Contact & Info */}
-              <div className="md:col-span-5 space-y-16">
+              <div className="md:col-span-5 space-y-12 lg:space-y-16">
+                
+                {/* Visual Connection Line */}
+                <div className="hidden md:block absolute left-0 top-0 w-px h-full bg-gradient-to-b from-transparent via-white/10 to-transparent"></div>
                 
                 {/* Essential Contact Methods */}
                 <motion.div variants={itemVariants}>
-                  <div className="space-y-6">
-                    <h3 className="text-headline font-light text-white/90 mb-8">
-                      01. Contacto Directo
-                    </h3>
+                  <div className="space-y-6 relative">
+                    {/* Section Header with Enhanced Design */}
+                    <div className="flex items-center space-x-4 mb-8">
+                      <div className="w-12 h-12 rounded-xl bg-gradient-primary/20 border border-white/10 flex items-center justify-center">
+                        <span className="text-white/80 font-bold text-lg">01</span>
+                      </div>
+                      <div>
+                        <h3 className="text-headline font-light text-white/90">
+                          Contacto Directo
+                        </h3>
+                        <p className="text-body-small text-white/50">
+                          Múltiples canales disponibles
+                        </p>
+                      </div>
+                    </div>
                     
                     {/* Email Contact */}
                     <motion.a
                       href="mailto:info@coagente.com"
-                      className="group block glass border border-white/10 rounded-2xl p-8 hover-glow transition-all duration-300"
-                      whileHover={{ y: -2 }}
+                      className="group relative block glass border border-white/10 rounded-2xl p-8 hover-glow transition-all duration-300 overflow-hidden"
+                      whileHover={{ y: -4, scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
                     >
-                      <div className="flex items-center space-x-6">
-                        <div className="p-4 bg-brand-blue/20 rounded-xl">
+                      {/* Animated background gradient */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-brand-blue/5 to-brand-purple/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      
+                      <div className="relative flex items-center space-x-6">
+                        <div className="p-4 bg-brand-blue/20 rounded-xl group-hover:bg-brand-blue/30 transition-colors duration-300 group-hover:scale-110">
                           <Mail size={24} className="text-white" />
                         </div>
                         <div className="flex-1">
-                          <h4 className="text-body font-medium text-white mb-2">
+                          <h4 className="text-body font-medium text-white mb-2 group-hover:text-white transition-colors">
                             Comunicación Directa
                           </h4>
-                          <p className="text-body-small text-white/60 mb-3">
+                          <p className="text-body-small text-white/60 mb-3 group-hover:text-white/80 transition-colors">
                             Respuesta garantizada en 2 horas
                           </p>
-                          <p className="text-body-small text-white/80 font-medium">
+                          <p className="text-body-small text-white/80 font-medium group-hover:text-brand-blue transition-colors">
                             info@coagente.com
                           </p>
                         </div>
-                        <ArrowRight size={18} className="text-white/40 group-hover:text-white/80 transition-colors" />
+                        <ArrowRight size={18} className="text-white/40 group-hover:text-white/80 group-hover:translate-x-1 transition-all duration-300" />
                       </div>
+                      
+                      {/* Subtle border animation */}
+                      <div className="absolute inset-0 rounded-2xl border border-brand-blue/0 group-hover:border-brand-blue/30 transition-colors duration-300"></div>
                     </motion.a>
 
                     {/* Calendar Contact */}
@@ -341,36 +450,54 @@ const ContactSection = () => {
                       href="https://calendly.com/elisa-coagente/30min?month=2025-07"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group block glass border border-white/10 rounded-2xl p-8 hover-glow transition-all duration-300"
-                      whileHover={{ y: -2 }}
+                      className="group relative block glass border border-white/10 rounded-2xl p-8 hover-glow transition-all duration-300 overflow-hidden"
+                      whileHover={{ y: -4, scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
                     >
-                      <div className="flex items-center space-x-6">
-                        <div className="p-4 bg-brand-purple/20 rounded-xl">
+                      {/* Animated background gradient */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-brand-purple/5 to-brand-blue/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      
+                      <div className="relative flex items-center space-x-6">
+                        <div className="p-4 bg-brand-purple/20 rounded-xl group-hover:bg-brand-purple/30 transition-colors duration-300 group-hover:scale-110">
                           <Calendar size={24} className="text-white" />
                         </div>
                         <div className="flex-1">
-                          <h4 className="text-body font-medium text-white mb-2">
+                          <h4 className="text-body font-medium text-white mb-2 group-hover:text-white transition-colors">
                             Diagnóstico Estratégico
                           </h4>
-                          <p className="text-body-small text-white/60 mb-3">
+                          <p className="text-body-small text-white/60 mb-3 group-hover:text-white/80 transition-colors">
                             Sesión gratuita de 30 minutos
                           </p>
-                          <p className="text-body-small text-white/80 font-medium">
+                          <p className="text-body-small text-white/80 font-medium group-hover:text-brand-purple transition-colors">
                             Agendar con Elisa
                           </p>
                         </div>
-                        <ArrowRight size={18} className="text-white/40 group-hover:text-white/80 transition-colors" />
+                        <ArrowRight size={18} className="text-white/40 group-hover:text-white/80 group-hover:translate-x-1 transition-all duration-300" />
                       </div>
+                      
+                      {/* Subtle border animation */}
+                      <div className="absolute inset-0 rounded-2xl border border-brand-purple/0 group-hover:border-brand-purple/30 transition-colors duration-300"></div>
                     </motion.a>
                   </div>
                 </motion.div>
 
                 {/* Essential Trust Indicators */}
                 <motion.div variants={itemVariants}>
-                  <div className="space-y-6">
-                    <h3 className="text-headline font-light text-white/90 mb-8">
-                      02. Garantías
-                    </h3>
+                  <div className="space-y-6 relative">
+                    {/* Section Header with Enhanced Design */}
+                    <div className="flex items-center space-x-4 mb-8">
+                      <div className="w-12 h-12 rounded-xl bg-gradient-primary/20 border border-white/10 flex items-center justify-center">
+                        <span className="text-white/80 font-bold text-lg">02</span>
+                      </div>
+                      <div>
+                        <h3 className="text-headline font-light text-white/90">
+                          Garantías
+                        </h3>
+                        <p className="text-body-small text-white/50">
+                          Compromiso y certificaciones
+                        </p>
+                      </div>
+                    </div>
                     
                     <div className="space-y-4">
                       <div className="glass border border-white/10 rounded-xl p-6">
@@ -397,19 +524,36 @@ const ContactSection = () => {
                 </motion.div>
               </div>
 
-              {/* Streamlined Contact Form */}
-              <div className="md:col-span-7">
+              {/* Enhanced Contact Form */}
+              <div className="md:col-span-7 relative">
+                {/* Subtle background decoration */}
+                <div className="absolute -inset-4 bg-gradient-to-br from-brand-blue/5 to-brand-purple/5 rounded-3xl opacity-50 blur-xl"></div>
+                
                 <motion.div 
-                  className="glass-strong border border-white/10 rounded-2xl p-8"
+                  className="relative glass-strong border border-white/10 rounded-2xl p-8 lg:p-10 backdrop-blur-sm"
                   variants={formVariants}
+                  whileHover={{ y: -2 }}
+                  transition={{ duration: 0.3 }}
                 >
+                  {/* Enhanced Form Header */}
                   <div className="mb-8">
-                    <h3 className="text-headline font-light text-white mb-4">
-                      03. Información del Proyecto
-                    </h3>
-                    <p className="text-body text-white/60 leading-relaxed font-light">
+                    <div className="flex items-center space-x-4 mb-6">
+                      <div className="w-12 h-12 rounded-xl bg-gradient-primary/20 border border-white/10 flex items-center justify-center">
+                        <span className="text-white/80 font-bold text-lg">03</span>
+                      </div>
+                      <div>
+                        <h3 className="text-headline font-light text-white">
+                          Información del Proyecto
+                        </h3>
+                        <p className="text-body-small text-white/50">
+                          Propuesta técnica personalizada
+                        </p>
+                      </div>
+                    </div>
+                    <p className="text-body text-white/60 leading-relaxed font-light ml-16">
                       Compártenos los detalles para ofrecerte una{" "}
-                      <span className="text-white/90">propuesta técnica personalizada</span>
+                      <span className="text-white/90">solución completamente adaptada</span>{" "}
+                      a tus necesidades específicas
                     </p>
                   </div>
 

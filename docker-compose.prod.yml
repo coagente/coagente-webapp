@@ -1,0 +1,36 @@
+services:
+  coagente-app-prod:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_EMAILJS_SERVICE_ID: service_op14y7a
+        NEXT_PUBLIC_EMAILJS_TEMPLATE_ID: template_wmhhsin
+        NEXT_PUBLIC_EMAILJS_PUBLIC_KEY: Evbsb35ak4Bwhndib
+      target: runner
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - NEXT_PUBLIC_EMAILJS_SERVICE_ID=service_op14y7a
+      - NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=template_wmhhsin
+      - NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=Evbsb35ak4Bwhndib
+      - PORT=3000
+    restart: unless-stopped
+    container_name: coagente-prod
+    # Configuración de recursos para testing productivo
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 1G
+        reservations:
+          cpus: '0.5'
+          memory: 512M
+    # Health check para verificar que la app esté funcionando
+    healthcheck:
+      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider http://localhost:3000/api/logo || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s 
